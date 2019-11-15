@@ -47,8 +47,10 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
     sortTable(newSort)
   }
 
-  const getFullTable = () => {
-
+  const sortClass = column => {
+    return sortBy.column === column ?
+        sortBy.isDesc ? "desc" : "asc"
+        : ""
   }
 
 
@@ -58,10 +60,10 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
       <table className={`rating ${isFull ? "full" : ""}`}>
         <thead>
           <tr>
-            <th onClick={toSort("region")}>Исполнитель</th>
-            <th onClick={toSort("issue_total")}>Всего сообщений</th>
-            <th onClick={toSort("overdue_total")}>Просроченные</th>
-            <th onClick={toSort("happy_index")}>Индекс удовлетворенности</th>
+            <th onClick={toSort("region")} className={sortClass("region")}>Исполнитель</th>
+            <th onClick={toSort("issue_total")} className={sortClass("issue_total")}>Всего сообщений</th>
+            <th onClick={toSort("overdue_total")} className={sortClass("overdue_total")}>Просроченные</th>
+            <th onClick={toSort("happy_index")} className={sortClass("happy_index")}>Индекс удовлетворенности</th>
           </tr>
         </thead>
         <tbody>

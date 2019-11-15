@@ -15,6 +15,33 @@
       text-align: center;
       color: $grey;
       font-size: 12px;
+      position: relative;
+      &:after {
+        width: 4px;
+        height: 4px;
+        border: 1px solid;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        transform: rotate(45deg) translate(-50%, -50%);
+        display: inline-block;
+        margin-left: 12px;
+        position: absolute;
+        top: 50%;
+        transition: all 0.15s ease;
+        transform-origin: top left;
+      }
+      &.desc {
+        &:after {
+          content: '';
+          transform: rotate(45deg) translate(-50%, -50%);
+        }
+      }
+      &.asc {
+        &:after {
+          content: '';
+          transform: rotate(-135deg) translate(-50%, -50%);
+        }
+      }
       &:first-of-type {
         text-align: left;
       }
