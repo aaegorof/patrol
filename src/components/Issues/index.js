@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchApi } from "../../api";
 import { bindActionCreators } from "redux";
 import { sortTable, updateSortBy } from "../../actions";
+
+import "./styles.scss"
 
 const s2p = state => state;
 const d2p = dispatch =>
@@ -20,8 +22,10 @@ const d2p = dispatch =>
   );
 
 const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) => {
+  const [isFull, showFull] = useState(false)
+
   useEffect(() => {
-    fetchApi("issues");
+    fetchApi("rating");
   }, []);
 
   const coloredClass = num => {
@@ -43,11 +47,15 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
     sortTable(newSort)
   }
 
+  const getFullTable = () => {
+
+  }
+
 
   return (
     <div className="issues-wrap container">
       {pending}
-      <table>
+      <table className={`rating ${isFull ? "full" : ""}`}>
         <thead>
           <tr>
             <th onClick={toSort("region")}>Исполнитель</th>
@@ -58,17 +66,23 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
         </thead>
         <tbody>
           {issues.map(issue => (
-            <tr key={issue.region}>
+            <tr key={issue.region} className="issue-row">
               <td>{issue.region}</td>
               <td>{issue.issue_total}</td>
               <td>{issue.overdue_total}</td>
               <td className={coloredClass(issue.happy_index)}>
-                {(+issue.happy_index).toFixed()}
+                {(+issue.happy_index).toFixed()}%
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      <div className="text-center mg-lg-3-t">
+        <button className="button" onClick={() => showFull(!isFull)}>
+          {isFull ? "Скрыть" : "Смотреть все – " + issues.length}
+        </button>
+      </div>
     </div>
   );
 };

@@ -11,4 +11,10 @@
   min-width: 320px;
   height: $button-height;
   box-sizing: border-box;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  background: transparent;
+  font-weight: 600;
+  outline: none;
 }

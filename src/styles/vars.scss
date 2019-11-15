@@ -11,6 +11,7 @@ $error: #FF6B6B;
 
 $grey: #9C9DA0;
 $light-grey: #A8B7C3; //notes
+$grey-border: rgba(#253C73, 0.2);
 $bg-color: #F4F5F8;
 
 
@@ -26,10 +27,19 @@ $breakpoints: (
         xl: 1440px
 );
 
+$colors: (
+        primary: $primary,
+        secondary: $secondary,
+        green: $green,
+        red: $error,
+        grey: $grey,
+        lgrey: $light-grey
+);
+
 /// Margins
 $margins: (
-        xs: 10px,
-        sm: 20px,
+        xs: 20px,
+        sm: 30px,
         md: 40px,
         lg: 60px,
         xl: 100px

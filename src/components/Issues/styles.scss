@@ -1,0 +1,63 @@
+@import "../../styles/vars";
+@import "../../styles/mixins";
+
+.issues-wrap {
+  margin: 60px 0;
+}
+.rating {
+  $widths: (46%, 18%, 18%, 18%);
+  width: 100%;
+  counter-reset: list;
+  thead {
+    th {
+      cursor: pointer;
+      padding: 5px 20px;
+      text-align: center;
+      color: $grey;
+      font-size: 12px;
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+    @include widths($widths);
+  }
+  .issue-row {
+    $height: 90px;
+    height: $height;
+    border-bottom: 1px solid $grey-border;
+    td {
+      font-weight: 600;
+      padding: 10px 20px;
+      text-align: center;
+      &:first-of-type {
+        text-align: left;
+        padding-left: 0;
+        &:before {
+          counter-increment: list;
+          content: counter(list) ".";
+          margin-right: 1rem;
+          color: $grey;
+        }
+      }
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
+    &:nth-child(5) {
+      border-bottom: none;
+    }
+    &:nth-child(1n + 6) {
+      display: none;
+    }
+  }
+  &.full {
+    .issue-row {
+      &:nth-child(1n + 6) {
+        display: table-row;
+      }
+      &:nth-child(5) {
+        border-bottom: 1px solid $grey-border;
+      }
+    }
+  }
+}

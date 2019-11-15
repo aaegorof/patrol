@@ -92,3 +92,25 @@
     }
   }
 }
+
+
+@mixin colors($colors) {
+  @each $name, $color in $colors{
+    .color-#{$name}{
+      color: $color;
+    }
+    .bg-#{$name}{
+      background: $color;
+    }
+  }
+}
+
+
+@mixin widths($widths) {
+  @for $i from 1 through length($widths) {
+    $val: nth($widths,$i);
+    th:nth-child(#{$i}){
+      width: $val;
+    }
+  }
+}
