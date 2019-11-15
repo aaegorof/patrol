@@ -6,6 +6,7 @@ import reducer, {initialState} from "./reducers"
 import { setup } from "./actions";
 import Issues from "./components/Issues"
 import logo from './img/logo.svg';
+import Header from "./components/Header"
 
 import './styles/main.scss';
 
@@ -20,8 +21,7 @@ function App() {
   return (
       <Provider store={store}>
           <div className="app">
-            <header className="main-header">
-            </header>
+            <Header/>
             <Issues></Issues>
           </div>
       </Provider>

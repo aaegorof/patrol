@@ -3,13 +3,16 @@ $container: 1200px;
 $columns: 12;
 
 //Colors
-$text-color: #333;
-$primary: #5c1698;
-$secondary: green;
-$error: red;
+$text-color: #020306;
+$primary: #325699;
+$secondary: #FFCB49;
+$green: #75B644;
+$error: #FF6B6B;
 
-$grey: #999; //notes
-$cotton: #eee;
+$grey: #9C9DA0;
+$light-grey: #A8B7C3; //notes
+$bg-color: #F4F5F8;
+
 
 /// Fonts
 $font-size: 16px;
@@ -33,6 +36,6 @@ $margins: (
 );
 
 /// Additional variables:
+$button-height: 45px;
 $input-height: 40px;
 $mobile-menu-height: 60px;
-$top-bar-height: 70px;

@@ -1,0 +1,24 @@
+@import "../../styles/vars";
+
+.header-wrap {
+  background: #fff;
+}
+.main-menu {
+  margin-top: 2vh;
+  padding: 10px 0;
+}
+.nav-link {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  height: $mobile-menu-height;
+  display: inline-flex;
+  margin-right: 2em;
+  font-weight: 600;
+  text-decoration: none;
+  color: $text-color;
+  align-items: center;
+  &:hover, .active {
+    color: $primary;
+  }
+}

@@ -1,0 +1,14 @@
+.button {
+  font-size: 13px;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  border: 1px solid;
+  color: $primary;
+  padding: 1rem 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  height: $button-height;
+  box-sizing: border-box;
+}

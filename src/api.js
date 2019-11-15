@@ -1,6 +1,6 @@
 import {getIssuesPending,getIssuesSuccess, getIssuesError} from './actions';
 const urls = {
-  issues: "http://tobacco-landing.test2.happydesk.ru/index.php?fnc=issues",
+  issues: "http://tobacco-landing.test2.happydesk.ru/index.php?fnc=",
   products: "http://test-app.viktor.ws/api/products"
 };
 
@@ -55,9 +55,9 @@ const urls = {
 
 
 
-export const fetchIssues = () => dispatch => {
+export const fetchIssues = (type = 'general') => dispatch => {
     dispatch(getIssuesPending())
-    fetch(urls.issues)
+    fetch(urls.issues + type)
         .then(res => {
           return res.json()
         })
