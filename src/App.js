@@ -1,14 +1,13 @@
-import React from 'react';
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import thunk from 'redux-thunk';
+import React from 'react'
+import { createStore, applyMiddleware } from "redux"
+import { Provider } from "react-redux"
+import thunk from 'redux-thunk'
 import reducer, {initialState} from "./reducers"
-import { setup } from "./actions";
+import { setup } from "./actions"
 import Issues from "./components/Issues"
 import logo from './img/logo.svg';
-import Header from "./components/Header"
-
-import './styles/main.scss';
+import Header, {menu} from "./components/Header"
+import './styles/main.scss'
 
 const middlewares = [thunk];
 
@@ -22,7 +21,9 @@ function App() {
       <Provider store={store}>
           <div className="app">
             <Header/>
-            <Issues></Issues>
+            <section id={Object.keys(menu)[2]}>
+              <Issues />
+            </section>
           </div>
       </Provider>
   );

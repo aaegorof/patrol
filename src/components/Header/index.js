@@ -23,7 +23,7 @@ const Header = () => {
       <div className="main-header container">
         <nav className="main-menu">
           {Object.entries(menu).map(([key, val]) => (
-            <Link link={key} title={val} />
+            <Link link={key} title={val} key={key}/>
           ))}
         </nav>
         <div className="push-right"></div>

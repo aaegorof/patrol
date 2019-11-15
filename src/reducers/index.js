@@ -1,13 +1,27 @@
 import { createReducer } from "redux-act";
-import { setup, getIssuesPending, getIssuesSuccess, getIssuesError } from "../actions";
+import { setup, getIssuesPending, getIssuesSuccess, getIssuesError, updateSortBy, sortTable } from "../actions";
+import {sort, prop, sortBy, descend, ascend} from "ramda"
 
 export const initialState = {
   pending: true,
-  issues: [{
-    region: "Moscow"
-  }],
-  errors: []
+  issues: [],
+  errors: [],
+  sortBy: {
+    column: null,
+    isDesc: true
+  },
+
 };
+
+const toSortTable = (table, sortBy) => {
+  const direction = sortBy.isDesc ? descend : ascend
+  //const direction = isDesc ? descend : ascend
+  const sortFunc = sort(direction(prop(sortBy.column)))
+
+  return sortFunc(table)
+}
+
+
 
 
 const reducer = createReducer(
@@ -26,7 +40,15 @@ const reducer = createReducer(
       [getIssuesSuccess]: (state, payload) => ({
         ...state,
         pending: false,
-        issues: payload
+        issues: toSortTable(payload, state.sortBy)
+      }),
+      [sortTable]: (state, payload) => ({
+        ...state,
+        issues: toSortTable(state.issues, payload)
+      }),
+      [updateSortBy]: (state, payload) => ({
+        ...state,
+        sortBy: payload
       })
     },
     initialState
