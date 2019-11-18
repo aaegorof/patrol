@@ -3,33 +3,72 @@ import { connect } from "react-redux";
 import * as d3 from "d3";
 import AnimatedPie from "./view";
 import "./styles.scss";
+import { fetchApi } from "../../api";
 
 const s2p = state => state;
-const d2p = dispatch => ({});
+const d2p = dispatch => ({
+  fetchApi: val => {
+    dispatch(fetchApi(val));
+  }
+});
 
-const PieSection = () => {
-  const generateData = (value, length = 5) =>
-    d3.range(length).map((item, index) => ({
-      date: index,
-      value:
-        value === null || value === undefined ? Math.random() * 100 : value,
-      text: "Heello"
-    }));
+let initStructure = {
+  answered_in_time: {
+    text: "Ответ в срок",
+    value: 0,
+    color: "#FFCB49"
+  },
+  answered_overdue: {
+    text: "Ответ позже срока",
+    value: 0,
+    color: "#325699"
+  },
+  not_answered_overdue: {
+    text: "Просрочено",
+    value: 0,
+    color: "#75B644"
+  },
+  not_answered_in_time: {
+    text: "Не просрочено",
+    value: 0,
+    color: "#FF6B6B"
+  }
+};
 
-  const [data, setData] = useState(generateData());
-  const colors = ["#FFCB49", "#325699", "#75B644", "#FF6B6B"];
+
+const PieSection = props => {
+
+  const prepareData = () => {
+    for (const key in props.counter) {
+      if(Object.keys(initStructure).includes(key)) {
+        initStructure[key].value = props.counter[key]
+      }
+    }
+    const yy = Object.values(initStructure).map((it, id) => ({
+      ...it,
+          date: id}))
+    return yy;
+  };
+  useEffect(() => {
+    props.fetchApi("counter");
+  }, []);
+
+  const colors = prepareData().map(i => i.color);
 
   return (
     <div className="pie-chart-wrap container text-center ">
-        <AnimatedPie
-          data={data}
-          width={360}
-          height={360}
-          innerRadius={100}
-          outerRadius={180}
-          colors={colors}
-          totalText="Всего обращений взято в работу"
-        />
+      {!props.errors.counter && <AnimatedPie
+        data={prepareData()}
+        width={360}
+        height={360}
+        innerRadius={100}
+        outerRadius={180}
+        colors={colors}
+        totalText="Всего обращений взято в работу"
+      />}
+      {props.errors.counter && <div className="error">
+        {props.errors.counter}
+      </div> }
     </div>
   );
 };

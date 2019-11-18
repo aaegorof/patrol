@@ -21,9 +21,8 @@ const d2p = dispatch =>
     dispatch
   );
 
-const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) => {
+const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy, errors }) => {
   const [isFull, showFull] = useState(false)
-
   useEffect(() => {
     fetchApi("rating");
   }, []);
@@ -57,7 +56,8 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
   return (
     <div className="issues-wrap container">
       {pending}
-      <table className={`rating ${isFull ? "full" : ""}`}>
+      {errors.rating && <div className="error text-center">{errors.rating}</div> }
+      {!errors.rating && <table className={`rating ${isFull ? "full" : ""}`}>
         <thead>
           <tr>
             <th onClick={toSort("region")} className={sortClass("region")}>Исполнитель</th>
@@ -78,13 +78,14 @@ const Issues = ({ pending, issues, fetchApi, sortTable, sortBy, updateSortBy }) 
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>}
 
-      <div className="text-center mg-lg-3-t">
+      {!errors.rating && <div className="text-center mg-lg-3-t">
         <button className="button" onClick={() => showFull(!isFull)}>
           {isFull ? "Скрыть" : "Смотреть все – " + issues.length}
         </button>
       </div>
+      }
     </div>
   );
 };

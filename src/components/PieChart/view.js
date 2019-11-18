@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
-const format = d3.format(".2f");
+const format = d3.format("0");
 const animationDuration = 250;
 
 const animationConfig = {
@@ -93,7 +93,6 @@ const Pie = props => {
     let total = 0
 
     for (let i = 0; i < props.data.length; ++i ) {
-      console.log(props.data[i]);
       total += props.data[i].value
     }
     return total.toFixed()

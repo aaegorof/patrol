@@ -1,8 +1,6 @@
 import {
-  getIssuesPending,
   getIssuesSuccess,
   getError,
-  getGenerals,
   getCounterSuccess,
   getMapSuccess,
   getGeneralsSuccess
@@ -10,8 +8,8 @@ import {
 const url = "http://tobacco-landing.test2.happydesk.ru/index.php?fnc=";
 
 const typeActions = {
-  general: (res) => getGeneralsSuccess(res),
-  rating: (res) => getIssuesSuccess(res),
+  general: res => getGeneralsSuccess(res),
+  rating: res => getIssuesSuccess(res),
   counter: res => getCounterSuccess(res),
   map: res => getMapSuccess(res)
 };
@@ -29,6 +27,6 @@ export const fetchApi = (type = "general") => dispatch => {
       return res;
     })
     .catch(error => {
-      dispatch(getError(error));
+      dispatch(getError({[type]: ""+error }));
     });
 };

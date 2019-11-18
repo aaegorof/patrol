@@ -4,8 +4,10 @@
 .pie-svg:not(:root) {
   overflow: visible;
 }
-.pie-chart {
+.pie-chart-wrap {
   padding: 220px 0;
+}
+.pie-chart {
   position: relative;
   display: inline-block;
   &:before {
@@ -28,6 +30,7 @@
   }
   .text{
     font-weight: 400;
+    font-size: 12px;
   }
 }
 

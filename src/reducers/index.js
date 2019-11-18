@@ -1,11 +1,12 @@
 import { createReducer } from "redux-act";
-import { setup, getIssuesPending, getIssuesSuccess, getError, updateSortBy, sortTable } from "../actions";
+import { setup, getIssuesPending, getIssuesSuccess, getCounterSuccess, getError, updateSortBy, sortTable } from "../actions";
 import {sort, prop, sortBy, descend, ascend} from "ramda"
 
 export const initialState = {
   pending: true,
   issues: [],
-  errors: [],
+  counter: {},
+  errors: {},
   sortBy: {
     column: null,
     isDesc: true
@@ -35,7 +36,10 @@ const reducer = createReducer(
       }),
       [getError]: (state, payload) => ({
         ...state,
-        errors: payload
+        errors: {
+          ...state.errors,
+          ...payload
+        }
       }),
       [getIssuesSuccess]: (state, payload) => ({
         ...state,
@@ -49,6 +53,10 @@ const reducer = createReducer(
       [updateSortBy]: (state, payload) => ({
         ...state,
         sortBy: payload
+      }),
+      [getCounterSuccess] : (state, payload) => ({
+        ...state,
+        counter: payload
       })
     },
     initialState
