@@ -8,6 +8,7 @@ import Issues from "./components/Issues"
 import logo from './img/logo.svg';
 import Header, {menu} from "./components/Header"
 import './styles/main.scss'
+import PieSection from "./components/PieChart";
 
 const middlewares = [thunk];
 
@@ -21,9 +22,12 @@ function App() {
       <Provider store={store}>
           <div className="app">
             <Header/>
+
             <section id={Object.keys(menu)[2]}>
               <Issues />
+              <PieSection/>
             </section>
+
           </div>
       </Provider>
   );

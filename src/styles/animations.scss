@@ -9,3 +9,15 @@
     transform: translateY(0);
   }
 }
+
+@keyframes rotating {
+  0% {
+    transform: translateY(-50%) translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-50%) rotate(180deg);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-50%) rotate(360deg);
+  }
+}

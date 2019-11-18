@@ -1,3 +1,8 @@
 body {
   background: $bg-color;
 }
+.header-wrap {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+}

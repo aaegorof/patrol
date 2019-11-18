@@ -1,5 +1,5 @@
 import { createReducer } from "redux-act";
-import { setup, getIssuesPending, getIssuesSuccess, getIssuesError, updateSortBy, sortTable } from "../actions";
+import { setup, getIssuesPending, getIssuesSuccess, getError, updateSortBy, sortTable } from "../actions";
 import {sort, prop, sortBy, descend, ascend} from "ramda"
 
 export const initialState = {
@@ -33,7 +33,7 @@ const reducer = createReducer(
         ...state,
         pending: true
       }),
-      [getIssuesError]: (state, payload) => ({
+      [getError]: (state, payload) => ({
         ...state,
         errors: payload
       }),
