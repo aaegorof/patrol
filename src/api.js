@@ -5,6 +5,7 @@ import {
   getMapSuccess,
   getGeneralsSuccess
 } from "./actions";
+
 const url = "http://tobacco-landing.test2.happydesk.ru/index.php?fnc=";
 
 const typeActions = {
@@ -30,3 +31,6 @@ export const fetchApi = (type = "general") => dispatch => {
       dispatch(getError({[type]: ""+error }));
     });
 };
+
+
+
