@@ -5,7 +5,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'
 import reducer, {initialState} from "./reducers"
 import { setup } from "./actions"
-import logo from './img/logo.svg';
 
 import Header, {menu} from "./components/Header"
 import Issues from "./components/Issues"

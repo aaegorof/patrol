@@ -1,6 +1,6 @@
 import { createReducer } from "redux-act";
 import { setup, getIssuesPending, getIssuesSuccess, getCounterSuccess, getMapSuccess, getError, updateSortBy, sortTable } from "../actions";
-import {sort, prop, sortBy, descend, ascend} from "ramda"
+import {sort, prop, descend, ascend} from "ramda"
 
 export const initialState = {
   pending: true,

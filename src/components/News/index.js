@@ -1,6 +1,6 @@
 import React from "react";
-import { ApolloProvider, useQuery } from "@apollo/react-hooks";
-import ApolloClient, { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 import ReactHtmlParser from 'react-html-parser';
 
 const NEWS = gql`
@@ -19,7 +19,7 @@ const NEWS = gql`
   }
 `;
 const News = () => {
-  const { loading, error, data } = useQuery(NEWS);
+  const { loading, data } = useQuery(NEWS);
 
   return (
     <>

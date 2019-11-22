@@ -1,4 +1,52 @@
+@import "../../styles/vars";
+
 .svg-map {
   width: 100%;
   height: auto;
+  path {
+    fill: $map-grey;
+    stroke: #fff;
+    cursor: pointer;
+    stroke-dasharray: 1500;
+    stroke-width: 1px;
+    stroke-dashoffset: 1500;
+    animation: dashline 2s linear alternate forwards;
+    &.popular {
+      fill: rgba($secondary, 0.7);
+    }
+    &.lake {
+      fill: #a0e3fb;
+    }
+    &.active {
+      fill: $primary;
+    }
+  }
+}
+
+.top-issued-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 40px 0;
+  li {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    &.active {
+      color: $primary;
+      .molniya {
+        opacity: 1;
+      }
+    }
+  }
+  .molniya {
+    margin-right: 10px;
+    opacity: 0.7;
+  }
+}
+
+@keyframes dashline {
+  from {stroke-dashoffset: 1500;}
+  to   {stroke-dashoffset: 0;}
 }
