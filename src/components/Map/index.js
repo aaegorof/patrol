@@ -4,7 +4,6 @@ import { fetchApi } from "../../api";
 
 import "./style.scss";
 import molniya from "../../img/icon/smallmolniya.svg";
-import { type } from "ramda";
 
 const s2p = ({ map }) => ({
   map: map
@@ -15,51 +14,59 @@ const d2p = dispatch => ({
   }
 });
 
-const Countries = ({
-  children,
+const CountryPath = ({
+  country,
   active,
   click,
   mostIssuesIds,
   countryPosition
 }) => {
+  const [id, changeId] = useState(country.props.id.replace("region", ""));
+  const isActive = id === active;
+  const isLake = /region_/.test(country.props.id);
+  const popularClass = mostIssuesIds.includes(id) ? "popular" : "";
+  const regionClasses =
+    country.props.className +
+    " " +
+    (isActive && !isLake ? "active" : "") +
+    " " +
+    popularClass;
+
+  let position = null;
+  const pos = el => {
+    if (el) {
+      position = el.getBoundingClientRect();
+    }
+  };
+  useEffect(() => {
+    if(isActive) {
+      console.log("fired", id);
+      countryPosition(position)
+    }
+  },[active])
+
+  const onClick = id => () => {
+    if (isLake) {
+      return;
+    }
+    countryPosition(position);
+    click(id);
+  };
+
+  return (
+    <g ref={pos}>
+      {React.cloneElement(country, {
+        className: regionClasses,
+        onClick: onClick(id)
+      })}
+    </g>
+  );
+};
+
+const Countries = props => {
   return (
     <g>
-      {children.map(child => {
-        const id = child.props.id.replace("region", "");
-        const isActive = id === active;
-        const isLake = /region_/.test(child.props.id);
-        const popularClass = mostIssuesIds.includes(id) ? "popular" : "";
-        const regionClasses =
-          child.props.className +
-          " " +
-          (isActive && !isLake ? "active" : "") +
-          " " +
-          popularClass;
-
-        let position = null;
-        const pos = el => {
-          if (el) {
-            position = el.getBoundingClientRect();
-          }
-        };
-
-        const onClick = id => () => {
-          if (isLake) {
-            return;
-          }
-          countryPosition(position);
-          click(id);
-        };
-
-        return (
-          <g key={id} ref={pos}>
-            {React.cloneElement(child, {
-              className: regionClasses,
-              onClick: onClick(id)
-            })}
-          </g>
-        );
-      })}
+      {props.children.map(child => <CountryPath country={child} {...props}/>)}
     </g>
   );
 };
