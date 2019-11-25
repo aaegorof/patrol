@@ -48,3 +48,10 @@
   font-size: 14px;
   font-weight: 400;
 }
+.shadow-img{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,100%);
+  z-index: -1;
+}

@@ -21,7 +21,7 @@ const CountryPath = ({
   mostIssuesIds,
   countryPosition
 }) => {
-  const [id, changeId] = useState(country.props.id.replace("region", ""));
+  const [id, changeId] = useState(+country.props.id.replace("region", ""));
   const isActive = id === active;
   const isLake = /region_/.test(country.props.id);
   const popularClass = mostIssuesIds.includes(id) ? "popular" : "";
@@ -40,7 +40,6 @@ const CountryPath = ({
   };
   useEffect(() => {
     if(isActive) {
-      console.log("fired", id);
       countryPosition(position)
     }
   },[active])
@@ -54,7 +53,7 @@ const CountryPath = ({
   };
 
   return (
-    <g ref={pos}>
+    <g ref={pos} key={country.region_num}>
       {React.cloneElement(country, {
         className: regionClasses,
         onClick: onClick(id)
@@ -66,7 +65,7 @@ const CountryPath = ({
 const Countries = props => {
   return (
     <g>
-      {props.children.map(child => <CountryPath country={child} {...props}/>)}
+      {props.children.map(child => <CountryPath key={child.region_num} country={child} {...props}/>)}
     </g>
   );
 };
@@ -100,7 +99,7 @@ const Map = ({ map, fetchApi, firstTop }) => {
       : null;
 
   return (
-    <div className="map-wrap container mg-5-v">
+    <div className="map-wrap container">
       <div className="row">
         <div className="col-lg-9 relative">
           <svg

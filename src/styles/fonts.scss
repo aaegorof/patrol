@@ -1,3 +1,43 @@
+@import "vars";
+
+@mixin font-face(
+  $fontname,
+  $filename,
+  $fontstyle: normal,
+  $fontweight: normal
+) {
+  @font-face {
+    font-family: "#{$fontname}";
+    src: url("#{$filename}.ttf");
+
+    font-style: $fontstyle;
+    font-weight: $fontweight;
+  }
+}
+
+$fontsPath: "../fonts/FuturaPT";
+
+@include font-face("FuturaPT", "#{$fontsPath}Light", normal, 200);
+@include font-face("FuturaPT", "#{$fontsPath}Book", normal, 300);
+@include font-face("FuturaPT", "#{$fontsPath}Medium", normal, 400);
+@include font-face("FuturaPT", "#{$fontsPath}Demi", normal, 500);
+@include font-face("FuturaPT", "#{$fontsPath}Heavy", normal, 600);
+@include font-face("FuturaPT", "#{$fontsPath}Bold", normal, 700);
+@include font-face("FuturaPT", "#{$fontsPath}ExtraBold", normal, 900);
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+h2 {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 2em;
+}
 h3 {
   text-transform: uppercase;
+  font-weight: 500;
 }

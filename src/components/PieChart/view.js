@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import * as d3 from "d3";
+import shadowImg from "../../img/oval-shadow.svg"
 
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -122,6 +123,7 @@ const Pie = props => {
         <div>{totalNumber()}</div>
         {props.totalText && <div className="total-text">{props.totalText}</div>}
       </div>
+      <img src={shadowImg} className="shadow-img"/>
     </div>
   );
 };

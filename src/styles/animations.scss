@@ -1,3 +1,11 @@
+.floating {
+  animation: floating 4s linear infinite;
+}
+
+
+
+
+
 @keyframes floating {
   0% {
     transform: translateY(0);

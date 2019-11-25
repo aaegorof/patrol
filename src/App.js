@@ -40,11 +40,13 @@ function App() {
           <div className="app">
             <Header/>
 
-            <section id={Object.keys(menu)[1]}>
+            <section id={Object.keys(menu)[1]} className="mg-5-v">
+              <h2 className="container">Карта обращений</h2>
               <Map firstTop={6}/>
             </section>
 
-            <section id={Object.keys(menu)[2]}>
+            <section id={Object.keys(menu)[2]} className="mg-5-v">
+              <h2 className="container">Статистика</h2>
               <Issues />
               <PieSection/>
             </section>
