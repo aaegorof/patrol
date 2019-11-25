@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { fetchApi } from "../../api";
 
 import "./style.scss";
 import molniya from "../../img/icon/smallmolniya.svg";
+import { type } from "ramda";
 
 const s2p = ({ map }) => ({
   map: map
@@ -14,31 +15,48 @@ const d2p = dispatch => ({
   }
 });
 
-const Countries = ({ children, active, click, mostIssuesIds }) => {
-
+const Countries = ({
+  children,
+  active,
+  click,
+  mostIssuesIds,
+  countryPosition
+}) => {
   return (
     <g>
       {children.map(child => {
         const id = child.props.id.replace("region", "");
-        const isActive = id === active
+        const isActive = id === active;
         const isLake = /region_/.test(child.props.id);
         const popularClass = mostIssuesIds.includes(id) ? "popular" : "";
         const regionClasses =
           child.props.className +
           " " +
-          ( isActive && !isLake ? "active" : "") +
+          (isActive && !isLake ? "active" : "") +
           " " +
           popularClass;
 
+        let position = null;
+        const pos = el => {
+          if (el) {
+            position = el.getBoundingClientRect();
+          }
+        };
+
+        const onClick = id => () => {
+          if (isLake) {
+            return;
+          }
+          countryPosition(position);
+          click(id);
+        };
+
         return (
-          <g key={id}>
+          <g key={id} ref={pos}>
             {React.cloneElement(child, {
               className: regionClasses,
-              onClick: click(id)
+              onClick: onClick(id)
             })}
-            {isActive && <text fill="#333">
-              {active}
-            </text>}
           </g>
         );
       })}
@@ -47,11 +65,13 @@ const Countries = ({ children, active, click, mostIssuesIds }) => {
 };
 
 const Map = ({ map, fetchApi, firstTop }) => {
-  const [active, changeActive] = useState(22);
+  const [activeId, changeActive] = useState(77);
+  const [countryPos, changeTooltipPos] = useState(null);
+  const mapPosition = useRef(null);
 
   useEffect(() => {
     fetchApi("map");
-  }, []);
+  }, [fetchApi]);
 
   const mostIssues = map
     .sort((a, b) => {
@@ -61,20 +81,33 @@ const Map = ({ map, fetchApi, firstTop }) => {
 
   const mostIssuesIds = mostIssues.map(iss => iss.region_num);
 
+  const active = map.filter(ctry => ctry.region_num === activeId)[0];
+
+  const tooltipTop = () =>
+    countryPos !== null
+      ? countryPos.top - mapPosition.current.getBoundingClientRect().top
+      : null;
+  const tooltipLeft = () =>
+    countryPos !== null
+      ? countryPos.left - mapPosition.current.getBoundingClientRect().left
+      : null;
+
   return (
     <div className="map-wrap container mg-5-v">
       <div className="row">
-        <div className="col-lg-9">
+        <div className="col-lg-9 relative">
           <svg
             className="svg-map"
             width="1045"
             height="587"
             viewBox="0 0 1045 587"
+            ref={mapPosition}
           >
             <Countries
-              active={active}
+              active={activeId}
               mostIssuesIds={mostIssuesIds}
-              click={id => () => changeActive(id)}
+              click={id => changeActive(id)}
+              countryPosition={size => changeTooltipPos(size)}
             >
               <path
                 d="m 48.309634,373.05893 -0.493257,-2.95954 -2.663589,0.98651 -3.354148,-0.98651 -1.578423,-1.97303 -0.986514,-0.98652 -0.789212,0.98652 0.295954,0.98651 0.493258,0.98652 1.775725,1.97303 1.578423,1.97302 0.591909,0 0.887862,-1.97302 1.085166,0 0.69056,2.95954 -0.295954,2.95954 -2.268983,0 -2.268983,2.95954 0.197303,0.98652 0.295954,0.98651 -0.986514,0.98652 -1.282468,0 0.197302,-0.98652 -0.394605,-0.98651 -0.789212,0.98651 -0.986514,0 -0.394606,0.98652 1.183817,2.95954 1.973029,1.97303 1.973029,-0.98652 1.282468,-2.95954 0.887863,0 0.789211,-0.98651 1.282469,-1.97303 2.170331,-0.98652 -0.295954,1.97303 -0.394606,1.97303 0.986514,0 0.591909,0 0.493257,-0.98651 0.493257,-0.98652 0.591909,-0.98651 1.183817,-0.98652 -0.986514,-4.93257 -2.76224,-2.95954 z"
@@ -528,6 +561,16 @@ const Map = ({ map, fetchApi, firstTop }) => {
               ></path>
             </Countries>
           </svg>
+
+          {countryPos && active && (
+            <div
+              className="map-tooltip text-center"
+              style={{ top: tooltipTop(), left: tooltipLeft() }}
+            >
+              <div>{active.region}</div>
+              <div>Обращений: {active.issue_total}</div>
+            </div>
+          )}
         </div>
 
         <div className="col-lg-3">
@@ -536,7 +579,8 @@ const Map = ({ map, fetchApi, firstTop }) => {
             {mostIssues.map(issue => (
               <li
                 onClick={() => changeActive(issue.region_num)}
-                className={issue.region_num === active ? "active" : ""}
+                className={issue.region_num === activeId ? "active" : ""}
+                key={issue.region_num}
               >
                 <img src={molniya} className="molniya" />
                 {issue.region}
