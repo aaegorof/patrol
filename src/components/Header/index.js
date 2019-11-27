@@ -1,4 +1,6 @@
 import React from "react";
+import appStore from "../../img/AppStore.svg"
+import googlePlay from "../../img/GooglePlay.svg"
 import "./styles.scss";
 
 export const menu = {
@@ -26,7 +28,10 @@ const Header = () => {
             <Link link={key} title={val} key={key}/>
           ))}
         </nav>
-        <div className="push-right"></div>
+        <div className="push-right market-buttons">
+          <a href="#" className="btn-market"><img src={appStore}/></a>
+          <a href="#" className="btn-market"><img src={googlePlay}/></a>
+        </div>
       </div>
     </div>
   );

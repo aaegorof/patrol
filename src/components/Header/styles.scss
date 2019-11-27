@@ -3,8 +3,25 @@
 .header-wrap {
   background: #fff;
 }
-.main-menu {
+.main-header {
+  display: flex;
+  align-items: center;
   margin-top: 2vh;
+  .market-buttons {
+    a:last-child {
+      margin-left: 10px;
+    }
+  }
+}
+.btn-market {
+  height: $button-height;
+  line-height: 1;
+  img {
+    vertical-align: middle;
+  }
+}
+
+.main-menu {
   padding: 10px 0;
 }
 .nav-link {

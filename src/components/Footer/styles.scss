@@ -1,0 +1,15 @@
+.footer-wrap {
+  padding: 30px 0;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

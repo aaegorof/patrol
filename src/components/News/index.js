@@ -39,7 +39,6 @@ const NEWS = gql`
 `;
 
 const Arrow = props => {
-  console.log(props);
   return <img src={arrow} className={props.className} onClick={props.onClick}/>
 }
 
