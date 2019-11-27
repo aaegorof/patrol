@@ -1,14 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import * as d3 from "d3";
-import shadowImg from "../../img/oval-shadow.svg"
+import shadowImg from "../../img/oval-shadow.svg";
+
+const calcOffset = (innerRadius, outerRadius, startAngle, endAngle, modifier) => {
+  const mod = modifier ? modifier : 2
+  let r = (+innerRadius + +outerRadius) / mod,
+      a = (+startAngle + +endAngle) / 2 - Math.PI / 2;
+  return [Math.cos(a) * r, Math.sin(a) * r];
+}
 
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 const format = d3.format("0");
 const animationDuration = 250;
 
-const animationConfig = {
+const pieAnimationConfig = {
   to: async (next, cancel) => {
     await next({ t: 1 });
   },
@@ -16,6 +23,7 @@ const animationConfig = {
   config: { duration: animationDuration },
   reset: true
 };
+
 
 const Arc = ({
   index,
@@ -38,9 +46,7 @@ const Arc = ({
       />
       <animated.text
         transform={animatedProps.t.interpolate(t => {
-          const [xx, yy] = createArc.centroid(interpolator(t));
-          const x = xx > 0 ? xx + offset : xx - offset;
-          const y = yy > 0 ? yy + offset : yy - offset;
+          const [x, y] = offset;
           return `translate(${x}, ${y})`;
         })}
         textAnchor="middle"
@@ -52,9 +58,8 @@ const Arc = ({
       </animated.text>
       <animated.text
         transform={animatedProps.t.interpolate(t => {
-          const [xx, yy] = createArc.centroid(interpolator(t));
-          const x = xx > 0 ? xx + offset : xx - offset;
-          const y = yy > 0 ? yy + offset : yy - offset;
+          //const [xx, yy] = createArc.centroid(interpolator(t));
+          const [x,y] = offset
           return `translate(${x}, ${y})`;
         })}
         textAnchor="middle"
@@ -71,59 +76,98 @@ const Arc = ({
 
 const Pie = props => {
   const cache = useRef([]);
+
   const createPie = d3
     .pie()
     .value(d => d.value)
     .sort(null);
+
   const createArc = d3
     .arc()
     .innerRadius(props.innerRadius)
     .outerRadius(props.outerRadius);
+
   const data = createPie(props.data);
   const previousData = createPie(cache.current);
 
-  const [animatedProps, setAnimatedProps] = useSpring(() => animationConfig);
-  setAnimatedProps(animationConfig);
+  const [animatedProps, setAnimatedProps] = useSpring(() => pieAnimationConfig);
+
+  setAnimatedProps(pieAnimationConfig);
 
   useEffect(() => {
     cache.current = props.data;
   });
+
   const maxCountWidth = props.innerRadius * 2 * 0.7;
 
-  const totalNumber = () => {
-    let total = 0
-
-    for (let i = 0; i < props.data.length; ++i ) {
-      total += props.data[i].value
-    }
-    return total.toFixed()
+const for20 = () => {
+  const [x,y] = calcOffset(props.outerRadius, props.innerRadius, 0, 1.256, .7)
+  return `translate(${x},${y})`
+}
+  const for80 = () => {
+    const [x,y] = calcOffset(props.outerRadius, props.innerRadius, 1.256, 6.28, .65)
+    return `translate(${x},${y})`
   }
 
   return (
     <div className="pie-chart">
       <svg width={props.width} height={props.height} className="pie-svg">
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
-          {data.map((d, i) => (
-            <Arc
-              key={i}
-              index={i}
-              from={previousData[i]}
-              to={d}
-              createArc={createArc}
-              color={props.colors ? props.colors[i] : colors(i)}
-              text={props.data[i].text}
-              format={format}
-              animatedProps={animatedProps}
-              offset={props.width / 5}
-            />
-          ))}
+          {data.map((d, i) => {
+            calcOffset(
+              props.outerRadius,
+              props.innerRadius,
+              d.startAngle,
+              d.endAngle
+            );
+            return (
+              <Arc
+                key={i}
+                index={i}
+                from={previousData[i]}
+                to={d}
+                createArc={createArc}
+                color={d.data.color ? d.data.color : colors(i)}
+                text={d.data.text}
+                format={format}
+                animatedProps={animatedProps}
+                offset={calcOffset(
+                  props.outerRadius,
+                  props.innerRadius,
+                  d.startAngle,
+                  d.endAngle,
+                  1.15
+                )}
+              />
+            );
+          })}
+        </g>
+        <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
+          <text className="group-num"
+            transform={for20()}
+            alignmentBaseline="middle"
+          >
+            <tspan x={0}>{(props.groupAnswered * 100 / props.total).toFixed()}%</tspan>
+            <tspan x={0} dy={26}>обращений</tspan>
+            <tspan x={0} dy={18}>получили ответ</tspan>
+          </text>
+          <text
+            transform={for80()}
+            alignmentBaseline="middle"
+            className="group-num"
+          >
+            <tspan x={0}>{(props.groupNotAnswered * 100/ props.total).toFixed()}%</tspan>
+            <tspan x={0} dy={26}>обращений</tspan>
+            <tspan x={0} dy={18}>ожидают ответа</tspan>
+          </text>
         </g>
       </svg>
+
       <div className="total-count" style={{ maxWidth: maxCountWidth }}>
-        <div>{totalNumber()}</div>
+        <div>{props.total}</div>
         {props.totalText && <div className="total-text">{props.totalText}</div>}
       </div>
-      <img src={shadowImg} className="shadow-img"/>
+      <img src={shadowImg} className="shadow-img" />
     </div>
   );
 };

@@ -19,7 +19,7 @@ export const initialState = {
   map: [],
   errors: {},
   sortBy: {
-    column: null,
+    column: "issue_total",
     isDesc: true
   }
 };

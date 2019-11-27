@@ -71,7 +71,7 @@ const Countries = props => {
 };
 
 const Map = ({ map, fetchApi, firstTop }) => {
-  const [activeId, changeActive] = useState(77);
+  const [activeId, changeActive] = useState(null);
   const [countryPos, changeTooltipPos] = useState(null);
   const mapPosition = useRef(null);
 
