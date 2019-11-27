@@ -3,12 +3,18 @@ import { animated, useSpring } from "react-spring";
 import * as d3 from "d3";
 import shadowImg from "../../img/oval-shadow.svg";
 
-const calcOffset = (innerRadius, outerRadius, startAngle, endAngle, modifier) => {
-  const mod = modifier ? modifier : 2
+const calcOffset = (
+  innerRadius,
+  outerRadius,
+  startAngle,
+  endAngle,
+  modifier
+) => {
+  const mod = modifier ? modifier : 2;
   let r = (+innerRadius + +outerRadius) / mod,
-      a = (+startAngle + +endAngle) / 2 - Math.PI / 2;
+    a = (+startAngle + +endAngle) / 2 - Math.PI / 2;
   return [Math.cos(a) * r, Math.sin(a) * r];
-}
+};
 
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -23,7 +29,6 @@ const pieAnimationConfig = {
   config: { duration: animationDuration },
   reset: true
 };
-
 
 const Arc = ({
   index,
@@ -59,7 +64,7 @@ const Arc = ({
       <animated.text
         transform={animatedProps.t.interpolate(t => {
           //const [xx, yy] = createArc.centroid(interpolator(t));
-          const [x,y] = offset
+          const [x, y] = offset;
           return `translate(${x}, ${y})`;
         })}
         textAnchor="middle"
@@ -100,14 +105,26 @@ const Pie = props => {
 
   const maxCountWidth = props.innerRadius * 2 * 0.7;
 
-const for20 = () => {
-  const [x,y] = calcOffset(props.outerRadius, props.innerRadius, 0, 1.256, .7)
-  return `translate(${x},${y})`
-}
+  const for20 = () => {
+    const [x, y] = calcOffset(
+      props.outerRadius,
+      props.innerRadius,
+      0,
+      1.256,
+      0.7
+    );
+    return `translate(${x},${y})`;
+  };
   const for80 = () => {
-    const [x,y] = calcOffset(props.outerRadius, props.innerRadius, 1.256, 6.28, .65)
-    return `translate(${x},${y})`
-  }
+    const [x, y] = calcOffset(
+      props.outerRadius,
+      props.innerRadius,
+      1.256,
+      6.28,
+      0.65
+    );
+    return `translate(${x},${y})`;
+  };
 
   return (
     <div className="pie-chart">
@@ -143,22 +160,35 @@ const for20 = () => {
           })}
         </g>
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
-          <text className="group-num"
+          <text
+            className="group-num"
             transform={for20()}
             alignmentBaseline="middle"
           >
-            <tspan x={0}>{(props.groupAnswered * 100 / props.total).toFixed()}%</tspan>
-            <tspan x={0} dy={26}>обращений</tspan>
-            <tspan x={0} dy={18}>получили ответ</tspan>
+            <tspan x={0}>
+              {((props.groupAnswered * 100) / props.total).toFixed()}%
+            </tspan>
+            <tspan x={0} dy={26}>
+              обращений
+            </tspan>
+            <tspan x={0} dy={18}>
+              получили ответ
+            </tspan>
           </text>
           <text
             transform={for80()}
             alignmentBaseline="middle"
             className="group-num"
           >
-            <tspan x={0}>{(props.groupNotAnswered * 100/ props.total).toFixed()}%</tspan>
-            <tspan x={0} dy={26}>обращений</tspan>
-            <tspan x={0} dy={18}>ожидают ответа</tspan>
+            <tspan x={0}>
+              {((props.groupNotAnswered * 100) / props.total).toFixed()}%
+            </tspan>
+            <tspan x={0} dy={26}>
+              обращений
+            </tspan>
+            <tspan x={0} dy={18}>
+              ожидают ответа
+            </tspan>
           </text>
         </g>
       </svg>

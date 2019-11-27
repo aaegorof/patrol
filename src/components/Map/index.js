@@ -89,10 +89,13 @@ const Map = ({ map, fetchApi, firstTop }) => {
 
   const active = map.filter(ctry => ctry.region_num === activeId)[0];
 
-  const tooltipTop = () =>
-    countryPos !== null
-      ? countryPos.top - mapPosition.current.getBoundingClientRect().top
-      : null;
+  const tooltipTop = () => {
+    console.log(countryPos.top, mapPosition.current.getBoundingClientRect().top);
+    return countryPos !== null
+        ? countryPos.top - mapPosition.current.getBoundingClientRect().top
+        : null;
+  }
+
   const tooltipLeft = () =>
     countryPos !== null
       ? countryPos.left - mapPosition.current.getBoundingClientRect().left
