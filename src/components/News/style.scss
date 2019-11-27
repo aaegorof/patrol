@@ -1,6 +1,9 @@
 @import "../../styles/vars";
 
 .news-wrap {
+  .slick-slide {
+    height: auto !important;
+  }
   .slick-track {
     min-width: 100% !important;
   }

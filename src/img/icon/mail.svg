@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="32px" viewBox="0 0 42 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>icostata/mail</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15.0767503,0.206107374 L43.4953805,19.0644041 L20.1962214,22.8933116 L15.0767503,0.206107374 Z M13.242279,0.50118519 L16.5979032,15.3708199 L0.904508497,18.4966002 L13.242279,0.50118519 Z M43.9045085,20.8482127 L31.566738,38.843801 L28.6338031,23.3576737 L43.9045085,20.8482127 Z M16.9954072,17.1468315 L18.5834859,24.1793173 C18.6852835,24.6358822 19.1199489,24.9243757 19.5884295,24.8462312 L26.8111319,23.6603754 L29.7541057,39.2061074 L1.24213153,20.2857802 L16.9954072,17.1468315 Z" id="path-1"></path>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ver7_f" transform="translate(-259.000000, -3619.000000)">
+            <g id="icostata/mail" transform="translate(279.706128, 3635.555703) rotate(-21.000000) translate(-279.706128, -3635.555703) translate(257.706128, 3615.555703)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-255"></g>
+                <polygon id="Fill-254" fill="#44B647" mask="url(#mask-2)" points="10.7663111 -12.2061074 56.0954915 18.0574979 32.4246719 52.7938926 -12.9045085 22.5302873"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

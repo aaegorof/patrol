@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="137px" height="43px" viewBox="0 0 137 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>GooglePlay</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="navigation-5" transform="translate(-1169.000000, -8.000000)">
+            <g id="GooglePlay" transform="translate(1170.000000, 9.000000)">
+                <rect id="Rectangle" stroke="#325699" stroke-width="2" x="0" y="-1.42108547e-14" width="135" height="40.9090909" rx="20.4545455"></rect>
+                <text id="Google-play" font-family="FuturaPT-Demi, Futura PT" font-size="16" font-weight="500" fill="#325699">
+                    <tspan x="41" y="30">Google</tspan>
+                    <tspan x="92.648" y="30" font-family="FuturaPT-Bold, Futura PT" font-weight="bold"> </tspan>
+                    <tspan x="96.376" y="30" font-family="FuturaPT-Book, Futura PT" font-weight="300">play</tspan>
+                </text>
+                <path d="M17,28.5634505 L17,10.4386605 C17,9.80617999 17.3543398,9.2594617 17.8685478,9 L28,19.4979636 L17.8644731,30 C17.3524671,29.7397493 17,29.1942998 17,28.5634505 Z M31,22.4115319 L20,29 L28.6754347,20 L31,22.4115319 Z M34.3408548,18.3111232 C34.7415336,18.5850358 35,19.0166406 35,19.5021086 C35,19.9802815 34.749366,20.4060902 34.3589811,20.6805025 L31.8001641,22 L29,19.4992105 L31.798262,17 L34.3408548,18.3111232 Z M20,10 L31,16.588482 L28.6754421,19 L20,10 Z" id="logo" fill="#325699" fill-rule="nonzero"></path>
+                <text id="Загрузите-на" font-family="FuturaPT-Medium, Futura PT" font-size="8" font-weight="400" fill="#325699">
+                    <tspan x="41" y="13">Загрузите на</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>ico/arrowforward@1x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-1272.000000, -10453.000000)">
+            <g id="Новости" transform="translate(122.000000, 10447.000000)">
+                <g id="ico/arrowforward" transform="translate(1150.000000, 6.000000)">
+                    <g>
+                        <rect id="Rectangle" fill="#FFCB48" x="0" y="0" width="44" height="44" rx="22"></rect>
+                        <path d="M23.4285714,25.4285714 L23.4285714,15.5 C23.4285714,14.6715729 24.1001443,14 24.9285714,14 L26.5,14 C27.3284271,14 28,14.6715729 28,15.5 L28,27.7380952 C28,28.3496173 27.634061,28.8756697 27.1092176,29.1092176 C26.8756697,29.634061 26.3496173,30 25.7380952,30 L13.5,30 C12.6715729,30 12,29.3284271 12,28.5 L12,26.9285714 C12,26.1001443 12.6715729,25.4285714 13.5,25.4285714 L23.4285714,25.4285714 Z" id="ico/arrow" fill="#FFFFFF" transform="translate(20.000000, 22.000000) rotate(-45.000000) translate(-20.000000, -22.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
