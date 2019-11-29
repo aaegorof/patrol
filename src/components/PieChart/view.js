@@ -69,11 +69,11 @@ const Arc = ({
         })}
         textAnchor="middle"
         alignmentBaseline="middle"
-        y="26"
         fill="#9C9DA0"
         className="text"
+        y={10}
       >
-        {text}
+        {text.map(word => <tspan x={0} dy={12}>{word}</tspan>)}
       </animated.text>
     </g>
   );
@@ -169,10 +169,10 @@ const Pie = props => {
               {((props.groupAnswered * 100) / props.total).toFixed()}%
             </tspan>
             <tspan x={0} dy={26}>
-              обращений
+              проблем
             </tspan>
             <tspan x={0} dy={18}>
-              получили ответ
+              были решены
             </tspan>
           </text>
           <text
@@ -184,10 +184,10 @@ const Pie = props => {
               {((props.groupNotAnswered * 100) / props.total).toFixed()}%
             </tspan>
             <tspan x={0} dy={26}>
-              обращений
+              проблем пока
             </tspan>
             <tspan x={0} dy={18}>
-              ожидают ответа
+              не решены
             </tspan>
           </text>
         </g>

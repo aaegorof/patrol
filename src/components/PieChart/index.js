@@ -21,22 +21,22 @@ const d2p = dispatch => ({
 
 let initStructure = {
   answered_in_time: {
-    text: "Ответ в срок",
+    text: ["окончательный ответ","получен в срок", "до 30 дней"],
     value: 0,
     color: "#FFCB49"
   },
   answered_overdue: {
-    text: "Ответ позже срока",
+    text: ["окончательный ответ", "был получен в срок", "более 30 дней"],
     value: 0,
     color: "#325699"
   },
   not_answered_overdue: {
-    text: "Просрочено",
+    text: ["ожидают окончательный", "ответ исполнителя", "более 30 дней"],
     value: 0,
     color: "#75B644"
   },
   not_answered_in_time: {
-    text: "Не просрочено",
+    text: ["ожидают окончательный", "ответ исполнителя", "менее 30 дней"],
     value: 0,
     color: "#FF6B6B"
   }
