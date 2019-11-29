@@ -1,0 +1,83 @@
+@import "../../styles/vars";
+
+.term-name {
+  margin-bottom: 25px;
+}
+.plus {
+  height: 40px;
+  width: 40px;
+  background: $secondary;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  &:before, &:after {
+    content: '';
+    width: 14px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease-in-out;
+  }
+  &:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.faq-term {
+  background: #fff;
+  border: 2px solid #F4F5F8;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(#325699, 0.08);
+  border-radius: 15px;
+  padding: 0 40px;
+  .h4 {
+    color: $primary;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .faq-answer {
+    display: none;
+    margin-top: 30px;
+    padding-bottom: 40px;
+  }
+  &.opened {
+    .dashed {
+      &:after {
+        display: none;
+      }
+    }
+    .faq-answer {
+      display: block;
+    }
+    .plus {
+      background: rgba($secondary, 0.6);
+      &:before {
+        transform: translate(-50%, -50%) rotate(-180deg);
+      }
+      &:after {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+    }
+  }
+}
+
+.dashed {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px dashed;
+    left: 0px;
+    bottom: 0px;
+    opacity: 0.4;
+  }
+}

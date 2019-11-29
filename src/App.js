@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import Faq from "./components/Faq";
 
 const middlewares = [thunk];
 const composeEnhancers = composeWithDevTools({
@@ -41,18 +42,22 @@ function App() {
         <div className="app">
           <Header />
 
-          <section id={Object.keys(menu)[1]} className="mg-5-v">
+          <section id={Object.keys(menu)[1]} className="bg-white pd-4-v">
             <h2 className="container">Карта обращений</h2>
             <Map firstTop={6} />
           </section>
 
-          <section id={Object.keys(menu)[2]} className="mg-5-v">
+          <section id={Object.keys(menu)[2]} className="bg-white pd-4-v">
             <h2 className="container">Статистика</h2>
             <Issues />
             <PieSection />
           </section>
 
-          <section className="mg-4-b">
+          <section className="pd-4-v">
+            <Faq />
+          </section>
+
+          <section className="bg-white pd-4-v">
             <News />
           </section>
 
