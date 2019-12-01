@@ -13,3 +13,17 @@
 .relative {
   position: relative;
 }
+.bg-mask {
+  width: 100%;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  &.bottom {
+    background-position: bottom;
+  }
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
