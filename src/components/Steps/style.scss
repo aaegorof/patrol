@@ -1,13 +1,23 @@
 section {
-  &.full-height {
-    min-height: 100vh;
+  &.step-wrap {
+    min-height: 70vh;
   }
   .mask {
 
   }
 }
-.phone {
-  position: relative;
+.iphone {
+  position: sticky;
+  left: 50%;
+  top: 50%;
   z-index: 100;
-  margin-bottom: auto;
+  transform: translate(-50%,-50%);
+  display: inline-flex;
+  padding: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  .bg {
+    position: absolute;
+    z-index: 1;
+  }
 }
