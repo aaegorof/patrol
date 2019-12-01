@@ -12,6 +12,8 @@ import PieSection from "./components/PieChart";
 import News from "./components/News";
 import Map from "./components/Map";
 import Footer from "./components/Footer";
+import Top from "./components/Top"
+import Steps from "./components/Steps"
 
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -41,6 +43,9 @@ function App() {
       <Provider store={store}>
         <div className="app">
           <Header />
+            <Top/>
+
+          <Steps />
 
           <section id={Object.keys(menu)[1]} className="bg-white pd-4-v">
             <h2 className="container">Карта обращений</h2>

@@ -1,0 +1,6 @@
+@import "../../styles/vars";
+
+.top-wrap {
+  height: calc( 100vh - #{$mobile-menu-height});
+  display: flex;
+}

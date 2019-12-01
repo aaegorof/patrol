@@ -1,0 +1,13 @@
+section {
+  &.full-height {
+    min-height: 100vh;
+  }
+  .mask {
+
+  }
+}
+.phone {
+  position: relative;
+  z-index: 100;
+  margin-bottom: auto;
+}
