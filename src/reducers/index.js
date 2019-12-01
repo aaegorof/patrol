@@ -7,7 +7,8 @@ import {
   getMapSuccess,
   getError,
   updateSortBy,
-  sortTable
+  sortTable,
+    changeCurrentStep
 } from "../actions";
 import { sort, prop, descend, ascend } from "ramda";
 
@@ -18,6 +19,9 @@ export const initialState = {
   counter: {},
   map: [],
   errors: {},
+  steps: {
+    currentStep: 0,
+  },
   sortBy: {
     column: "issue_total",
     isDesc: true
@@ -68,7 +72,15 @@ const reducer = createReducer(
     [getMapSuccess]: (state, payload) => ({
       ...state,
       map: payload
-    })
+    }),
+    [changeCurrentStep] : (state, payload) => ({
+      ...state,
+      steps: {
+        ...state.steps,
+        currentStep: payload
+      }
+    }),
+
   },
   initialState
 );

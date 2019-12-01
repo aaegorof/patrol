@@ -2,23 +2,22 @@ import React from "react";
 import "./style.scss";
 import mask from "../../img/main/main-mask.svg";
 import logo from "../../img/logo.svg";
-import megafon from "../../img/icon/megafon-right.svg";
+import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
 import { animated, useSpring } from "react-spring";
 
-const parallaxElAnimConfig = {
-  xy: [0, 0],
-  config: { mass: 10, tension: 550, friction: 140 }
-};
+
 const trans = num => (x, y) => {
   const xx = num < 30 ? num : -num
   const yy = num < 30 ? num : -num
  return `translate3d(${x / xx}px,${y / yy}px,0)`;
 }
-const trans2 = num => (x, y) => `translate3d(${x / num}px,${y / num}px,0)`;
 
 const Top = () => {
-  const [parEl, setParEl] = useSpring(() => parallaxElAnimConfig);
+  const [parEl, setParEl] = useSpring(() => ({
+    xy: [0, 0],
+    config: { mass: 10, tension: 550, friction: 140 }
+  }));
 
   return (
     <div

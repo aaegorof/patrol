@@ -2,6 +2,9 @@
 
 .header-wrap {
   background: #fff;
+  position: sticky;
+  z-index: 110;
+  top: 0;
 }
 .main-header {
   display: flex;
@@ -34,7 +37,8 @@
   text-decoration: none;
   color: $text-color;
   align-items: center;
-  &:hover, .active {
+  &:hover,
+  .active {
     color: $primary;
   }
 }

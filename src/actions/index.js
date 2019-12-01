@@ -14,4 +14,7 @@ export const getCounterSuccess = createAction("getCounterSuccess")
 export const getMap = createAction("getMap")
 export const getMapSuccess = createAction("getMapSuccess")
 
+///steps
+export const changeCurrentStep = createAction("changeCurrentStep")
+
 export const getError = createAction("getError")

@@ -35,7 +35,7 @@ const Faq = () => {
     }
   }, [data]);
 
-  return faqData && <FaqView faq={faqData} />;
+  return faqData && <FaqView faq={faqData}/>;
 };
 
 const FaqView = ({ faq }) => {
@@ -55,7 +55,7 @@ const FaqView = ({ faq }) => {
   return (
     <div className="faq-wrap container">
       {terms.map(term => (
-        <>
+        <React.Fragment>
           <div className="term-name h2" key={term}>
             {term}
           </div>
@@ -78,7 +78,7 @@ const FaqView = ({ faq }) => {
                 </>
               ))}
           </div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
