@@ -1,7 +1,8 @@
+@import "vars";
+
 .floating {
   animation: floating 4s linear infinite;
 }
-
 
 .fl-icon {
   position: absolute;
@@ -27,9 +28,33 @@
   right: 9%;
   top: 55%;
 }
+
 .icon-center {
   left: 50%;
   top: 50%;
+}
+
+.double-rotating {
+  &:before, &:after {
+    content: '';
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+  }
+  &:before {
+    border: 1px dashed rgba($secondary, 0.75);
+    animation: rotating linear 90s infinite;
+  }
+  &:after {
+    width: 200px;
+    height: 200px;
+    border: 1px dashed rgba($grey, 0.5);
+    animation: rotating linear 70s infinite reverse;
+  }
+
 }
 
 

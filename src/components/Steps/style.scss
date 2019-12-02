@@ -16,6 +16,10 @@ section {
   padding: 15px;
   background-position: center;
   background-repeat: no-repeat;
+  .text {
+    position: absolute;
+    color: #fff;
+  }
   .bg {
     position: absolute;
     z-index: 1;
