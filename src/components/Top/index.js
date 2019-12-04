@@ -32,6 +32,18 @@ const Top = () => {
 
       <div className="container relative">
 
+        <div className="centered column text-center col-lg-6 mg-auto">
+          <img src={logo} className="mg-4-t"/>
+          <div className="title h3">Патруль качества</div>
+
+          <h1>Борьба с <span className="color-primary">контрафактом</span> на табачном рынке</h1>
+          <div className="site-description">
+            Мы помогаем потребителям отстаивать свои права  на качественные товары с помощью мобильного приложения
+          </div>
+        </div>
+
+
+
         <animated.div
             className="fl-icon double-rotating"
             style={{

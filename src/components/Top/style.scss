@@ -4,3 +4,15 @@
   height: calc( 100vh - #{$mobile-menu-height});
   display: flex;
 }
+.title {
+  color: $primary;
+  margin-top: 15px;
+  &.title {
+    font-weight: 600;
+  }
+}
+.site-description {
+  font-weight: 300;
+  font-size: 18px;
+  color: $grey;
+}

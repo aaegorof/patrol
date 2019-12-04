@@ -5,12 +5,13 @@ import "./style.scss";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Iphone from "./Iphone";
+import circleBg from "../../img/main/circle-bg.svg";
 
 const stepss = [Step1, Step2];
 
 
 const stepConfig = {
-  offset: [-20, -20],
+  offset: [0, -30],
   threshhold: 0.5
 };
 
@@ -23,10 +24,16 @@ const stepViewportOpt = {
 
 const Steps = props => {
   const [curStep, changeStep] = useState(0)
-
+  const onEnterStep = i => ()  => {
+    changeStep(i+1)
+  }
+  const onLeaveStep = i => () => {
+    console.log("leaving", curStep);
+  }
   return (
     <section className="steps-wrap full-height">
       <Iphone step={curStep} />
+      <img src={circleBg} className="circle-bg"/>
       {/*<Parallax pages={3} >*/}
       {/*  <ParallaxLayer offset={0} speed={-1} className="centered phone">*/}
       {/*    <img src={phone} />*/}
@@ -38,15 +45,15 @@ const Steps = props => {
       {/*</Parallax>*/}
       {stepss.map((Component, i) => {
         const StepBlock = handleViewport(
-          props => <Component step={i} stepConfig={stepConfig} {...props} />,
+          props => <Component step={i + 1} stepConfig={stepConfig} {...props} />,
           stepViewportOpt
         );
 
         return (
           <StepBlock
-            key={i}
-            onEnterViewport={() => changeStep(i)}
-            onLeaveViewport={() => console.log("leave")}
+            key={i + 1}
+            onEnterViewport={onEnterStep(i)}
+            onLeaveViewport={onLeaveStep(i)}
           />
         );
       })}

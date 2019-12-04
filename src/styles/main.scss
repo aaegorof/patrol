@@ -6,9 +6,9 @@
 @include margins($breakpoints, $margins);
 @include colors($colors);
 @import "helpers";
+@import "animations";
+
 @import "layout";
 @import "fonts";
 @import "elements";
-
-@import "animations";
 

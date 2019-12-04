@@ -35,6 +35,7 @@
 }
 
 .double-rotating {
+  position: absolute;
   &:before, &:after {
     content: '';
     border-radius: 50%;
