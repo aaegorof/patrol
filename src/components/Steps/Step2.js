@@ -4,6 +4,7 @@ import loading from "../../img/2step/loading.svg";
 import message from "../../img/2step/message.svg";
 import search from "../../img/2step/search.svg";
 import molniya from "../../img/1step/molniya.svg";
+import Rotating from "../Rotating";
 
 const images = [loading, message, search, molniya];
 const imagesCoord = [[0.8, 170], [1, 1], [1.45, 1], [1, -70]];
@@ -38,7 +39,9 @@ const Step1 = props => {
                     src={images[index]}
                 />
             ))}
-            <div className={`centered white-oval ${inViewport ? "growing": ""}`}></div>
+            <div className={`centered white-oval ${inViewport ? "growing": ""}`}>
+              <Rotating double size="100%"/>
+            </div>
 
             <div className={`dynamic-text ${inViewport ? "in-view" : ""}`}>
               <div className="step-title mg-2-b">

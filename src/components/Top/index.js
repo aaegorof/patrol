@@ -6,6 +6,7 @@ import logo from "../../img/logo.svg";
 import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
 import { animated, useSpring } from "react-spring";
+import Rotating from "../Rotating";
 
 const trans = num => (x, y) => {
   const xx = num < 30 ? num : -num;
@@ -45,24 +46,26 @@ const Top = () => {
 
 
         <animated.div
-            className="fl-icon double-rotating"
+            className="fl-icon"
             style={{
               transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22)),
               left: 0,
               top: "22%"
             }} //min 22 and max is 42
         >
-          <img src={megafon} />
+          <Rotating double size={180}>
+            <img src={megafon} />
+          </Rotating>
         </animated.div>
 
-        <div className="double-rotating fl-icon" style={{ right: 0, top: "32%" }}>
+        <Rotating double size={120} style={{ right: 0, top: "32%" }}>
           <animated.img
               src={lupa}
               style={{
                 transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22))
               }}
           />
-        </div>
+        </Rotating>
       </div>
 
     </div>

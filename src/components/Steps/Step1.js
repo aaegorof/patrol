@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { animated, useTrail } from "react-spring";
+import { animated, useTrail, config } from "react-spring";
 import alert from "../../img/icon/attent.svg";
 import logo from "../../img/logo.svg";
 import rupor from "../../img/1step/rupor.svg";
 import molniya from "../../img/1step/molniya.svg";
 import molniya2 from "../../img/1step/molniya2.svg";
 import send from "../../img/1step/send.svg";
+import Rotating from "../Rotating";
 
 const images = [send, alert, molniya2, molniya, rupor];
 const imagesCoord = [[1, 1], [0.7, -170], [0.9, -120], [0.92, 170], [0.7, 80]];
@@ -14,7 +15,8 @@ const Step1 = props => {
   const { inViewport, forwardedRef, stepConfig, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
-    from: { opacity: 0, xy: [1, 1] }
+    from: { opacity: 0, xy: [1, 1] },
+    config: config.stiff
   }));
 
   const transform = index => (x, y) => {
@@ -30,10 +32,11 @@ const Step1 = props => {
 
   return (
     <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-      <div className="double-rotating big-logo" style={{opacity: inViewport? 0: 1}}>
-        <img src={logo} />
-      </div>
-      {/*<div style={{height: (100 - stepConfig.offset*2 + "%") , position: "absolute", top: stepConfig.offset + "%", background: "rgba(0,0,0,0.2)", width: "100%"}}></div>*/}
+        <div className="big-logo" style={{opacity: inViewport? 0: 1}}>
+          <Rotating double size={200}>
+            <img src={logo} />
+          </Rotating>
+        </div>
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (
@@ -44,7 +47,8 @@ const Step1 = props => {
               src={images[index]}
             />
           ))}
-          <div className={`centered white-oval ${inViewport ? "growing": ""}`}></div>
+
+          <div className={`centered white-oval ${inViewport ? "growing": ""}`}/>
 
           <div className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}>
             <div className="step-title mg-2-b">
@@ -63,6 +67,7 @@ const Step1 = props => {
                 <li>отправляет обращение</li>
               </ul>
             </div>
+            <Rotating double size={500} inside/>
           </div>
         </div>
       </div>

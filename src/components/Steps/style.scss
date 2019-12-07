@@ -28,6 +28,7 @@
 
 .big-logo {
   left: 50%;
+  position: absolute;
   transform: translate(-50%);
   top: -45%;
   width: 380px;
@@ -40,7 +41,7 @@
     height: 100%;
   }
   img {
-    width: 60%;
+    width: 100%;
     height: auto;
   }
 }
@@ -98,17 +99,20 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 100px);
-  transition: all 1s linear;
+  transition: all 0.6s ease-in-out;
   opacity: 0;
+  z-index: 3;
   &.growing {
     opacity: 1;
-    transform: translate(-50%, 100px) scale(4);
+    width: 400px;
+    height: 400px;
   }
 }
 
 .trails-img {
   position: absolute;
   left: 50%;
+  z-index: 5;
 }
 
 .step-1 {
