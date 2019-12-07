@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import { animated, useTrail, config } from "react-spring";
-import alert from "../../img/icon/attent.svg";
-import logo from "../../img/logo.svg";
-import rupor from "../../img/1step/rupor.svg";
-import molniya from "../../img/1step/molniya.svg";
-import molniya2 from "../../img/1step/molniya2.svg";
-import send from "../../img/1step/send.svg";
+import eye from "../../img/3step/eye3.svg";
+import mail from "../../img/3step/mail3.svg";
+import molniya3 from "../../img/3step/molniya3.svg";
+import message from "../../img/3step/message3.svg";
+import Rotating from "../Rotating";
 
-const images = [send, alert, molniya2, molniya, rupor];
-const imagesCoord = [[1, 1], [0.7, -170], [0.9, -120], [0.92, 170], [0.7, 80]];
+const images = [message, mail, molniya3, eye];
+const imagesCoord = [[1, 1], [1.1, -20], [0.65, -90], [0.6, 220]];
 
-const Step1 = props => {
+const Step3 = props => {
   const { inViewport, forwardedRef, stepConfig, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
@@ -31,37 +30,32 @@ const Step1 = props => {
 
   return (
       <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-        <div className="double-rotating big-logo" style={{opacity: inViewport? 0: 1}}>
-          <img src={logo} />
-        </div>
         <div className="container">
           <div className="row">
+
+            <div className="3step-img-wrapper col-lg-3">
+              {inViewport && <Rotating double size={360}/>}
             {imgTrail.map(({ xy, ...rest }, index) => (
                 <animated.img
                     key={images[index]}
-                    className="trails-img fl-icon step1-icon"
+                    className="trails-img fl-icon step3-icon"
                     style={{ ...rest, transform: xy.interpolate(transform(index)) }}
                     src={images[index]}
                 />
             ))}
-            <div className={`centered white-oval ${inViewport ? "growing": ""}`}></div>
+            </div>
+
+            <div className={`centered white-oval ${inViewport ? "growing": ""}`}/>
 
             <div className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}>
               <div className="step-title mg-2-b">
                 <div className="step-num">0{step}</div>
-                <span className="color-primary">Отправка</span> <span> обращения</span>
+                <span className="color-primary">Получение</span> <span> ответа</span>
               </div>
               <div className="step-description">
-                Потребитель, обнаруживший факт торговли контрафактными изделиями,
-                создает  в мобильном приложении заявку  на рассмотрение. Для этого
-                он совершает несколько простых шагов:
-                <ul>
-                  <li>выбирает категорию из классификатора</li>
-                  <li>выбирает торговую точку на карте</li>
-                  <li>пишет комментарий</li>
-                  <li>фотографирует товар</li>
-                  <li>отправляет обращение</li>
-                </ul>
+                <p>Контролирующий орган в течение  30 дней проводит проверку.  </p>
+                <p>Ответ приходит пользователю в карточку обращения в мобильном приложении.</p>
+                <p>Если ответа нет, направляется  повторное заявление</p>
               </div>
             </div>
           </div>
@@ -70,4 +64,4 @@ const Step1 = props => {
   );
 };
 
-export default Step1;
+export default Step3;
