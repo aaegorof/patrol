@@ -1,7 +1,9 @@
 @import "../../styles/vars";
 
 .term-name {
-  margin-bottom: 25px;
+  &.term-name {
+    margin-bottom: 25px;
+  }
 }
 .plus {
   height: 40px;

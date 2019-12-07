@@ -11,6 +11,7 @@ import iconAttent from "../../img/icon/attent.svg";
 import iconDone from "../../img/icon/done.svg";
 import iconLoading from "../../img/icon/loading.svg";
 import iconMail from "../../img/icon/mail.svg";
+import handleViewport from "react-in-viewport";
 
 const s2p = state => state;
 const d2p = dispatch => ({
@@ -21,7 +22,7 @@ const d2p = dispatch => ({
 
 let initStructure = {
   answered_in_time: {
-    text: ["окончательный ответ","получен в срок", "до 30 дней"],
+    text: ["окончательный ответ", "получен в срок", "до 30 дней"],
     value: 0,
     color: "#FFCB49"
   },
@@ -48,8 +49,9 @@ const parallaxElAnimConfig = {
   config: { mass: 10, tension: 550, friction: 140 }
 };
 
-const PieSection = props => {
 
+
+const PieChart = props => {
   const prepareData = () => {
     for (const key in props.counter) {
       if (Object.keys(initStructure).includes(key)) {
@@ -61,13 +63,16 @@ const PieSection = props => {
       date: id
     }));
 
-    let groupAnswered = initStructure.answered_in_time.value + initStructure.answered_overdue.value
-    let groupNotAnswered = initStructure.not_answered_overdue.value + initStructure.not_answered_in_time.value
+    let groupAnswered =
+      initStructure.answered_in_time.value +
+      initStructure.answered_overdue.value;
+    let groupNotAnswered =
+      initStructure.not_answered_overdue.value +
+      initStructure.not_answered_in_time.value;
     return [yy, groupAnswered, groupNotAnswered];
-  }
+  };
 
-
-  const [preparedData, groupAnswered, groupNotAnswered] = prepareData()
+  const [preparedData, groupAnswered, groupNotAnswered] = prepareData();
 
   useEffect(() => {
     props.fetchApi("counter");
@@ -90,6 +95,7 @@ const PieSection = props => {
     <div
       className="pie-chart-wrap container text-center relative"
       onMouseMove={({ clientX: x, clientY: y }) => setParEl({ xy: calc(x, y) })}
+      ref={props.forwardedRef}
     >
       {!props.errors.counter && (
         <AnimatedPie
@@ -103,6 +109,7 @@ const PieSection = props => {
           totalText="Всего обращений взято в работу"
           groupAnswered={groupAnswered}
           groupNotAnswered={groupNotAnswered}
+          inViewport={props.inViewport}
         />
       )}
       {props.errors.counter && (
@@ -138,7 +145,13 @@ const PieSection = props => {
   );
 };
 
+const PieViewport = handleViewport(props => <PieChart {...props}/>, {
+  rootMargin: `-10% 0px -10% 0px`,
+  threshold: 0.5
+});
+
+
 export default connect(
   s2p,
   d2p
-)(PieSection);
+)(PieViewport);

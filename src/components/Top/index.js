@@ -7,6 +7,7 @@ import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
 import { animated, useSpring } from "react-spring";
 import Rotating from "../Rotating";
+import Features from "./Features";
 
 const trans = num => (x, y) => {
   const xx = num < 30 ? num : -num;
@@ -43,6 +44,7 @@ const Top = () => {
           </div>
         </div>
 
+        <Features/>
 
 
         <animated.div

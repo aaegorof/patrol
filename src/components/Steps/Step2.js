@@ -23,41 +23,43 @@ const Step1 = props => {
 
   useEffect(() => {
     inViewport
-        ? setImgTrail({ xy: [380, 1], opacity: 1 })
-        : setImgTrail({ xy: [1, 0], opacity: 0 });
+      ? setImgTrail({ xy: [380, 1], opacity: 1 })
+      : setImgTrail({ xy: [1, 0], opacity: 0 });
   }, [inViewport]);
 
   return (
-      <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-        <div className="container">
-          <div className="row">
-            {imgTrail.map(({ xy, ...rest }, index) => (
-                <animated.img
-                    key={images[index]}
-                    className="trails-img fl-icon step1-icon"
-                    style={{ ...rest, transform: xy.interpolate(transform(index)) }}
-                    src={images[index]}
-                />
-            ))}
-            <div className={`centered white-oval ${inViewport ? "growing": ""}`}>
-              <Rotating double size="100%"/>
-            </div>
+    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
+      <div className="container">
+        <div className="row">
+          {imgTrail.map(({ xy, ...rest }, index) => (
+            <animated.img
+              key={images[index]}
+              className="trails-img fl-icon step1-icon"
+              style={{ ...rest, transform: xy.interpolate(transform(index)) }}
+              src={images[index]}
+            />
+          ))}
+          <div className={`centered white-oval ${inViewport ? "growing" : ""}`}>
+            <Rotating double size="100%" />
+          </div>
 
-            <div className={`dynamic-text ${inViewport ? "in-view" : ""}`}>
-              <div className="step-title mg-2-b">
-                <div className="step-num">0{step}</div>
-                <span className="color-primary">Обработка</span>  <span>обращения</span>
-              </div>
-              <div className="step-description">
-                Обращение проходит модерацию и отправляется в контролирующий орган.
-                Обращение проходит модерацию и отправляется в контролирующий орган.  Обращение может не пройти модерацию, если:
-                - не содержит описания нарушения,
-                - описание нарушения не соответствует  выбранной категории.
-              </div>
+          <div className={`dynamic-text ${inViewport ? "in-view" : ""}`}>
+            <div className="step-title mg-2-b">
+              <div className="step-num">0{step}</div>
+              <span className="color-primary">Обработка</span>  
+              <span>обращения</span>
+            </div>
+            <div className="step-description">
+              Обращение проходит модерацию и отправляется в контролирующий
+              орган. Обращение проходит модерацию и отправляется в
+              контролирующий орган.  Обращение может не пройти модерацию, если:
+              - не содержит описания нарушения, - описание нарушения не
+              соответствует  выбранной категории.
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

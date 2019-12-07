@@ -7,6 +7,7 @@
 .title {
   color: $primary;
   margin-top: 15px;
+  line-height: 1;
   &.title {
     font-weight: 600;
   }
@@ -15,4 +16,33 @@
   font-weight: 300;
   font-size: 18px;
   color: $grey;
+}
+
+.feature-wrap {
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+}
+.feature-item {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  &:nth-child(2n) {
+    transform: translateY(50%);
+  }
+  &:nth-child(-1 + 2n) {
+    transform: translateY(-50%);
+  }
+}
+.feature-title {
+  font-size: 35px;
+  color: $primary;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.feature-text {
+  font-weight: 300;
 }

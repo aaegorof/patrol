@@ -32,11 +32,11 @@ const Step1 = props => {
 
   return (
     <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-        <div className="big-logo" style={{opacity: inViewport? 0: 1}}>
-          <Rotating double size={200}>
-            <img src={logo} />
-          </Rotating>
-        </div>
+      <div className="big-logo" style={{ opacity: inViewport ? 0 : 1 }}>
+        <Rotating double size={200}>
+          <img src={logo} />
+        </Rotating>
+      </div>
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (
@@ -48,12 +48,17 @@ const Step1 = props => {
             />
           ))}
 
-          <div className={`centered white-oval ${inViewport ? "growing": ""}`}/>
+          <div
+            className={`centered white-oval ${inViewport ? "growing" : ""}`}
+          />
 
-          <div className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}>
+          <div
+            className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}
+          >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Отправка</span> <span> обращения</span>
+              <span className="color-primary">Отправка</span>{" "}
+              <span> обращения</span>
             </div>
             <div className="step-description">
               Потребитель, обнаруживший факт торговли контрафактными изделиями,
@@ -67,7 +72,7 @@ const Step1 = props => {
                 <li>отправляет обращение</li>
               </ul>
             </div>
-            <Rotating double size={500} inside/>
+            <Rotating double size={500} inside />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import * as d3 from "d3";
 import shadowImg from "../../img/oval-shadow.svg";
@@ -19,15 +19,15 @@ const calcOffset = (
 const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 const format = d3.format("0");
-const animationDuration = 250;
+
 
 const pieAnimationConfig = {
   to: async (next, cancel) => {
     await next({ t: 1 });
   },
   from: { t: 0 },
-  config: { duration: animationDuration },
-  reset: true
+  config: { duration: 1450 },
+
 };
 
 const Arc = ({
@@ -59,7 +59,7 @@ const Arc = ({
         fill={color}
         fontSize="26"
       >
-        {animatedProps.t.interpolate(t => format(interpolator(t).value))}
+        {animatedProps.t.interpolate(t => format(interpolator(t).value.toFixed()))}
       </animated.text>
       <animated.text
         transform={animatedProps.t.interpolate(t => {
@@ -81,7 +81,7 @@ const Arc = ({
 
 const Pie = props => {
   const cache = useRef([]);
-
+  const [svgKey, setSvgKey] = useState(Math.random())
   const createPie = d3
     .pie()
     .value(d => d.value)
@@ -102,6 +102,10 @@ const Pie = props => {
   useEffect(() => {
     cache.current = props.data;
   });
+
+  useEffect(() => {
+    setSvgKey(Math.random())
+  }, [props.inViewport]);
 
   const maxCountWidth = props.innerRadius * 2 * 0.7;
 
@@ -131,12 +135,6 @@ const Pie = props => {
       <svg width={props.width} height={props.height} className="pie-svg">
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
           {data.map((d, i) => {
-            calcOffset(
-              props.outerRadius,
-              props.innerRadius,
-              d.startAngle,
-              d.endAngle
-            );
             return (
               <Arc
                 key={i}

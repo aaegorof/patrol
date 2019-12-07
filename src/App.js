@@ -1,24 +1,28 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reducer, { initialState } from "./reducers";
 import { setup } from "./actions";
+import handleViewport from "react-in-viewport";
 
 import Header, { menu } from "./components/Header";
-import Issues from "./components/Issues";
-import PieSection from "./components/PieChart";
-import News from "./components/News";
-import Map from "./components/Map";
-import Footer from "./components/Footer";
-import Top from "./components/Top"
-import Steps from "./components/Steps"
+import Top from "./components/Top";
 
+import Faq from "./components/Faq";
+import News from "./components/News";
+
+import Footer from "./components/Footer";
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import Faq from "./components/Faq";
+
+const Steps = React.lazy(() => import("./components/Steps"));
+const Issues = React.lazy(() => import("./components/Issues"));
+const Map = React.lazy(() => import("./components/Map"));
+const PieChart = React.lazy(() => import("./components/PieChart"));
+
 
 const middlewares = [thunk];
 const composeEnhancers = composeWithDevTools({
@@ -43,30 +47,38 @@ function App() {
       <Provider store={store}>
         <div className="app">
           <Header />
-            <Top/>
+          <Top />
 
-          <Steps />
+          <section id={Object.keys(menu)[0]} className="steps-wrap full-height">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Steps />
+            </Suspense>
+          </section>
 
           <section id={Object.keys(menu)[1]} className="bg-white pd-4-v">
-            <h2 className="container">Карта обращений</h2>
-            <Map firstTop={6} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <h2 className="container">Карта обращений</h2>
+              <Map firstTop={6} />
+            </Suspense>
           </section>
 
           <section id={Object.keys(menu)[2]} className="bg-white pd-4-v">
-            <h2 className="container">Статистика</h2>
-            <Issues />
-            <PieSection />
+            <Suspense fallback={<div>Loading...</div>}>
+              <h2 className="container">Статистика</h2>
+              <Issues />
+              <PieChart/>
+            </Suspense>
           </section>
 
-          <section className="pd-4-v">
+          <section id={Object.keys(menu)[3]} className="pd-4-v">
             <Faq />
           </section>
 
-          <section className="bg-white pd-4-v">
+          <section id={Object.keys(menu)[4]} className="bg-white pd-4-v">
             <News />
           </section>
 
-          <Footer/>
+          <Footer />
         </div>
       </Provider>
     </ApolloProvider>

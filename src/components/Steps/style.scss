@@ -5,11 +5,15 @@
   left: 50%;
   top: 32%;
   z-index: 100;
-  transform: translate(-50%,-30%);
   display: inline-flex;
   padding: 15px;
   background-position: center;
   background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+  will-change: scroll-position;
+  &.step-4 {
+    left: 250px;
+  }
   .text {
     position: absolute;
     color: #fff;
@@ -51,7 +55,7 @@
 }
 .step-wrap {
   min-height: 50vh;
-  margin-top: 100px;
+  margin-top: 250px;
   &:last-of-type {
     padding-bottom: 40vh;
   }
@@ -79,6 +83,8 @@
   font-size: 50px;
   line-height: 0.9;
   font-weight: 500;
+  position: relative;
+  z-index: 5;
   & > * {
     line-height: 0.9;
   }
@@ -90,6 +96,8 @@
   color: $grey;
   font-size: 18px;
   font-weight: 300;
+  position: relative;
+  z-index: 5;
 }
 .white-oval {
   width: 100px;
@@ -98,7 +106,7 @@
   background: #fff;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 100px);
+  transform: translate(-50%, 0);
   transition: all 0.6s ease-in-out;
   opacity: 0;
   z-index: 3;
@@ -106,6 +114,10 @@
     opacity: 1;
     width: 400px;
     height: 400px;
+    &.big {
+      width: 800px;
+      height: 800px;
+    }
   }
 }
 
@@ -120,5 +132,23 @@
   .step1-icon {
     left: 50%;
     top: 10%;
+  }
+}
+.step-4 {
+  .dynamic-text {
+    transform: translateY(100px);
+    &.in-view {
+      transform: translate(0);
+    }
+  }
+  .white-oval {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .rotating {
+    z-index: 6;
+  }
+  .i-2 {
+    width: 180px;
   }
 }

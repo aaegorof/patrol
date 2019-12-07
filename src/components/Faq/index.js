@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import plus from "../../img/icon/plus.svg"
 import "./style.scss";
 
 const FOOTER = gql`

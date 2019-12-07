@@ -24,43 +24,52 @@ const Step3 = props => {
 
   useEffect(() => {
     inViewport
-        ? setImgTrail({ xy: [-550, 1], opacity: 1 })
-        : setImgTrail({ xy: [1, 0], opacity: 0 });
+      ? setImgTrail({ xy: [-550, 1], opacity: 1 })
+      : setImgTrail({ xy: [1, 0], opacity: 0 });
   }, [inViewport]);
 
   return (
-      <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-        <div className="container">
-          <div className="row">
-
-            <div className="3step-img-wrapper col-lg-3">
-              {inViewport && <Rotating double size={360}/>}
+    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
+      <div className="container">
+        <div className="row">
+          <div className="3step-img-wrapper col-lg-3">
+            {inViewport && <Rotating double size={360} />}
             {imgTrail.map(({ xy, ...rest }, index) => (
-                <animated.img
-                    key={images[index]}
-                    className="trails-img fl-icon step3-icon"
-                    style={{ ...rest, transform: xy.interpolate(transform(index)) }}
-                    src={images[index]}
-                />
+              <animated.img
+                key={images[index]}
+                className="trails-img fl-icon step3-icon"
+                style={{ ...rest, transform: xy.interpolate(transform(index)) }}
+                src={images[index]}
+              />
             ))}
+          </div>
+
+          <div
+            className={`centered white-oval ${inViewport ? "growing" : ""}`}
+          />
+
+          <div
+            className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}
+          >
+            <div className="step-title mg-2-b">
+              <div className="step-num">0{step}</div>
+              <span className="color-primary">Получение</span>{" "}
+              <span> ответа</span>
             </div>
-
-            <div className={`centered white-oval ${inViewport ? "growing": ""}`}/>
-
-            <div className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}>
-              <div className="step-title mg-2-b">
-                <div className="step-num">0{step}</div>
-                <span className="color-primary">Получение</span> <span> ответа</span>
-              </div>
-              <div className="step-description">
-                <p>Контролирующий орган в течение  30 дней проводит проверку.  </p>
-                <p>Ответ приходит пользователю в карточку обращения в мобильном приложении.</p>
-                <p>Если ответа нет, направляется  повторное заявление</p>
-              </div>
+            <div className="step-description">
+              <p>
+                Контролирующий орган в течение  30 дней проводит проверку.  
+              </p>
+              <p>
+                Ответ приходит пользователю в карточку обращения в мобильном
+                приложении.
+              </p>
+              <p>Если ответа нет, направляется  повторное заявление</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

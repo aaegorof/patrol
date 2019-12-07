@@ -1,64 +1,54 @@
-import React, {useState} from "react";
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
+import React, { useState, useCallback, lazy, Suspense } from "react";
 import handleViewport from "react-in-viewport";
 import "./style.scss";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
-import Iphone from "./Iphone";
+import Step4 from "./Step4";
 import circleBg from "../../img/main/circle-bg.svg";
 
-const stepss = [Step1, Step2, Step3];
 
-
-const stepConfig = {
-  offset: [0, -30],
-  threshhold: 0.5
-};
+const Iphone  =lazy(() => import("./Iphone"));
+const stepss = [Step1, Step2, Step3, Step4];
 
 const stepViewportOpt = {
-  rootMargin: `${stepConfig.offset[0]}% 0px ${
-      stepConfig.offset[1]
-  }% 0px`,
-  threshold: stepConfig.threshhold
-}
+  rootMargin: `0% 0px -30% 0px`,
+  threshold: 0.5
+};
 
 const Steps = props => {
-  const [curStep, changeStep] = useState(0)
-  const onEnterStep = i => ()  => {
-    changeStep(i+1)
+  const [curStep, changeStep] = useState(0);
+
+  const memoStepChange = useCallback(i => e => {
+    changeStep(i+1);
+  });
+  const onLeave = i => {
+
   }
-  const onLeaveStep = i => () => {
-    console.log("leaving", curStep);
-  }
+
   return (
-    <section className="steps-wrap full-height">
-      <Iphone step={curStep} />
-      <img src={circleBg} className="circle-bg"/>
-      {/*<Parallax pages={3} >*/}
-      {/*  <ParallaxLayer offset={0} speed={-1} className="centered phone">*/}
-      {/*    <img src={phone} />*/}
-      {/*  </ParallaxLayer>*/}
-      {/*  <ParallaxLayer offset={1} speed={0.1} className="bg-green">*/}
-      {/*  </ParallaxLayer>*/}
-      {/*  <ParallaxLayer offset={2} speed={0.1} className="bg-grey">*/}
-      {/*  </ParallaxLayer>*/}
-      {/*</Parallax>*/}
+    <>
+      <Suspense fallback={<div>Loading...</div>} >
+        <Iphone step={curStep} />
+      </Suspense>
+      <img src={circleBg} className="circle-bg" />
+
       {stepss.map((Component, i) => {
-        const StepBlock = handleViewport(
-          props => <Component step={i + 1} stepConfig={stepConfig} {...props} />,
+        let StepBlock = handleViewport(
+          props => (
+            <Component
+              step={i + 1}
+              stepConfig={stepViewportOpt}
+              inViewport={props.inViewport}
+              forwardedRef={props.forwardedRef}
+            />
+          ),
           stepViewportOpt
         );
 
-        return (
-          <StepBlock
-            key={i + 1}
-            onEnterViewport={onEnterStep(i)}
-            onLeaveViewport={onLeaveStep(i)}
-          />
-        );
+        return <StepBlock key={i + 1} onEnterViewport={memoStepChange(i)} onLeaveViewport={onLeave(i+1)}/>;
       })}
-    </section>
+    </>
   );
 };
 
