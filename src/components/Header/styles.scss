@@ -37,8 +37,9 @@
   text-decoration: none;
   color: $text-color;
   align-items: center;
+  cursor: pointer;
   &:hover,
-  .active {
+  &.active {
     color: $primary;
   }
 }

@@ -46,7 +46,7 @@ const Step4 = props => {
           <div
             className={`dynamic-text mg-auto ${inViewport ? "in-view" : ""}`}
           >
-            <Rotating double inside size={300}/>
+            <Rotating double inside size={300} />
             <div
               className={`centered white-oval big ${
                 inViewport ? "growing" : ""

@@ -34,13 +34,13 @@
       }
       &.desc {
         &:after {
-          content: '';
+          content: "";
           transform: rotate(45deg) translate(-50%, -50%);
         }
       }
       &.asc {
         &:after {
-          content: '';
+          content: "";
           transform: rotate(-135deg) translate(-50%, -50%);
         }
       }

@@ -35,7 +35,11 @@ const Footer = () => {
         {fields && (
           <div className="row">
             <div className="col-lg-4">
-              <a href={fields.acf.pdf.mediaItemUrl} className="dashed" target="_blank">
+              <a
+                href={fields.acf.pdf.mediaItemUrl}
+                className="dashed"
+                target="_blank"
+              >
                 {fields.acf.pdf.title} (PDF)
               </a>
             </div>

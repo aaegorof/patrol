@@ -20,14 +20,12 @@ const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 const format = d3.format("0");
 
-
 const pieAnimationConfig = {
   to: async (next, cancel) => {
     await next({ t: 1 });
   },
   from: { t: 0 },
-  config: { duration: 1450 },
-
+  config: { duration: 1450 }
 };
 
 const Arc = ({
@@ -59,7 +57,9 @@ const Arc = ({
         fill={color}
         fontSize="26"
       >
-        {animatedProps.t.interpolate(t => format(interpolator(t).value.toFixed()))}
+        {animatedProps.t.interpolate(t =>
+          format(interpolator(t).value.toFixed())
+        )}
       </animated.text>
       <animated.text
         transform={animatedProps.t.interpolate(t => {
@@ -73,7 +73,11 @@ const Arc = ({
         className="text"
         y={10}
       >
-        {text.map(word => <tspan x={0} dy={12}>{word}</tspan>)}
+        {text.map(word => (
+          <tspan x={0} dy={12}>
+            {word}
+          </tspan>
+        ))}
       </animated.text>
     </g>
   );
@@ -81,7 +85,7 @@ const Arc = ({
 
 const Pie = props => {
   const cache = useRef([]);
-  const [svgKey, setSvgKey] = useState(Math.random())
+  const [svgKey, setSvgKey] = useState(Math.random());
   const createPie = d3
     .pie()
     .value(d => d.value)
@@ -104,7 +108,7 @@ const Pie = props => {
   });
 
   useEffect(() => {
-    setSvgKey(Math.random())
+    setSvgKey(Math.random());
   }, [props.inViewport]);
 
   const maxCountWidth = props.innerRadius * 2 * 0.7;

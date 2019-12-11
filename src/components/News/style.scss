@@ -7,7 +7,8 @@
   .slick-track {
     min-width: 100% !important;
   }
-  .slick-prev, .slick-next {
+  .slick-prev,
+  .slick-next {
     top: -$button-height;
     width: $button-height;
     height: $button-height;
@@ -46,9 +47,9 @@
     cursor: pointer;
     position: relative;
     &:after {
-      content: '';
+      content: "";
       position: absolute;
-      width: calc(100% - #{$pdding * 2} );
+      width: calc(100% - #{$pdding * 2});
       border-bottom: 1px dashed;
       left: $pdding;
       bottom: 10px;

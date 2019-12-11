@@ -12,7 +12,7 @@
   display: inline-block;
   z-index: 1;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -29,7 +29,7 @@
   text {
     font-weight: 800;
   }
-  .text{
+  .text {
     font-weight: 400;
     font-size: 12px;
   }
@@ -40,7 +40,6 @@
       font-size: 40px;
       font-weight: 700;
     }
-
   }
 }
 
@@ -58,10 +57,10 @@
   font-size: 14px;
   font-weight: 400;
 }
-.shadow-img{
+.shadow-img {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%,100%);
+  transform: translate(-50%, 100%);
   z-index: -1;
 }

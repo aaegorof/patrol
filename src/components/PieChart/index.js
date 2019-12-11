@@ -49,8 +49,6 @@ const parallaxElAnimConfig = {
   config: { mass: 10, tension: 550, friction: 140 }
 };
 
-
-
 const PieChart = props => {
   const prepareData = () => {
     for (const key in props.counter) {
@@ -145,11 +143,10 @@ const PieChart = props => {
   );
 };
 
-const PieViewport = handleViewport(props => <PieChart {...props}/>, {
+const PieViewport = handleViewport(props => <PieChart {...props} />, {
   rootMargin: `-10% 0px -10% 0px`,
   threshold: 0.5
 });
-
 
 export default connect(
   s2p,

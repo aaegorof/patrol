@@ -1,8 +1,9 @@
 @import "../../styles/vars";
 
 .top-wrap {
-  height: calc( 100vh - #{$mobile-menu-height});
+  height: calc(100vh - #{$mobile-menu-height});
   display: flex;
+  background: #fff url(../../img/main/main-mask.svg);
 }
 .title {
   color: $primary;
@@ -18,7 +19,7 @@
   color: $grey;
 }
 
-.feature-wrap {
+.features-wrap {
   position: absolute;
   bottom: 20%;
   width: 100%;

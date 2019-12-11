@@ -34,7 +34,7 @@ const Faq = () => {
     }
   }, [data]);
 
-  return faqData && <FaqView faq={faqData}/>;
+  return faqData && <FaqView faq={faqData} />;
 };
 
 const FaqView = ({ faq }) => {
@@ -47,8 +47,9 @@ const FaqView = ({ faq }) => {
     }
   }, []);
   const onToggle = id => e => {
-    opened.includes(id) ?
-        toggleOpened(opened.filter(ids => ids !== id)) : toggleOpened([...opened, id]);
+    opened.includes(id)
+      ? toggleOpened(opened.filter(ids => ids !== id))
+      : toggleOpened([...opened, id]);
   };
 
   return (
@@ -64,16 +65,20 @@ const FaqView = ({ faq }) => {
               .map(i => (
                 <>
                   <div
-                    className={`faq-term ${opened.includes(term + i.nazvanie) ? "opened" : ""}`}
+                    className={`faq-term ${
+                      opened.includes(term + i.nazvanie) ? "opened" : ""
+                    }`}
                     key={term + i.nazvanie}
                     onClick={onToggle(term + i.nazvanie)}
                   >
-                    <div className="h4"><span className="dashed">{i.nazvanie}</span> <div className="plus"></div></div>
+                    <div className="h4">
+                      <span className="dashed">{i.nazvanie}</span>{" "}
+                      <div className="plus"></div>
+                    </div>
                     <div className="faq-answer">
                       <img src={i.kartinka.sourceUrl} alt={i.kartinka.alt} />
                     </div>
                   </div>
-
                 </>
               ))}
           </div>

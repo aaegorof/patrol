@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import "../../styles/animations.scss";
-import mask from "../../img/main/main-mask.svg";
 import logo from "../../img/logo.svg";
 import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
@@ -15,7 +14,7 @@ const trans = num => (x, y) => {
   return `translate3d(${x / xx}px,${y / yy}px,0)`;
 };
 
-const Top = () => {
+const Top = ({ forwardedRef }) => {
   const [parEl, setParEl] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 }
@@ -23,37 +22,38 @@ const Top = () => {
 
   return (
     <div
-      className="top-wrap bg-white bg-mask bottom"
-      style={{ backgroundImage: `url(${mask})` }}
+      className="top-wrap bg-mask bottom"
       onMouseMove={({ clientX: x, clientY: y }) =>
         setParEl({
           xy: [x - window.innerWidth / 2, y - window.innerHeight / 2]
         })
       }
+      ref={forwardedRef}
     >
-
       <div className="container relative">
-
         <div className="centered column text-center col-lg-6 mg-auto">
-          <img src={logo} className="mg-4-t"/>
+          <img src={logo} className="mg-4-t" />
           <div className="title h3">Патруль качества</div>
 
-          <h1>Борьба с <span className="color-primary">контрафактом</span> на табачном рынке</h1>
+          <h1>
+            Борьба с <span className="color-primary">контрафактом</span> на
+            табачном рынке
+          </h1>
           <div className="site-description">
-            Мы помогаем потребителям отстаивать свои права  на качественные товары с помощью мобильного приложения
+            Мы помогаем потребителям отстаивать свои права  на качественные
+            товары с помощью мобильного приложения
           </div>
         </div>
 
-        <Features/>
-
+        <Features />
 
         <animated.div
-            className="fl-icon"
-            style={{
-              transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22)),
-              left: 0,
-              top: "22%"
-            }} //min 22 and max is 42
+          className="fl-icon"
+          style={{
+            transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22)),
+            left: 0,
+            top: "22%"
+          }} //min 22 and max is 42
         >
           <Rotating double size={180}>
             <img src={megafon} />
@@ -62,14 +62,13 @@ const Top = () => {
 
         <Rotating double size={120} style={{ right: 0, top: "32%" }}>
           <animated.img
-              src={lupa}
-              style={{
-                transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22))
-              }}
+            src={lupa}
+            style={{
+              transform: parEl.xy.interpolate(trans(Math.random() * 20 + 22))
+            }}
           />
         </Rotating>
       </div>
-
     </div>
   );
 };
