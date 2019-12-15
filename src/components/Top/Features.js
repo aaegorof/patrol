@@ -38,7 +38,7 @@ const Features = () => {
               <div className="feature-item">
                 <img src={fe.icon.sourceUrl} />
                 <div className="feature-title">{fe.title}</div>
-                <div className="feature-text">{ReactHtmlParser(fe.text)}</div>
+                <div className="feature-text" dangerouslySetInnerHTML={{__html:fe.text}}/>
               </div>
             ))}
           </div>

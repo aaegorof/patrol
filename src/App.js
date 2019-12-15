@@ -41,7 +41,7 @@ function App() {
       <Provider store={store}>
         <div className="app">
           <Header />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="loader">Loading...</div>}>
           <section id={Object.keys(menu)[0]} className="steps-wrap full-height">
 
               <Steps />
