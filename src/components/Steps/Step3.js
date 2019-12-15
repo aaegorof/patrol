@@ -29,7 +29,11 @@ const Step3 = props => {
   }, [inViewport]);
 
   return (
-    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
+    <section
+      id={`step-${step}`}
+      className={`step-wrap relative step-${step}`}
+      ref={forwardedRef}
+    >
       <div className="container">
         <div className="row">
           <div className="3step-img-wrapper col-lg-3">

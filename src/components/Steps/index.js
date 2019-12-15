@@ -1,19 +1,19 @@
-import React, { useState, useCallback, lazy, Suspense } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import handleViewport from "react-in-viewport";
 import "./style.scss";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-import circleBg from "../../img/main/circle-bg.svg";
 import Top from "../Top";
+import { Link } from "react-scroll";
 
-const Iphone = lazy(() => import("./Iphone"));
+import Iphone from "./Iphone";
 const stepss = [Step1, Step2, Step3, Step4];
 
 const stepViewportOpt = {
-  rootMargin: `0% 0px -30% 0px`,
-  threshold: 0.6
+  rootMargin: `-60px 0px 0% 0px`,
+  threshold: 0.52
 };
 
 const Steps = () => {
@@ -21,11 +21,18 @@ const Steps = () => {
   const memoStepChange = useCallback(i => e => {
     changeStep(i + 1);
   });
-  const TopWrap = handleViewport(
-    props => (
-      <Top inViewport={props.inViewport} forwardedRef={props.forwardedRef} />
-    ),
-    { rootMargin: `-15% 0px -75% 0px`, threshold: 0 }
+  const TopWrap = useMemo(
+    () =>
+      handleViewport(
+        props => (
+          <Top
+            inViewport={props.inViewport}
+            forwardedRef={props.forwardedRef}
+          />
+        ),
+        { rootMargin: `-15% 0px -15% 0px`, threshold: 0 }
+      ),
+    []
   );
   const toStep0 = () => {
     changeStep(0);
@@ -34,10 +41,7 @@ const Steps = () => {
   return (
     <>
       <TopWrap onEnterViewport={toStep0} />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Iphone step={curStep} />
-      </Suspense>
-      <img src={circleBg} className="circle-bg" />
+      <Iphone step={curStep} />
 
       {stepss.map((Component, i) => {
         const StepBlock = handleViewport(

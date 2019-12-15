@@ -22,6 +22,7 @@ const Top = ({ forwardedRef }) => {
 
   return (
     <div
+      id="top-face"
       className="top-wrap bg-mask bottom"
       onMouseMove={({ clientX: x, clientY: y }) =>
         setParEl({
@@ -32,7 +33,7 @@ const Top = ({ forwardedRef }) => {
     >
       <div className="container relative">
         <div className="centered column text-center col-lg-6 mg-auto">
-          <img src={logo} className="mg-4-t" />
+          <img src={logo} className="mg-3-t" />
           <div className="title h3">Патруль качества</div>
 
           <h1>

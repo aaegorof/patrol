@@ -31,12 +31,16 @@ const Step1 = props => {
   }, [inViewport]);
 
   return (
-    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
-      <div className="big-logo" style={{ opacity: inViewport ? 0 : 1 }}>
-        <Rotating double size={200}>
-          <img src={logo} />
-        </Rotating>
-      </div>
+    <section
+      id={`step-${step}`}
+      className={`step-wrap relative step-${step}`}
+      ref={forwardedRef}
+    >
+      {/*<div className="big-logo" style={{ opacity: inViewport ? 0 : 1 }}>*/}
+      {/*  <Rotating double size={200}>*/}
+      {/*    <img src={logo} />*/}
+      {/*  </Rotating>*/}
+      {/*</div>*/}
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (
@@ -53,7 +57,9 @@ const Step1 = props => {
           />
 
           <div
-            className={`dynamic-text push-right ${inViewport ? "in-view" : ""}`}
+            className={`dynamic-text relative push-right ${
+              inViewport ? "in-view" : ""
+            }`}
           >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>

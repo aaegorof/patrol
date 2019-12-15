@@ -5,10 +5,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reducer, { initialState } from "./reducers";
 import { setup } from "./actions";
-import handleViewport from "react-in-viewport";
 
 import Header, { menu } from "./components/Header";
-import Top from "./components/Top";
 
 import Faq from "./components/Faq";
 import News from "./components/News";
@@ -16,7 +14,7 @@ import News from "./components/News";
 import Footer from "./components/Footer";
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+import {client} from "./config";
 
 const Steps = React.lazy(() => import("./components/Steps"));
 const Issues = React.lazy(() => import("./components/Issues"));
@@ -36,10 +34,6 @@ const store = createStore(
 );
 
 store.dispatch(setup());
-
-const client = new ApolloClient({
-  uri: "http://patrol.sitewanted.ru/graphql"
-});
 
 function App() {
   return (

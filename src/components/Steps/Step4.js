@@ -31,7 +31,11 @@ const Step4 = props => {
   }, [inViewport]);
 
   return (
-    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
+    <section
+      id={`step-${step}`}
+      className={`step-wrap relative step-${step}`}
+      ref={forwardedRef}
+    >
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (

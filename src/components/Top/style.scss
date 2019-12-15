@@ -4,6 +4,8 @@
   height: calc(100vh - #{$mobile-menu-height});
   display: flex;
   background: #fff url(../../img/main/main-mask.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .title {
   color: $primary;
@@ -31,6 +33,7 @@
   justify-content: center;
   flex-direction: column;
   width: 20%;
+  z-index: 2;
   &:nth-child(2n) {
     transform: translateY(50%);
   }
