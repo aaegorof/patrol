@@ -41,26 +41,26 @@ function App() {
       <Provider store={store}>
         <div className="app">
           <Header />
-
+          <Suspense fallback={<div>Loading...</div>}>
           <section id={Object.keys(menu)[0]} className="steps-wrap full-height">
-            <Suspense fallback={<div>Loading...</div>}>
+
               <Steps />
-            </Suspense>
+
           </section>
 
           <section id={Object.keys(menu)[1]} className="bg-white pd-4-v">
-            <Suspense fallback={<div>Loading...</div>}>
+
               <h2 className="container">Карта обращений</h2>
               <Map firstTop={6} />
-            </Suspense>
+
           </section>
 
           <section id={Object.keys(menu)[2]} className="bg-white pd-4-v">
-            <Suspense fallback={<div>Loading...</div>}>
+
               <h2 className="container">Статистика</h2>
               <Issues />
               <PieChart/>
-            </Suspense>
+
           </section>
 
           <section id={Object.keys(menu)[3]} className="pd-4-v">
@@ -70,7 +70,7 @@ function App() {
           <section id={Object.keys(menu)[4]} className="bg-white pd-4-v">
             <News />
           </section>
-
+          </Suspense>
           <Footer />
         </div>
       </Provider>

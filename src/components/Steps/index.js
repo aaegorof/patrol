@@ -6,7 +6,6 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import Top from "../Top";
-import { Link } from "react-scroll";
 
 import Iphone from "./Iphone";
 const stepss = [Step1, Step2, Step3, Step4];
@@ -30,7 +29,7 @@ const Steps = () => {
             forwardedRef={props.forwardedRef}
           />
         ),
-        { rootMargin: `-15% 0px -15% 0px`, threshold: 0 }
+        { rootMargin: `-25% 0px -25% 0px`, threshold: 0 }
       ),
     []
   );

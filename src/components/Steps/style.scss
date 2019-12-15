@@ -53,7 +53,7 @@
 
 .steps-wrap {
   position: relative;
-  background: url(../../img/main/circle-bg.svg) no-repeat right bottom fixed;
+  background: url(../../img/main/circle-bg.svg) no-repeat right bottom;
 }
 .step-wrap {
   min-height: calc(100vh - #{$mobile-menu-height});
