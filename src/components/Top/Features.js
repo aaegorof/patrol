@@ -35,10 +35,13 @@ const Features = () => {
         {fields && (
           <div className="row">
             {fields.map(fe => (
-              <div className="feature-item">
+              <div className="feature-item" key={fe.title}>
                 <img src={fe.icon.sourceUrl} />
                 <div className="feature-title">{fe.title}</div>
-                <div className="feature-text" dangerouslySetInnerHTML={{__html:fe.text}}/>
+                <div
+                  className="feature-text"
+                  dangerouslySetInnerHTML={{ __html: fe.text }}
+                />
               </div>
             ))}
           </div>

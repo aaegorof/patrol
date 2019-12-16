@@ -66,7 +66,7 @@ const Countries = props => {
   return (
     <g>
       {props.children.map(child => (
-        <CountryPath key={child.region_num} country={child} {...props} />
+        <CountryPath key={child.props.id} country={child} {...props}/>
       ))}
     </g>
   );

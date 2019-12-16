@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { animated, useTrail, config } from "react-spring";
 import alert from "../../img/icon/attent.svg";
-import logo from "../../img/logo.svg";
 import rupor from "../../img/1step/rupor.svg";
 import molniya from "../../img/1step/molniya.svg";
 import molniya2 from "../../img/1step/molniya2.svg";
@@ -32,7 +31,7 @@ const Step1 = props => {
 
   return (
     <section
-      id={`step-${step}`}
+      name={`step-${step}`}
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >

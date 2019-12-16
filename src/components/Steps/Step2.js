@@ -29,7 +29,7 @@ const Step1 = props => {
 
   return (
     <section
-      id={`step-${step}`}
+      name={`step-${step}`}
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >

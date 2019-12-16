@@ -19,14 +19,14 @@ const Header = () => {
         <nav className="main-menu">
           {Object.entries(menu).map(([key, val]) => (
             <Link
-              activeClass="active"
-              hashSpy={key}
+                to={key}
+                key={key}
+                spy={true}
+                activeClass="active"
               className="nav-link"
-              to={key}
-              spy={true}
+              hashSpy={true}
               smooth={true}
               duration={250}
-              key={key}
             >
               {val}
             </Link>

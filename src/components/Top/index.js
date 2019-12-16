@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, { lazy, Suspense } from "react";
 import "./style.scss";
 import "../../styles/animations.scss";
 import logo from "../../img/logo.svg";
@@ -6,7 +6,7 @@ import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
 import { animated, useSpring } from "react-spring";
 import Rotating from "../Rotating";
-const Features = lazy(()=> import("./Features"));
+const Features = lazy(() => import("./Features"));
 
 const trans = num => (x, y) => {
   const xx = num < 30 ? num : -num;
@@ -47,7 +47,7 @@ const Top = ({ forwardedRef }) => {
         </div>
 
         <Suspense fallback="Loading">
-        <Features />
+          <Features />
         </Suspense>
 
         <animated.div

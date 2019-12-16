@@ -7,6 +7,8 @@ import Step4 from "./Step4";
 import Top from "../Top";
 import { InView } from "react-intersection-observer";
 import Iphone from "./Iphone";
+import { Link } from "react-scroll";
+import arrowsDown from "../../img/icon/double-arrow-down.svg";
 const stepss = [Step1, Step2, Step3, Step4];
 
 const stepViewportOpt = {
@@ -23,6 +25,10 @@ const Steps = () => {
   const toStep0 = () => {
     changeStep(0);
   };
+  const prevDirection = () =>
+    curStep === 1 ? "top-face" : `step-${curStep - 1}`;
+  const nextDirection = () =>
+    curStep === stepss.length ? "map" : `step-${curStep + 1}`;
 
   return (
     <>
@@ -33,12 +39,39 @@ const Steps = () => {
           </div>
         )}
       </InView>
-
-      <Iphone step={curStep} />
+      <div className={`iphone-wrap`}>
+        {curStep > 0 && (
+          <Link
+            className="step-link prev"
+            to={prevDirection()}
+            smooth={true}
+            spy={false}
+            duration={500}
+            key={`prev-${curStep - 1}`}
+            offset={-60}
+            hashSpy={false}
+          >
+            <img src={arrowsDown} className="arrow-up" />
+          </Link>
+        )}
+        <Iphone step={curStep} />
+        <Link
+          className="step-link next"
+          to={nextDirection()}
+          smooth={true}
+          spy={false}
+          hashSpy={false}
+          duration={500}
+          key={`next-${curStep + 1}`}
+          offset={-60}
+        >
+          <img src={arrowsDown} className="swinging" />
+        </Link>
+      </div>
 
       {stepss.map((Component, i) => {
         return (
-          <InView onChange={memoStepChange(i)} {...stepViewportOpt}>
+          <InView onChange={memoStepChange(i)} {...stepViewportOpt} key={i}>
             {({ inView, ref }) => (
               <div ref={ref}>
                 <Component step={i + 1} inViewport={inView} key={i + 1} />

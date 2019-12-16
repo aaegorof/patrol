@@ -25,7 +25,6 @@ const pieAnimationConfig = {
     await next({ t: 1 });
   },
   from: { t: 0 },
-  config: { duration: 1450 }
 };
 
 const Arc = ({
@@ -63,7 +62,6 @@ const Arc = ({
       </animated.text>
       <animated.text
         transform={animatedProps.t.interpolate(t => {
-          //const [xx, yy] = createArc.centroid(interpolator(t));
           const [x, y] = offset;
           return `translate(${x}, ${y})`;
         })}
@@ -85,7 +83,6 @@ const Arc = ({
 
 const Pie = props => {
   const cache = useRef([]);
-  const [svgKey, setSvgKey] = useState(Math.random());
   const createPie = d3
     .pie()
     .value(d => d.value)
@@ -101,15 +98,16 @@ const Pie = props => {
 
   const [animatedProps, setAnimatedProps] = useSpring(() => pieAnimationConfig);
 
-  setAnimatedProps(pieAnimationConfig);
+
 
   useEffect(() => {
     cache.current = props.data;
   });
-
-  useEffect(() => {
-    setSvgKey(Math.random());
-  }, [props.inViewport]);
+useEffect(() => {
+  if( props.inViewport) {
+    setAnimatedProps(pieAnimationConfig);
+  }
+}, [props.inViewport])
 
   const maxCountWidth = props.innerRadius * 2 * 0.7;
 
@@ -136,36 +134,37 @@ const Pie = props => {
 
   return (
     <div className="pie-chart">
+
       <svg width={props.width} height={props.height} className="pie-svg">
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
           {data.map((d, i) => {
             return (
-              <Arc
-                key={i}
-                index={i}
-                from={previousData[i]}
-                to={d}
-                createArc={createArc}
-                color={d.data.color ? d.data.color : colors(i)}
-                text={d.data.text}
-                format={format}
-                animatedProps={animatedProps}
-                offset={calcOffset(
-                  props.outerRadius,
-                  props.innerRadius,
-                  d.startAngle,
-                  d.endAngle,
-                  1.15
-                )}
-              />
+                <Arc
+                    key={i}
+                    index={i}
+                    from={previousData[i]}
+                    to={d}
+                    createArc={createArc}
+                    color={d.data.color ? d.data.color : colors(i)}
+                    text={d.data.text}
+                    format={format}
+                    animatedProps={animatedProps}
+                    offset={calcOffset(
+                        props.outerRadius,
+                        props.innerRadius,
+                        d.startAngle,
+                        d.endAngle,
+                        1.15
+                    )}
+                />
             );
           })}
         </g>
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
           <text
-            className="group-num"
-            transform={for20()}
-            alignmentBaseline="middle"
+              className="group-num"
+              transform={for20()}
+              alignmentBaseline="middle"
           >
             <tspan x={0}>
               {((props.groupAnswered * 100) / props.total).toFixed()}%
@@ -178,9 +177,9 @@ const Pie = props => {
             </tspan>
           </text>
           <text
-            transform={for80()}
-            alignmentBaseline="middle"
-            className="group-num"
+              transform={for80()}
+              alignmentBaseline="middle"
+              className="group-num"
           >
             <tspan x={0}>
               {((props.groupNotAnswered * 100) / props.total).toFixed()}%
