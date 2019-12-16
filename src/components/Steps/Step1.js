@@ -11,7 +11,7 @@ const images = [send, alert, molniya2, molniya, rupor];
 const imagesCoord = [[1, 1], [0.7, -170], [0.9, -120], [0.92, 170], [0.7, 80]];
 
 const Step1 = props => {
-  const { inViewport, forwardedRef, stepConfig, step } = props;
+  const { inViewport, forwardedRef, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
@@ -27,7 +27,7 @@ const Step1 = props => {
     inViewport
       ? setImgTrail({ xy: [-550, 1], opacity: 1 })
       : setImgTrail({ xy: [1, 0], opacity: 0 });
-  }, [inViewport]);
+  }, [inViewport,setImgTrail]);
 
   return (
     <section

@@ -31,7 +31,6 @@ const Features = () => {
 
   return (
     <div className="features-wrap">
-      <div className="container">
         {fields && (
           <div className="row">
             {fields.map(fe => (
@@ -46,7 +45,6 @@ const Features = () => {
             ))}
           </div>
         )}
-      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const images = [message, mail, molniya3, eye];
 const imagesCoord = [[1, 1], [1.1, -20], [0.65, -90], [0.6, 220]];
 
 const Step3 = props => {
-  const { inViewport, forwardedRef, stepConfig, step } = props;
+  const { inViewport, forwardedRef, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
@@ -26,7 +26,7 @@ const Step3 = props => {
     inViewport
       ? setImgTrail({ xy: [-550, 1], opacity: 1 })
       : setImgTrail({ xy: [1, 0], opacity: 0 });
-  }, [inViewport]);
+  }, [inViewport,setImgTrail]);
 
   return (
     <section

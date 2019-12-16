@@ -12,7 +12,7 @@ const images = [message, done, logo];
 const imagesCoord = [[0.8, -70], [1.2, 80], [0.9, 200]];
 
 const Step4 = props => {
-  const { inViewport, forwardedRef, stepConfig, step } = props;
+  const { inViewport, forwardedRef, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },

@@ -48,7 +48,7 @@ function App() {
 
           </section>
 
-          <section id={Object.keys(menu)[1]} className="bg-white pd-4-v">
+          <section id={Object.keys(menu)[1]} className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b">
 
               <h2 className="container">Карта обращений</h2>
               <Map firstTop={6} />

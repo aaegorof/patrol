@@ -10,7 +10,7 @@ const images = [loading, message, search, molniya];
 const imagesCoord = [[0.8, 170], [1, 1], [1.45, 1], [1, -70]];
 
 const Step1 = props => {
-  const { inViewport, forwardedRef, stepConfig, step } = props;
+  const { inViewport, forwardedRef, step } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] }
@@ -25,7 +25,7 @@ const Step1 = props => {
     inViewport
       ? setImgTrail({ xy: [380, 1], opacity: 1 })
       : setImgTrail({ xy: [1, 0], opacity: 0 });
-  }, [inViewport]);
+  }, [inViewport, setImgTrail]);
 
   return (
     <section

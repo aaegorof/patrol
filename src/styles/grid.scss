@@ -20,12 +20,12 @@
 
 @media screen and (max-width: $container) {
   .container {
-    margin-left: 30px;
-    margin-right: 30px;
+    padding-left: nth(nth($margins, 1),2);
+    padding-right: nth(nth($margins, 1),2);
   }
 }
 
-@media screen and (min-width: nth(nth($breakpoints,1),2)) {
+@media screen and (max-width: nth(nth($breakpoints,2),2)) {
   ///the lowest breakpoint
   [class^="col-"] {
     width: 100%;

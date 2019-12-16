@@ -89,6 +89,8 @@ const PieChart = props => {
   const trans3 = (x, y) => `translate3d(${x / 12}px,${y / 12}px,0)`;
   const trans4 = (x, y) => `translate3d(${-x / 12}px,${-y / 16}px,0)`;
 
+  const pieW = window.innerWidth < 425 ? 260 : 360
+
   return (
     <div
       className="pie-chart-wrap container text-center relative"
@@ -98,10 +100,10 @@ const PieChart = props => {
       {!props.errors.counter &&  (
         <AnimatedPie
           data={preparedData}
-          width={360}
-          height={360}
-          innerRadius={100}
-          outerRadius={180}
+          width={pieW}
+          height={pieW}
+          innerRadius={pieW/4}
+          outerRadius={pieW/2}
           colors={colors}
           total={props.counter.in_work}
           totalText="Всего обращений взято в работу"
