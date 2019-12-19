@@ -9,6 +9,7 @@
   justify-content: center;
   height: 560px;
   max-height: 90vh;
+  pointer-events: none;
 }
 .iphone {
   z-index: 100;
@@ -80,6 +81,7 @@
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
+  pointer-events: auto;
   &.prev {
     top: -$size;
     transform: translateX(-50%) scale(-1, -1);
@@ -115,6 +117,7 @@
   z-index: 5;
   & > * {
     line-height: 0.9;
+    display: block;
   }
   & > .step-num {
     line-height: 1.4;

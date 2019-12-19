@@ -154,7 +154,7 @@ useEffect(() => {
                         props.innerRadius,
                         d.startAngle,
                         d.endAngle,
-                        1.15
+                        1.05
                     )}
                 />
             );

@@ -5,7 +5,7 @@ import "./styles.scss";
 import { Link } from "react-scroll";
 
 export const menu = {
-  works: "Как это работает",
+  step1: "Как это работает",
   map: "Карта обращений",
   statistics: "Статистика",
   info: "Полезная информация",
@@ -19,14 +19,14 @@ const Header = () => {
         <nav className="main-menu">
           {Object.entries(menu).map(([key, val]) => (
             <Link
-                to={key}
-                key={key}
-                spy={true}
-                activeClass="active"
-              className="nav-link"
+              to={key}
+              key={key}
+              spy={true}
+              activeClass="active"
+              className={`nav-link ${key}`}
               hashSpy={true}
-              smooth={true}
-              duration={250}
+              smooth="easeOutQuint"
+              duration={1250}
             >
               {val}
             </Link>

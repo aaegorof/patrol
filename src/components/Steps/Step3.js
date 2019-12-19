@@ -30,7 +30,7 @@ const Step3 = props => {
 
   return (
     <section
-      name={`step-${step}`}
+      name={`step${step}`}
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >
@@ -57,18 +57,18 @@ const Step3 = props => {
           >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Получение</span>{" "}
+              <span className="color-primary">Получение</span>
               <span> ответа</span>
             </div>
             <div className="step-description">
               <p>
-                Контролирующий орган в течение  30 дней проводит проверку.  
+                Контролирующий орган в течение 30 дней проводит проверку.
               </p>
               <p>
                 Ответ приходит пользователю в карточку обращения в мобильном
                 приложении.
               </p>
-              <p>Если ответа нет, направляется  повторное заявление</p>
+              <p>Если ответа нет, направляется повторное заявление</p>
             </div>
           </div>
         </div>

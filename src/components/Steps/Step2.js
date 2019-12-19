@@ -29,7 +29,7 @@ const Step1 = props => {
 
   return (
     <section
-      name={`step-${step}`}
+      name={`step${step}`}
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >
@@ -50,15 +50,14 @@ const Step1 = props => {
           <div className={`dynamic-text ${inViewport ? "in-view" : ""}`}>
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Обработка</span>  
+              <span className="color-primary">Обработка </span>
               <span>обращения</span>
             </div>
             <div className="step-description">
-              Обращение проходит модерацию и отправляется в контролирующий
-              орган. Обращение проходит модерацию и отправляется в
-              контролирующий орган.  Обращение может не пройти модерацию, если:
+              Обращение проходит модерацию и отправляется в контролирующий
+              орган. Обращение может не пройти модерацию, если:
               - не содержит описания нарушения, - описание нарушения не
-              соответствует  выбранной категории.
+              соответствует выбранной категории.
             </div>
           </div>
         </div>

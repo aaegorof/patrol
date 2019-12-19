@@ -26,9 +26,9 @@ const Steps = () => {
     changeStep(0);
   };
   const prevDirection = () =>
-    curStep === 1 ? "top-face" : `step-${curStep - 1}`;
+    curStep === 1 ? "top-face" : `step${curStep - 1}`;
   const nextDirection = () =>
-    curStep === stepss.length ? "map" : `step-${curStep + 1}`;
+    curStep === stepss.length ? "map" : `step${curStep + 1}`;
 
   return (
     <>
@@ -55,7 +55,7 @@ const Steps = () => {
           </Link>
         )}
         <Iphone step={curStep} />
-        <Link
+        {curStep < stepss.length && <Link
           className="step-link next"
           to={nextDirection()}
           smooth={true}
@@ -67,6 +67,7 @@ const Steps = () => {
         >
           <img src={arrowsDown} className="swinging" />
         </Link>
+        }
       </div>
 
       {stepss.map((Component, i) => {

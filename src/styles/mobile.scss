@@ -1,4 +1,4 @@
-.fl-icon, .trails-img, .iphone-wrap, .svg-map {
+.fl-icon, .trails-img, .iphone-wrap, .svg-map, .hide-sm-max {
   display: none !important;
 }
 
@@ -48,8 +48,10 @@
 
 .faq-term  {
   padding: 0 20px;
-  .plus {
-    min-width: 40px;
+  .dashed {
+    &:after {
+      content: none;
+    }
   }
 }
 

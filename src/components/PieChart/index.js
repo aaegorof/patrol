@@ -89,7 +89,7 @@ const PieChart = props => {
   const trans3 = (x, y) => `translate3d(${x / 12}px,${y / 12}px,0)`;
   const trans4 = (x, y) => `translate3d(${-x / 12}px,${-y / 16}px,0)`;
 
-  const pieW = window.innerWidth < 425 ? 260 : 360
+  const pieW = window.innerWidth < 425 ? 200 : 360
 
   return (
     <div
@@ -102,7 +102,7 @@ const PieChart = props => {
           data={preparedData}
           width={pieW}
           height={pieW}
-          innerRadius={pieW/4}
+          innerRadius={window.innerWidth < 425 ? pieW/3 : pieW/4 }
           outerRadius={pieW/2}
           colors={colors}
           total={props.counter.in_work}

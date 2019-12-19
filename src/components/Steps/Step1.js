@@ -31,7 +31,7 @@ const Step1 = props => {
 
   return (
     <section
-      name={`step-${step}`}
+      name={`step${step}`}
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >
@@ -67,7 +67,7 @@ const Step1 = props => {
             </div>
             <div className="step-description">
               Потребитель, обнаруживший факт торговли контрафактными изделиями,
-              создает  в мобильном приложении заявку  на рассмотрение. Для этого
+              создает в мобильном приложении заявку на рассмотрение. Для этого
               он совершает несколько простых шагов:
               <ul>
                 <li>выбирает категорию из классификатора</li>

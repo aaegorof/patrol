@@ -42,15 +42,14 @@ function App() {
         <div className="app">
           <Header />
           <Suspense fallback={<div className="loader">Loading...</div>}>
-          <section id={Object.keys(menu)[0]} className="steps-wrap full-height">
 
+          <section className="steps-wrap full-height">
               <Steps />
-
           </section>
 
           <section id={Object.keys(menu)[1]} className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b">
 
-              <h2 className="container">Карта обращений</h2>
+              <h2 className="container hide-sm-max">Карта обращений</h2>
               <Map firstTop={6} />
 
           </section>
