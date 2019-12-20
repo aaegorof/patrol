@@ -13,14 +13,13 @@ moment.locale("ru");
 
 const NEWS = gql`
   {
-    posts(where: { status: PUBLISH, orderby: {field: DATE, order: DESC}} ) {
+    posts(where: { status: PUBLISH, orderby: {field: DATE, order: DESC}}, first: 100 ) {
       nodes {
         id
         link
         title
         date
         content
-        excerpt(format: RENDERED)
         categories {
           nodes {
             name
@@ -57,6 +56,7 @@ const News = () => {
   useEffect(() => {
     if (!loading) {
       const initCat = data.categories.nodes[0].name;
+      console.log(data);
       filterNews(newList(initCat));
       changeCat(initCat);
     }
