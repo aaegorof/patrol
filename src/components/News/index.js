@@ -14,7 +14,7 @@ moment.locale("ru");
 
 const NEWS = gql`
   {
-    posts {
+    posts(where: { status: PUBLISH, orderby: {field: DATE, order: DESC}} ) {
       nodes {
         id
         link
@@ -117,8 +117,8 @@ const News = () => {
                   <div className="date">
                     {moment(date).format("D MMMM YYYY")}
                   </div>
-                  <div className="h4">{ReactHtmlParser(title)}</div>
-                  <div className="news-content">{ReactHtmlParser(content)}</div>
+                  <div className="h4" dangerouslySetInnerHTML={{__html:title}}/>
+                  <div className="news-content" dangerouslySetInnerHTML={{__html:content}}/>
                 </div>
               ))}
             </Slider>
