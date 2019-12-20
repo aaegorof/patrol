@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import ReactHtmlParser from "react-html-parser";
 import Slider from "react-slick";
 import * as moment from "moment";
 import "moment/locale/ru";

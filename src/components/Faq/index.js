@@ -4,24 +4,25 @@ import { gql } from "apollo-boost";
 import "./style.scss";
 
 const FAQ = gql`
-  {
-    page(id: "cGFnZTo4") {
-      faq {
-        vopros {
-          nazvanie
-          kartinka {
-            altText
-            sourceUrl
-          }
-          term {
-            ... on Tag {
-              name
+    {
+        page(id: "cGFnZTo4") {
+            faq {
+                vopros {
+                    nazvanie
+                    gallery {
+                        altText
+                        sourceUrl
+                        excerpt
+                    }
+                    term {
+                        ... on Tag {
+                            name
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 `;
 
 
@@ -30,15 +31,20 @@ const FaqView = ({ faq }) => {
 
   const terms = faq.reduce((prev, cur) => {
     const names = cur.term.map(term => term.name);
+    if(!cur.term.length) {
+      return prev
+    }
     if (!prev.includes(names)) {
       return names;
     }
   }, []);
+
   const onToggle = id => e => {
     opened.includes(id)
         ? toggleOpened(opened.filter(ids => ids !== id))
         : toggleOpened([...opened, id]);
   };
+  console.log(faq, terms);
 
   return (
       <div className="faq-wrap container">
@@ -59,11 +65,14 @@ const FaqView = ({ faq }) => {
                               onClick={onToggle(term + i.nazvanie)}
                           >
                             <div className="h4">
-                              <span className="dashed">{i.nazvanie}</span>{" "}
+                              <span className="dashed">{i.nazvanie}</span>
                               <div className="plus"></div>
                             </div>
-                            <div className="faq-answer">
-                              <img src={i.kartinka.sourceUrl} alt={i.kartinka.alt} />
+                            <div className="faq-answer row">
+                              {i.gallery.map(img => <div className="faq-images col-lg-3">
+                                <img src={img.sourceUrl} alt={img.alt} />
+                                <div className="faq-description" dangerouslySetInnerHTML={{__html:img.excerpt}}/>
+                              </div>)}
                             </div>
                           </div>
                         </div>
@@ -87,7 +96,7 @@ const Faq = () => {
     }
   }, [data]);
 
-  return (faqData ? <FaqView faq={faqData} key={Math.random()}/> : <div>None</div>)
+  return (faqData ? <FaqView faq={faqData}/> : <div>None</div>)
 };
 
 export default Faq;

@@ -48,6 +48,10 @@
 
 .faq-term  {
   padding: 0 20px;
+  .h4 {
+    height: auto;
+    padding: 10px 0;
+  }
   .dashed {
     &:after {
       content: none;
@@ -56,12 +60,18 @@
 }
 
 .rating {
+  $widths: (25%, 20%, 20%, 30%);
   font-size: 14px;
   thead {
+    @include widths($widths);
     th {
       padding: 6px;
       text-align: left;
       font-weight: 400;
+      word-break: break-word;
+      &.desc, &.asc {
+        padding-right: 20px;
+      }
     }
   }
   .issue-row {
