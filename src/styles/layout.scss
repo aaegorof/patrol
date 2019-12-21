@@ -36,6 +36,19 @@ body {
     height: $size/10;
     background: $text-color;
     box-shadow: 0 7px 0 $text-color, 0 14px 0 $text-color;
-    content: '';
+    content: "";
+  }
+}
+.to-top {
+  transform: rotate(-90deg);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  filter: grayscale(1);
+  transition: all .2s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  &.shown {
+    opacity: 1;
   }
 }
