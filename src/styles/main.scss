@@ -12,12 +12,16 @@
 @import "layout";
 @import "elements";
 
-$sm: nth(nth($breakpoints, 2),2);
+$sm: nth(nth($breakpoints, 2), 2);
+$md: nth(nth($breakpoints, 3), 2);
 
-@media screen and (max-width: $sm) {
-  body {
+body {
+  @media screen and (max-width: $md) {
+    @import "tablet";
+  }
+
+  @media screen and (max-width: $sm) {
     overflow-x: hidden;
     @import "mobile";
   }
-
 }

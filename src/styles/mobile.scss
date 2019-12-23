@@ -5,35 +5,6 @@
   display: block;
 }
 
-.main-header {
-  position: fixed;
-  height: $mobile-menu-height;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 14px 14px rgba($text-color,0.05);
-}
-.market-buttons {
-  margin-left: 0;
-  img {
-    height: 40px;
-  }
-}
-.main-menu {
-  position: absolute;
-  top: $mobile-menu-height;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  flex-direction: column;
-  display: flex;
-  padding: 30px;
-  transition: transform 0.1s ease-in-out;
-  box-shadow: 0 14px 14px rgba($text-color,0.05);
-}
-.steps-wra {
-  margin-top: $mobile-menu-height;
-}
-
 
 .features-wrap {
   position: relative;

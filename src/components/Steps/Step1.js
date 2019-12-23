@@ -11,8 +11,7 @@ const images = [send, alert, molniya2, molniya, rupor];
 const imagesCoord = [[1, 1], [0.7, -170], [0.9, -120], [0.92, 170], [0.7, 80]];
 
 const Step1 = props => {
-  const { inViewport, forwardedRef, step } = props;
-
+  const { inViewport, forwardedRef, step, titleArr, description } = props;
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
     config: config.stiff
@@ -35,11 +34,6 @@ const Step1 = props => {
       className={`step-wrap relative step-${step}`}
       ref={forwardedRef}
     >
-      {/*<div className="big-logo" style={{ opacity: inViewport ? 0 : 1 }}>*/}
-      {/*  <Rotating double size={200}>*/}
-      {/*    <img src={logo} />*/}
-      {/*  </Rotating>*/}
-      {/*</div>*/}
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (
@@ -62,21 +56,10 @@ const Step1 = props => {
           >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Отправка</span>{" "}
-              <span> обращения</span>
+              <span className="color-primary">{titleArr[0]}</span>
+              <span> {titleArr.slice(1,titleArr.length)}</span>
             </div>
-            <div className="step-description">
-              Потребитель, обнаруживший факт торговли контрафактными изделиями,
-              создает в мобильном приложении заявку на рассмотрение. Для этого
-              он совершает несколько простых шагов:
-              <ul>
-                <li>выбирает категорию из классификатора</li>
-                <li>выбирает торговую точку на карте</li>
-                <li>пишет комментарий</li>
-                <li>фотографирует товар</li>
-                <li>отправляет обращение</li>
-              </ul>
-            </div>
+            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
             <Rotating double size={500} inside />
           </div>
         </div>

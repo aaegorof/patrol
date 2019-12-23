@@ -5,12 +5,13 @@ import mail from "../../img/3step/mail3.svg";
 import molniya3 from "../../img/3step/molniya3.svg";
 import message from "../../img/3step/message3.svg";
 import Rotating from "../Rotating";
+import { description } from "d3/dist/package";
 
 const images = [message, mail, molniya3, eye];
 const imagesCoord = [[1, 1], [1.1, -20], [0.65, -90], [0.6, 220]];
 
 const Step3 = props => {
-  const { inViewport, forwardedRef, step } = props;
+  const { inViewport, forwardedRef, step, titleArr, description  } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
@@ -57,19 +58,10 @@ const Step3 = props => {
           >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Получение</span>
-              <span> ответа</span>
+              <span className="color-primary">{titleArr[0]}</span>
+              <span> {titleArr.slice(1,titleArr.length)}</span>
             </div>
-            <div className="step-description">
-              <p>
-                Контролирующий орган в течение 30 дней проводит проверку.
-              </p>
-              <p>
-                Ответ приходит пользователю в карточку обращения в мобильном
-                приложении.
-              </p>
-              <p>Если ответа нет, направляется повторное заявление</p>
-            </div>
+            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
           </div>
         </div>
       </div>

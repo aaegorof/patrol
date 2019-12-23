@@ -10,7 +10,7 @@ const images = [loading, message, search, molniya];
 const imagesCoord = [[0.8, 170], [1, 1], [1.45, 1], [1, -70]];
 
 const Step1 = props => {
-  const { inViewport, forwardedRef, step } = props;
+  const { inViewport, forwardedRef, step, titleArr, description } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] }
@@ -50,15 +50,10 @@ const Step1 = props => {
           <div className={`dynamic-text ${inViewport ? "in-view" : ""}`}>
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Обработка </span>
-              <span>обращения</span>
+              <span className="color-primary">{titleArr[0]}</span>
+              <span> {titleArr.slice(1,titleArr.length)}</span>
             </div>
-            <div className="step-description">
-              Обращение проходит модерацию и отправляется в контролирующий
-              орган. Обращение может не пройти модерацию, если:
-              - не содержит описания нарушения, - описание нарушения не
-              соответствует выбранной категории.
-            </div>
+            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
           </div>
         </div>
       </div>

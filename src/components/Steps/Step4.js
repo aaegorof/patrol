@@ -15,7 +15,7 @@ const imagesLeft = [molniya1, molniya3]
 const imagesLeftCoord = [[1.1, -30], [1, -170]];
 
 const Step4 = props => {
-  const { inViewport, step } = props;
+  const { inViewport, step, titleArr, description  } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
@@ -77,16 +77,10 @@ const Step4 = props => {
             />
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Отслеживание </span>
-              <span>результата</span>
+              <span className="color-primary">{titleArr[0]}</span>
+              <span> {titleArr.slice(1,titleArr.length)}</span>
             </div>
-            <div className="step-description">
-              <p>
-                После отправки обращения пользователь может отслеживать ход
-                решения в мобильном приложении, а после получения ответа  –
-                оценить работу и оставить отзыв.
-              </p>
-            </div>
+            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
           </div>
         </div>
       </div>

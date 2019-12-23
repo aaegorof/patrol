@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -9,7 +9,20 @@ import { InView } from "react-intersection-observer";
 import Iphone from "./Iphone";
 import { Link } from "react-scroll";
 import arrowsDown from "../../img/icon/double-arrow-down.svg";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 const stepss = [Step1, Step2, Step3, Step4];
+
+const FAQ = gql`{
+    page(id: "cGFnZTo4") {
+        faq {
+            steps {
+                stepTitle
+                stepDescription
+            }
+        }
+    }
+}`
 
 const stepViewportOpt = {
   rootMargin: `-60px 0px 0% 0px`,
@@ -18,6 +31,15 @@ const stepViewportOpt = {
 
 const Steps = () => {
   const [curStep, changeStep] = useState(0);
+  const [stepContent, setStepContent] = useState([{stepTitle:"",stepDescription:""}])
+  const {loading, data} = useQuery(FAQ)
+
+  useEffect(() =>{
+    if(!loading) {
+      setStepContent(data.page.faq.steps);
+    }
+  },[data])
+
   const memoStepChange = i => () => {
     changeStep(i + 1);
   };
@@ -25,8 +47,6 @@ const Steps = () => {
   const toStep0 = () => {
     changeStep(0);
   };
-  const prevDirection = () =>
-    curStep === 1 ? "top-face" : `step${curStep - 1}`;
   const nextDirection = () =>
     curStep === stepss.length ? "map" : `step${curStep + 1}`;
 
@@ -40,10 +60,10 @@ const Steps = () => {
         )}
       </InView>
       <div className={`iphone-wrap`}>
-        {curStep > 0 && (
+        {curStep > 1 && (
           <Link
             className="step-link prev"
-            to={prevDirection()}
+            to={`step${curStep - 1}`}
             smooth={true}
             spy={false}
             duration={500}
@@ -70,12 +90,12 @@ const Steps = () => {
         }
       </div>
 
-      {stepss.map((Component, i) => {
+      {stepContent.length > 1 && stepss.map((Component, i) => {
         return (
           <InView onChange={memoStepChange(i)} {...stepViewportOpt} key={i}>
             {({ inView, ref }) => (
               <div ref={ref}>
-                <Component step={i + 1} inViewport={inView} key={i + 1} />
+                <Component step={i + 1} inViewport={inView} titleArr={stepContent[i].stepTitle.split(" ")} description={stepContent[i].stepDescription} key={i + 1} />
               </div>
             )}
           </InView>

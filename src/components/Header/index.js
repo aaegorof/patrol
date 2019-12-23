@@ -17,6 +17,7 @@ const HOMEPAGE = gql`
     }
 `;
 
+
 export const menu = {
   step1: "Как это работает",
   map: "Карта обращений",
@@ -43,7 +44,7 @@ const Header = () => {
           className="main-menu"
           style={{
             transform:
-              !isToggledMenu && window.innerWidth < 425
+              !isToggledMenu && window.innerWidth < 812
                 ? "translateX(-120%)"
                 : "translateX(0)"
           }}
@@ -72,7 +73,7 @@ const Header = () => {
           </a>
         </div>
         <div
-          className="humburger push-right show-sm-max"
+          className="humburger push-right show-md-max"
           onClick={() => toggleMenu(!isToggledMenu)}
         ></div>
       </div>
