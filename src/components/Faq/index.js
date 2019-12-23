@@ -44,7 +44,6 @@ const FaqView = ({ faq }) => {
         ? toggleOpened(opened.filter(ids => ids !== id))
         : toggleOpened([...opened, id]);
   };
-  console.log(faq, terms);
 
   return (
       <div className="faq-wrap container">
@@ -62,14 +61,13 @@ const FaqView = ({ faq }) => {
                               className={`faq-term ${
                                   opened.includes(term + i.nazvanie) ? "opened" : ""
                               }`}
-                              onClick={onToggle(term + i.nazvanie)}
                           >
-                            <div className="h4">
+                            <div className="h4" onClick={onToggle(term + i.nazvanie)}>
                               <span className="dashed">{i.nazvanie}</span>
                               <div className="plus"></div>
                             </div>
-                            <div className="faq-answer row">
-                              {i.gallery.map(img => <div className="faq-images col-lg-3">
+                            <div className="faq-answer">
+                              {i.gallery.map(img => <div className="faq-images">
                                 <img src={img.sourceUrl} alt={img.alt} />
                                 <div className="faq-description" dangerouslySetInnerHTML={{__html:img.excerpt}}/>
                               </div>)}

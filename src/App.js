@@ -39,8 +39,7 @@ store.dispatch(setup());
 function App() {
   const [topClass, setToTopClass] = useState(null)
   const toTopClass = () => {
-    //console.log(window.pageYOffset/document.body.scrollHeight);
-    setToTopClass(window.pageYOffset/document.body.scrollHeight > 0.5 ? "shown" : "hidden")
+    setToTopClass(window.pageYOffset/document.body.scrollHeight > 0.2 ? "shown" : "hidden")
   }
 
   useEffect(() => {

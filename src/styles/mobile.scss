@@ -92,6 +92,10 @@
   }
 }
 
+.faq-answer {
+  display: block;
+}
+
 .rating {
   $widths: (25%, 20%, 20%, 30%);
   font-size: 14px;
@@ -147,3 +151,4 @@
     text-align: center;
   }
 }
+

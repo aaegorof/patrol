@@ -25,9 +25,8 @@
   }
 }
 
-@media screen and (max-width: nth(nth($breakpoints,2),2)) {
+
   ///the lowest breakpoint
-  [class^="col-"] {
+  [class*="col-"] {
     width: 100%;
   }
-}

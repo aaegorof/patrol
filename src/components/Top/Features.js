@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import ReactHtmlParser from "react-html-parser";
 
 const FOOTER = gql`
   {

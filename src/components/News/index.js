@@ -56,7 +56,7 @@ const News = () => {
   useEffect(() => {
     if (!loading) {
       const initCat = data.categories.nodes[0].name;
-      console.log(data);
+
       filterNews(newList(initCat));
       changeCat(initCat);
     }

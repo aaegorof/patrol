@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import appStore from "../../img/AppStore.svg";
 import googlePlay from "../../img/GooglePlay.svg";
 import "./styles.scss";
 import { Link } from "react-scroll";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+
+const HOMEPAGE = gql`
+    {
+        page(id: "cGFnZTo4") {
+            acf {
+                applelink
+                googleplay
+            }
+        }
+    }
+`;
 
 export const menu = {
   step1: "Как это работает",
@@ -13,7 +26,16 @@ export const menu = {
 };
 
 const Header = () => {
+  const { loading, data } = useQuery(HOMEPAGE)
   const [isToggledMenu, toggleMenu] = useState(false);
+  const [links, setLinks] = useState({applelink: "#", googleplay: "#"})
+
+  useEffect(() => {
+    if (!loading) {
+      setLinks(data.page.acf);
+    }
+  }, [data]);
+
   return (
     <div className="header-wrap">
       <div className="main-header container">
@@ -42,10 +64,10 @@ const Header = () => {
           ))}
         </nav>
         <div className="push-right market-buttons">
-          <a href="#" className="btn-market">
+          <a href={links.applelink} className="btn-market">
             <img src={appStore} />
           </a>
-          <a href="#" className="btn-market">
+          <a href={links.googleplay} className="btn-market">
             <img src={googlePlay} />
           </a>
         </div>
