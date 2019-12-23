@@ -85,6 +85,29 @@
   }
 }
 
+@keyframes floating-up {
+  0% {
+    transform: translate(-50%,0) scale(-1,-1);
+  }
+  50% {
+    transform: translate(-50%,-10px) scale(-1,-1);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(-1,-1);
+  }
+}
+@keyframes floating-down {
+  0% {
+    transform: translate(-50%,0);
+  }
+  50% {
+    transform: translate(-50%,10px);
+  }
+  100% {
+    transform: translate(-50%,0);
+  }
+}
+
 @keyframes rotating {
   0% {
     transform: translateY(-50%) translateX(-50%) rotate(0deg);

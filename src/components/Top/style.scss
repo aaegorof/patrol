@@ -4,6 +4,9 @@
   height: calc(100vh - #{$mobile-menu-height});
   display: flex;
   background: #fff url(../../img/main/main-mask.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-height: 800px;
 }
 .title {
   color: $primary;
@@ -31,6 +34,7 @@
   justify-content: center;
   flex-direction: column;
   width: 20%;
+  z-index: 2;
   &:nth-child(2n) {
     transform: translateY(50%);
   }
@@ -46,4 +50,28 @@
 }
 .feature-text {
   font-weight: 300;
+}
+
+@media screen and (min-width: 580px) and (max-height: 700px) {
+  .top-wrap {
+    .mg-3-t, h1 {
+      margin-top: 25px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .rotating {
+      max-width: 120px;
+      max-height: 120px;
+      img {
+        max-width: 160px;
+      }
+    }
+  }
+  .features-wrap {
+    bottom: 15%;
+  }
+  .feature-title {
+    font-size: 30px;
+  }
 }

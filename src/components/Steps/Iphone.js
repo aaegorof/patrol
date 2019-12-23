@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import phoneBg from "../../img/phone/base1.png";
-import screen0 from "../../img/phone/0step.png";
-import screen1 from "../../img/phone/1step.png";
-import screen2 from "../../img/phone/2step.png";
-import screen3 from "../../img/phone/3step.png";
-import screen4 from "../../img/phone/4step.png";
+import screen0 from "../../img/phone/step0.png";
+import screen1 from "../../img/phone/step1.png";
+import screen2 from "../../img/phone/step2.png";
+import screen3 from "../../img/phone/step3.png";
+import screen4 from "../../img/phone/step4.png";
 
 const screens = [screen0, screen1, screen2, screen3, screen4];
 
@@ -25,7 +25,7 @@ const Iphone = ({ step }) => {
       className={`iphone i-step-${step}`}
       style={{
         backgroundImage: `url(${phoneBg})`,
-        transform: `translate(-50%,-30%) rotate(${angle}deg)`
+        transform: `translate(-50%, 0%) rotate(${angle}deg)`
       }}
     >
       <img src={screens[step]} className={`step-screen`} />

@@ -4,3 +4,51 @@ html {
 body {
   background: $bg-color;
 }
+.loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: $grey;
+}
+.slick-slider {
+  user-select: auto;
+}
+
+.humburger {
+  $padding: 10px;
+  $size: 20px;
+  position: relative;
+  display: none;
+  vertical-align: middle;
+  width: $size;
+  height: $size * 0.8;
+  cursor: pointer;
+  padding: $padding;
+  box-sizing: content-box;
+  &:after {
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    display: block;
+    width: calc(100% - #{$padding * 2});
+    height: $size/10;
+    background: $text-color;
+    box-shadow: 0 7px 0 $text-color, 0 14px 0 $text-color;
+    content: "";
+  }
+}
+.to-top {
+  transform: rotate(-90deg);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  filter: grayscale(1);
+  transition: all .2s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  &.shown {
+    opacity: 1;
+  }
+}

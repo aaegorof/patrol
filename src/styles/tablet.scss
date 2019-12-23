@@ -1,0 +1,86 @@
+.show-md-max {
+  display: block;
+}
+
+.fl-icon, .trails-img, .hide-md-max, .rotating, .growing {
+  display: none;
+}
+
+.main-header {
+  position: fixed;
+  height: $mobile-menu-height;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 14px 14px rgba($text-color,0.05);
+}
+.market-buttons {
+  margin-left: 0;
+  img {
+    height: 40px;
+  }
+}
+.main-menu {
+  position: absolute;
+  top: $mobile-menu-height;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  flex-direction: column;
+  display: flex;
+  padding: 30px;
+  transition: transform 0.1s ease-in-out;
+  box-shadow: 0 14px 14px rgba($text-color,0.05);
+}
+.steps-wrap {
+  padding-top: $mobile-menu-height;
+}
+.step-wrap {
+  margin-top: 40px;
+}
+
+
+.top-wrap {
+  .fl-icon, .rotating {
+    display: none;
+  }
+}
+
+.features-wrap {
+  max-width: 95vw;
+  .row {
+    width: 100%;
+  }
+  .feature-title {
+    font-size: 25px;
+  }
+}
+
+.iphone {
+  opacity: 1;
+  .step-screen {
+    width: 200px;
+  }
+  &.i-step-1 {
+    left: 30%;
+  }
+  &.i-step-2 {
+    left: 63%;
+  }
+  &.i-step-3 {
+    left: 30%;
+  }
+  &.i-step-4 {
+    opacity: 0;
+  }
+}
+
+
+.step-4 {
+  .rotating, .growing {
+    display: block;
+  }
+  .white-oval.growing.big {
+    width: 760px;
+    height: 760px;
+  }
+}

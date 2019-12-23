@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import ReactHtmlParser from "react-html-parser";
 
 const FOOTER = gql`
   {
@@ -31,19 +30,20 @@ const Features = () => {
 
   return (
     <div className="features-wrap">
-      <div className="container">
         {fields && (
           <div className="row">
             {fields.map(fe => (
-              <div className="feature-item">
+              <div className="feature-item" key={fe.title}>
                 <img src={fe.icon.sourceUrl} />
                 <div className="feature-title">{fe.title}</div>
-                <div className="feature-text">{ReactHtmlParser(fe.text)}</div>
+                <div
+                  className="feature-text"
+                  dangerouslySetInnerHTML={{ __html: fe.text }}
+                />
               </div>
             ))}
           </div>
         )}
-      </div>
     </div>
   );
 };
