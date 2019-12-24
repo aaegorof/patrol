@@ -11,9 +11,9 @@ import iconAttent from "../../img/icon/attent.svg";
 import iconDone from "../../img/icon/done.svg";
 import iconLoading from "../../img/icon/loading.svg";
 import iconMail from "../../img/icon/mail.svg";
-import handleViewport from "react-in-viewport";
+import { useInView } from "react-intersection-observer";
 
-const s2p = state => state;
+const s2p = ({counter,errors}) => ({counter, errors});
 const d2p = dispatch => ({
   fetchApi: val => {
     dispatch(fetchApi(val));
@@ -69,7 +69,7 @@ const PieChart = props => {
       initStructure.not_answered_in_time.value;
     return [yy, groupAnswered, groupNotAnswered];
   };
-
+  const [ref, inView] = useInView({threshold: 0.5})
   const [preparedData, groupAnswered, groupNotAnswered] = prepareData();
 
   useEffect(() => {
@@ -89,25 +89,27 @@ const PieChart = props => {
   const trans3 = (x, y) => `translate3d(${x / 12}px,${y / 12}px,0)`;
   const trans4 = (x, y) => `translate3d(${-x / 12}px,${-y / 16}px,0)`;
 
+  const pieW = window.innerWidth < 425 ? 200 : 360
+
   return (
     <div
       className="pie-chart-wrap container text-center relative"
       onMouseMove={({ clientX: x, clientY: y }) => setParEl({ xy: calc(x, y) })}
-      ref={props.forwardedRef}
+      ref={ref}
     >
-      {!props.errors.counter && (
+      {!props.errors.counter &&  (
         <AnimatedPie
           data={preparedData}
-          width={360}
-          height={360}
-          innerRadius={100}
-          outerRadius={180}
+          width={pieW}
+          height={pieW}
+          innerRadius={window.innerWidth < 425 ? pieW/3 : pieW/4 }
+          outerRadius={pieW/2}
           colors={colors}
           total={props.counter.in_work}
           totalText="Всего обращений взято в работу"
           groupAnswered={groupAnswered}
           groupNotAnswered={groupNotAnswered}
-          inViewport={props.inViewport}
+          inViewport={inView}
         />
       )}
       {props.errors.counter && (
@@ -143,12 +145,7 @@ const PieChart = props => {
   );
 };
 
-const PieViewport = handleViewport(props => <PieChart {...props} />, {
-  rootMargin: `-10% 0px -10% 0px`,
-  threshold: 0.5
-});
-
 export default connect(
   s2p,
   d2p
-)(PieViewport);
+)(PieChart);

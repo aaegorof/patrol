@@ -1,9 +1,17 @@
 @import "../../styles/vars";
-
-.iphone {
+@import "../../styles/animations";
+.iphone-wrap {
   position: sticky;
-  left: 50%;
-  top: 32%;
+  top: 26%;
+  transform: translateY(-16%);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  height: 560px;
+  max-height: 90vh;
+  pointer-events: none;
+}
+.iphone {
   z-index: 100;
   display: inline-flex;
   padding: 15px;
@@ -11,6 +19,10 @@
   background-repeat: no-repeat;
   transition: all 0.5s ease-in-out;
   will-change: scroll-position;
+  position: absolute;
+  left: 50%;
+  align-self: center;
+  background-size: 100%;
   &.i-step-4 {
     left: 250px;
   }
@@ -34,7 +46,7 @@
   left: 50%;
   position: absolute;
   transform: translate(-50%);
-  top: -45%;
+  top: -35%;
   width: 380px;
   height: 380px;
   display: inline-flex;
@@ -53,19 +65,34 @@
 
 .steps-wrap {
   position: relative;
+  background: url(../../img/main/circle-bg.svg) no-repeat right bottom;
 }
 .step-wrap {
-  min-height: 50vh;
-  margin-top: 250px;
-  &:last-of-type {
-    padding-bottom: 40vh;
+  min-height: calc(100vh - #{$mobile-menu-height});
+  display: flex;
+  align-items: center;
+}
+.step-link {
+  $size: 40px;
+  width: $size;
+  height: $size;
+  position: absolute;
+  z-index: 102;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  pointer-events: auto;
+  &.prev {
+    top: -$size;
+    transform: translateX(-50%) scale(-1, -1);
+    animation: floating-up 3s linear infinite;
+  }
+  &.next {
+    bottom: -$size;
+    animation: floating-down 3s linear infinite;
   }
 }
-
 .dynamic-text {
-  transform: translateX(50%);
-  transition-delay: 0.6s;
-  opacity: 0;
   transition: all 0.4s ease-in-out;
   max-width: 350px;
   flex-basis: 350px;
@@ -87,6 +114,7 @@
   z-index: 5;
   & > * {
     line-height: 0.9;
+    display: block;
   }
   & > .step-num {
     line-height: 1.4;
@@ -128,13 +156,27 @@
 }
 
 .step-1 {
-  margin-top: 150px;
+  margin-top: -150px;
+  //background: rgba(pink,0.2);
   .step1-icon {
     left: 50%;
-    top: 10%;
+    top: 40%;
+  }
+  .rotating.inside {
+    opacity: 0;
+    transform: scale(0) translate(-50%, -50%);
+    transition: all 0.35s ease-in-out;
+  }
+  .dynamic-text.in-view {
+    .rotating {
+      opacity: 1;
+      transform: scale(1) translate(-50%, -50%);
+      transition: all 0.35s ease-in-out;
+    }
   }
 }
 .step-4 {
+  padding-bottom: 150px;
   .dynamic-text {
     transform: translateY(100px);
     &.in-view {
@@ -146,7 +188,7 @@
     transform: translate(-50%, -50%);
   }
   .rotating {
-    z-index: 6;
+    z-index: 4;
   }
   .i-2 {
     width: 180px;

@@ -8,6 +8,7 @@
 .plus {
   height: 40px;
   width: 40px;
+  min-width: 40px;
   background: $secondary;
   display: inline-block;
   text-align: center;
@@ -50,6 +51,21 @@
     display: none;
     margin-top: 30px;
     padding-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px,21%));
+    grid-column-gap: 50px;
+  }
+  .faq-images {
+    padding: 0 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    img {
+      width: 250px;
+      height: 200px;
+      object-fit: contain;
+    }
+  }
+  .faq-description {
+    margin-top: 20px;
   }
   &.opened {
     .dashed {
@@ -58,7 +74,7 @@
       }
     }
     .faq-answer {
-      display: block;
+      display: grid;
     }
     .plus {
       background: rgba($secondary, 0.6);

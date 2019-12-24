@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import "./style.scss";
 import "../../styles/animations.scss";
 import logo from "../../img/logo.svg";
@@ -6,7 +6,7 @@ import megafon from "../../img/main/rupor.svg";
 import lupa from "../../img/main/lupa.svg";
 import { animated, useSpring } from "react-spring";
 import Rotating from "../Rotating";
-import Features from "./Features";
+const Features = lazy(() => import("./Features"));
 
 const trans = num => (x, y) => {
   const xx = num < 30 ? num : -num;
@@ -22,6 +22,7 @@ const Top = ({ forwardedRef }) => {
 
   return (
     <div
+      id="top-face"
       className="top-wrap bg-mask bottom"
       onMouseMove={({ clientX: x, clientY: y }) =>
         setParEl({
@@ -32,7 +33,7 @@ const Top = ({ forwardedRef }) => {
     >
       <div className="container relative">
         <div className="centered column text-center col-lg-6 mg-auto">
-          <img src={logo} className="mg-4-t" />
+          <img src={logo} className="mg-3-t" />
           <div className="title h3">Патруль качества</div>
 
           <h1>
@@ -40,12 +41,14 @@ const Top = ({ forwardedRef }) => {
             табачном рынке
           </h1>
           <div className="site-description">
-            Мы помогаем потребителям отстаивать свои права  на качественные
+            Мы помогаем потребителям отстаивать свои права на качественные
             товары с помощью мобильного приложения
           </div>
         </div>
 
-        <Features />
+        <Suspense fallback="Loading">
+          <Features />
+        </Suspense>
 
         <animated.div
           className="fl-icon"

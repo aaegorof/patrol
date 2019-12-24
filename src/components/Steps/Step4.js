@@ -11,36 +11,59 @@ import done from "../../img/icon/done.svg";
 const images = [message, done, logo];
 const imagesCoord = [[0.8, -70], [1.2, 80], [0.9, 200]];
 
+const imagesLeft = [molniya1, molniya3]
+const imagesLeftCoord = [[1.1, -30], [1, -170]];
+
 const Step4 = props => {
-  const { inViewport, forwardedRef, stepConfig, step } = props;
+  const { inViewport, step, titleArr, description  } = props;
 
   const [imgTrail, setImgTrail] = useTrail(images.length, () => ({
     from: { opacity: 0, xy: [1, 1] },
     config: config.stiff
   }));
+  const [imgLeftTrail, setLeftImgTrail] = useTrail(imagesLeft.length, () => ({
+    from: { opacity: 0, xy: [1, 1] },
+    config: config.stiff
+  }));
 
-  const transform = index => (x, y) => {
-    const [xx, yy] = imagesCoord[index];
+  const transform = (index, coordArray) => (x, y) => {
+    const [xx, yy] = coordArray[index];
     return `translate3d(${x * xx}px, ${1 + y * yy}px, 0)`;
   };
 
   useEffect(() => {
-    inViewport
-      ? setImgTrail({ xy: [450, 1], opacity: 1 })
-      : setImgTrail({ xy: [1, 0], opacity: 0 });
+    if(inViewport) {
+      setImgTrail({ xy: [450, 1], opacity: 1 })
+      setLeftImgTrail( {xy:[-300, 1], opacity: 1})
+    } else {
+      setImgTrail({ xy: [1, 0], opacity: 0 })
+      setLeftImgTrail( {xy:[1,0], opacity: 0})
+    }
   }, [inViewport]);
 
   return (
-    <section className={`step-wrap relative step-${step}`} ref={forwardedRef}>
+    <section
+      name={`step${step}`}
+      className={`step-wrap relative step-${step}`}
+    >
       <div className="container">
         <div className="row">
           {imgTrail.map(({ xy, ...rest }, index) => (
             <animated.img
               key={images[index]}
               className={`trails-img fl-icon step4-icon i-${index}`}
-              style={{ ...rest, transform: xy.interpolate(transform(index)) }}
+              style={{ ...rest, transform: xy.interpolate(transform(index, imagesCoord)) }}
               src={images[index]}
             />
+          ))}
+
+          {imgLeftTrail.map(({ xy, ...rest }, index) => (
+              <animated.img
+                  key={images[index]}
+                  className={`trails-img fl-icon step4-icon i-left-${index}`}
+                  style={{ ...rest, transform: xy.interpolate(transform(index, imagesLeftCoord)) }}
+                  src={imagesLeft[index]}
+              />
           ))}
 
           <div
@@ -54,16 +77,10 @@ const Step4 = props => {
             />
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">Отслеживание</span>{" "}
-              <span> результата</span>
+              <span className="color-primary">{titleArr[0]}</span>
+              <span> {titleArr.slice(1,titleArr.length)}</span>
             </div>
-            <div className="step-description">
-              <p>
-                После отправки обращения пользователь  может отслеживать ход
-                решения в мобильном приложении, а после получения ответа  –
-                оценить работу и оставить отзыв.
-              </p>
-            </div>
+            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
           </div>
         </div>
       </div>

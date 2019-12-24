@@ -88,6 +88,26 @@
         .mg-#{$name}-#{$i}-b {
           margin-bottom: $mg;
         }
+        .pd-#{$name}-#{$i}-v {
+          padding-top: $mg;
+          padding-bottom: $mg;
+        }
+        .pd-#{$name}-#{$i}-h {
+          padding-left: $mg;
+          padding-right: $mg;
+        }
+        .pd-#{$name}-#{$i}-l {
+          padding-left: $mg;
+        }
+        .pd-#{$name}-#{$i}-r {
+          padding-right: $mg;
+        }
+        .pd-#{$name}-#{$i}-t {
+          padding-top: $mg;
+        }
+        .pd-#{$name}-#{$i}-b {
+          padding-bottom: $mg;
+        }
       }
     }
   }

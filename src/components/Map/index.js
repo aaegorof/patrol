@@ -66,7 +66,7 @@ const Countries = props => {
   return (
     <g>
       {props.children.map(child => (
-        <CountryPath key={child.region_num} country={child} {...props} />
+        <CountryPath key={child.props.id} country={child} {...props}/>
       ))}
     </g>
   );
@@ -92,10 +92,6 @@ const Map = ({ map, fetchApi, firstTop }) => {
   const active = map.filter(ctry => ctry.region_num === activeId)[0];
 
   const tooltipTop = () => {
-    console.log(
-      countryPos.top,
-      mapPosition.current.getBoundingClientRect().top
-    );
     return countryPos !== null
       ? countryPos.top - mapPosition.current.getBoundingClientRect().top
       : null;
