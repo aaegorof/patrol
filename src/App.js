@@ -15,7 +15,6 @@ import News from "./components/News";
 import Footer from "./components/Footer";
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { client } from "./config";
 import arrow from "../src/img/icon/arrow.svg";
 import { Link } from "react-scroll";
 
