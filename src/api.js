@@ -6,7 +6,8 @@ import {
   getGeneralsSuccess
 } from "./actions";
 
-const url = "http://tobacco-landing.test2.happydesk.ru/index.php?fnc=";
+const url = "http://84.201.181.175/api/";
+export const graphQlclient = "http://84.201.181.175/graphql";
 
 const typeActions = {
   general: res => getGeneralsSuccess(res),
@@ -28,9 +29,6 @@ export const fetchApi = (type = "general") => dispatch => {
       return res;
     })
     .catch(error => {
-      dispatch(getError({[type]: ""+error }));
+      dispatch(getError({ [type]: "" + error }));
     });
 };
-
-
-

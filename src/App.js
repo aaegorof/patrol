@@ -5,10 +5,9 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reducer, { initialState } from "./reducers";
 import { setup } from "./actions";
-import handleViewport from "react-in-viewport";
+import { graphQlclient } from "./api";
 
 import Header, { menu } from "./components/Header";
-import Top from "./components/Top";
 
 import Faq from "./components/Faq";
 import News from "./components/News";
@@ -22,7 +21,6 @@ const Steps = React.lazy(() => import("./components/Steps"));
 const Issues = React.lazy(() => import("./components/Issues"));
 const Map = React.lazy(() => import("./components/Map"));
 const PieChart = React.lazy(() => import("./components/PieChart"));
-
 
 const middlewares = [thunk];
 const composeEnhancers = composeWithDevTools({
@@ -38,7 +36,7 @@ const store = createStore(
 store.dispatch(setup());
 
 const client = new ApolloClient({
-  uri: "http://patrol.sitewanted.ru/graphql"
+  uri: graphQlclient
 });
 
 function App() {
@@ -65,7 +63,7 @@ function App() {
             <Suspense fallback={<div>Loading...</div>}>
               <h2 className="container">Статистика</h2>
               <Issues />
-              <PieChart/>
+              <PieChart />
             </Suspense>
           </section>
 
