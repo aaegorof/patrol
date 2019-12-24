@@ -11,6 +11,7 @@ const screens = [screen0, screen1, screen2, screen3, screen4];
 const Iphone = ({ step }) => {
   const [angle, setAngle] = useState(0);
 
+
   useEffect(() => {
     const mod = step % 2 ? 1 : -1;
     if (step === 0 || step === 4) {

@@ -34,14 +34,16 @@ const Steps = () => {
   const [stepContent, setStepContent] = useState([{stepTitle:"",stepDescription:""}])
   const {loading, data} = useQuery(FAQ)
 
+
+
   useEffect(() =>{
     if(!loading) {
       setStepContent(data.page.faq.steps);
     }
   },[data])
 
-  const memoStepChange = i => () => {
-    changeStep(i + 1);
+  const cbStepChange = i => () => {
+    changeStep(i);
   };
 
   const toStep0 = () => {
@@ -92,7 +94,7 @@ const Steps = () => {
 
       {stepContent.length > 1 && stepss.map((Component, i) => {
         return (
-          <InView onChange={memoStepChange(i)} {...stepViewportOpt} key={i}>
+          <InView onChange={cbStepChange(i + 1)} {...stepViewportOpt} key={i}>
             {({ inView, ref }) => (
               <div ref={ref}>
                 <Component step={i + 1} inViewport={inView} titleArr={stepContent[i].stepTitle.split(" ")} description={stepContent[i].stepDescription} key={i + 1} />

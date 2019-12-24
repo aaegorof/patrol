@@ -26,7 +26,7 @@ const Step1 = props => {
     inViewport
       ? setImgTrail({ xy: [-550, 1], opacity: 1 })
       : setImgTrail({ xy: [1, 0], opacity: 0 });
-  }, [inViewport,setImgTrail]);
+  }, [inViewport, setImgTrail]);
 
   return (
     <section
@@ -56,10 +56,12 @@ const Step1 = props => {
           >
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">{titleArr[0]}</span>
-              <span> {titleArr.slice(1,titleArr.length)}</span>
+              <div className="color-primary">{titleArr[0]}</div><div> {titleArr.slice(1, titleArr.length)}</div>
             </div>
-            <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
+            <div
+              className="step-description"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
             <Rotating double size={500} inside />
           </div>
         </div>

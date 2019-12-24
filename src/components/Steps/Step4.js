@@ -77,8 +77,7 @@ const Step4 = props => {
             />
             <div className="step-title mg-2-b">
               <div className="step-num">0{step}</div>
-              <span className="color-primary">{titleArr[0]}</span>
-              <span> {titleArr.slice(1,titleArr.length)}</span>
+              <div className="color-primary">{titleArr[0]}</div><div> {titleArr.slice(1,titleArr.length)}</div>
             </div>
             <div className="step-description" dangerouslySetInnerHTML={{__html: description}}/>
           </div>
