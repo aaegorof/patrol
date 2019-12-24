@@ -20,7 +20,6 @@ const Step1 = props => {
     const [xx, yy] = imagesCoord[index];
     return `translate3d(${x * xx}px, ${1 + y * yy}px, 0)`;
   };
-
   useEffect(() => {
     inViewport
       ? setImgTrail({ xy: [380, 1], opacity: 1 })

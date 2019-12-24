@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import reducer, { initialState } from "./reducers";
 import { setup } from "./actions";
 import { graphQlclient } from "./api";
+import ApolloClient from "apollo-boost";
 
 import Header, { menu } from "./components/Header";
 

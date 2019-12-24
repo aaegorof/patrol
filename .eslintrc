@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "jsx-a11y/atl-text": "off"
+  }
+}

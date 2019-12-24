@@ -5,7 +5,6 @@ import mail from "../../img/3step/mail3.svg";
 import molniya3 from "../../img/3step/molniya3.svg";
 import message from "../../img/3step/message3.svg";
 import Rotating from "../Rotating";
-import { description } from "d3/dist/package";
 
 const images = [message, mail, molniya3, eye];
 const imagesCoord = [[1, 1], [1.1, -20], [0.65, -90], [0.6, 220]];
