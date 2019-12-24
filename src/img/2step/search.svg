@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="141px" height="102px" viewBox="0 0 141 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/2step/search2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44.7253303" height="94.7585806"></rect>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-1157.000000, -2978.000000)">
+            <g id="2-step" transform="translate(0.000000, 2739.000000)">
+                <g id="illu/2step" transform="translate(343.000000, 38.736166)">
+                    <g id="illu/2step/search2" transform="translate(881.500000, 261.763834) rotate(-15.000000) translate(-881.500000, -261.763834) translate(796.000000, 176.263834)">
+                        <g id="Group-30" transform="translate(85.467608, 85.169231) rotate(-45.000000) translate(-85.467608, -85.169231) translate(43.967608, 6.669231)">
+                            <ellipse id="Oval" fill="#335A9D" opacity="0.05" cx="45.9023711" cy="46.9101884" rx="36.3393309" ry="36.589947"></ellipse>
+                            <ellipse id="Oval" stroke="#FFFFFF" stroke-width="10" cx="45.9023711" cy="46.9101884" rx="36.3393309" ry="36.589947"></ellipse>
+                            <g id="Oval" transform="translate(23.402371, 47.500000) scale(-1, 1) translate(-23.402371, -47.500000) translate(0.902371, -0.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="Mask"></g>
+                                <ellipse stroke="#EFEFEF" stroke-width="10" mask="url(#mask-2)" cx="0" cy="46.9101884" rx="36.3393309" ry="36.589947"></ellipse>
+                            </g>
+                            <rect id="Rectangle" fill="#EFEFEF" x="43.1070379" y="78.8091165" width="9.31777715" height="23.4550942"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="47.7659265" y="78.8091165" width="4.65888857" height="23.4550942"></rect>
+                            <rect id="Rectangle" fill="#FDAD29" x="38.4481494" y="102.264211" width="18.6355543" height="54.4158186" rx="5"></rect>
+                            <path d="M47.7659265,102.264211 L52.0837037,102.264211 C54.8451274,102.264211 57.0837037,104.502787 57.0837037,107.264211 L57.0837037,151.680029 C57.0837037,154.441453 54.8451274,156.680029 52.0837037,156.680029 L47.7659265,156.680029 L47.7659265,102.264211 Z" id="Rectangle" fill="#FFC248"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

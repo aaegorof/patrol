@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="75px" viewBox="0 0 98 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/mail3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M33.6698451,0.483357291 L101.08148,44.9695957 L45.8137069,54.0018905 L33.6698451,0.483357291 Z M29.3183086,1.17943829 L37.2781613,36.2565254 L0.0519693128,43.6301609 L29.3183086,1.17943829 Z M102.051969,49.1775545 L72.78563,91.6286859 L65.8284355,55.0973086 L102.051969,49.1775545 Z M38.2210778,40.446091 L41.9881482,57.0355447 C42.2296217,58.1125696 43.2606885,58.7931186 44.371968,58.6087777 L61.5048898,55.8113741 L68.4858975,92.4833573 L0.852842543,47.8507906 L38.2210778,40.446091 Z" id="path-1"></path>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-131.000000, -3825.000000)">
+            <g id="3step" transform="translate(-322.000000, 3415.000000)">
+                <g transform="translate(0.499949, 0.859320)" id="illu/3step">
+                    <g transform="translate(0.500051, 0.140680)">
+                        <g id="illu/mail3" transform="translate(501.500000, 446.500000) rotate(-21.000000) translate(-501.500000, -446.500000) translate(450.000000, 400.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-255"></g>
+                            <polygon id="Fill-254" fill="#44B647" mask="url(#mask-2)" points="23.5320699 -29.153824 130.614047 42.082047 74.6960236 123.846176 -32.3859533 52.6103051"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

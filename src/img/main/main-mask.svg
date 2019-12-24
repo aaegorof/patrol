@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="425px" viewBox="0 0 1440 425" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>main-mask</title>
+    <desc>Created with Sketch.</desc>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(0.000000, -415.000000)" fill="#F4F5F8">
+            <g id="1-srceen" transform="translate(-9.000000, 0.000000)">
+                <g id="bg">
+                    <g id="Group-4" transform="translate(9.000000, 342.000000)">
+                        <g id="Group-3" transform="translate(-483.000000, 4.000000)">
+                            <path d="M1204,463 C1378.66667,439 1539,356 1685,214 C1831,72 2072,1 2408,1 L2408,545 L1204,545 L1204,544 L0,544 L0,0 C336,-1.70974346e-14 577,71 723,213 C869,355 1029.33333,438 1204,462 L1204,463 Z" id="main-mask"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>btn+@1x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-1250.000000, -8467.000000)">
+            <g id="Инструкции" transform="translate(124.000000, 7912.000000)">
+                <g id="Выпадашки-инструкций">
+                    <g transform="translate(0.000000, 67.000000)">
+                        <g id="btn/plus" transform="translate(1126.000000, 488.000000)">
+                            <g id="Group-20">
+                                <rect id="Rectangle" fill="#FFCB48" x="0" y="0" width="40" height="40" rx="20"></rect>
+                                <rect id="Rectangle" fill="#FFFFFF" x="18" y="13" width="4" height="14"></rect>
+                                <rect id="Rectangle" fill="#FFFFFF" transform="translate(20.000000, 20.000000) rotate(90.000000) translate(-20.000000, -20.000000) " x="18" y="13" width="4" height="14"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

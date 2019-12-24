@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="173px" height="119px" viewBox="0 0 173 119" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/main/lupa0</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-26.4%" y="-13.8%" width="158.6%" height="127.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.196078431   0 0 0 0 0.337254902   0 0 0 0 0.6  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="48" height="101"></rect>
+        <rect id="path-4" x="0" y="0" width="48" height="101"></rect>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-1226.000000, -339.000000)">
+            <g id="illu/main" transform="translate(91.000000, 207.000000)">
+                <g id="illu/main/lupa0" transform="translate(1217.500000, 202.500000) rotate(-20.000000) translate(-1217.500000, -202.500000) translate(1127.000000, 112.000000)">
+                    <g id="Group-30" filter="url(#filter-1)" transform="translate(90.500000, 90.500000) rotate(-45.000000) translate(-90.500000, -90.500000) translate(47.000000, 7.000000)">
+                        <circle id="Oval" fill="#335A9D" opacity="0.05" cx="48" cy="50" r="39"></circle>
+                        <circle id="Oval" stroke="#FFFFFF" stroke-width="10" cx="48" cy="50" r="39"></circle>
+                        <g id="Oval" transform="translate(24.000000, 50.500000) scale(-1, 1) translate(-24.000000, -50.500000) ">
+                            <mask id="mask-3" fill="white">
+                                <use xlink:href="#path-2"></use>
+                            </mask>
+                            <g id="Mask"></g>
+                            <circle stroke="#EFEFEF" stroke-width="10" mask="url(#mask-3)" cx="0" cy="50" r="39"></circle>
+                        </g>
+                        <rect id="Rectangle" fill="#EFEFEF" x="45" y="84" width="10" height="25"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="50" y="84" width="5" height="25"></rect>
+                        <rect id="Rectangle" fill="#FDAD29" x="40" y="109" width="20" height="58" rx="5"></rect>
+                        <path d="M50,109 L55,109 C57.7614237,109 60,111.238576 60,114 L60,162 C60,164.761424 57.7614237,167 55,167 L50,167 L50,109 Z" id="Rectangle" fill="#FFC248"></path>
+                    </g>
+                    <g id="Group-30" transform="translate(90.500000, 90.500000) rotate(-45.000000) translate(-90.500000, -90.500000) translate(47.000000, 7.000000)">
+                        <circle id="Oval" fill="#335A9D" opacity="0.05" cx="48" cy="50" r="39"></circle>
+                        <circle id="Oval" stroke="#FFFFFF" stroke-width="10" cx="48" cy="50" r="39"></circle>
+                        <g id="Oval" transform="translate(24.000000, 50.500000) scale(-1, 1) translate(-24.000000, -50.500000) ">
+                            <mask id="mask-5" fill="white">
+                                <use xlink:href="#path-4"></use>
+                            </mask>
+                            <g id="Mask"></g>
+                            <circle stroke="#EFEFEF" stroke-width="10" mask="url(#mask-5)" cx="0" cy="50" r="39"></circle>
+                        </g>
+                        <rect id="Rectangle" fill="#EFEFEF" x="45" y="84" width="10" height="25"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="50" y="84" width="5" height="25"></rect>
+                        <rect id="Rectangle" fill="#FDAD29" x="40" y="109" width="20" height="58" rx="5"></rect>
+                        <path d="M50,109 L55,109 C57.7614237,109 60,111.238576 60,114 L60,162 C60,164.761424 57.7614237,167 55,167 L50,167 L50,109 Z" id="Rectangle" fill="#FFC248"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

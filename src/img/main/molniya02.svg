@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="37px" viewBox="0 0 44 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/main/molniya02</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="3.55813345 37.4120983 27.9088153 25.1773659 17.4573818 18.9530717 52.3093422 8.39458245 29.2418911 19.5426492 41.2417786 26.8477535"></polygon>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-279.000000, -226.000000)">
+            <g id="illu/main" transform="translate(91.000000, 207.000000)">
+                <g id="illu/main/molniya02" transform="translate(210.000000, 37.500000) scale(-1, 1) rotate(-129.000000) translate(-210.000000, -37.500000) translate(182.000000, 15.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-219" transform="translate(27.933738, 22.903340) rotate(20.000000) translate(-27.933738, -22.903340) "></g>
+                    <polygon id="Fill-218" fill="#FFCB49" mask="url(#mask-2)" transform="translate(27.933738, 22.903340) rotate(20.000000) translate(-27.933738, -22.903340) " points="-7.93067446 10.0773448 58.864775 0.695740893 63.7981502 35.729336 -2.99729935 45.1109399"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

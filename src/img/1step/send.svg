@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="315px" height="125px" viewBox="0 0 315 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/1step/send</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-255.0%" y="-510.1%" width="610.0%" height="1120.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="34 0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-255.0%" y="-510.1%" width="610.0%" height="1120.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="34 0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-255.0%" y="-510.1%" width="610.0%" height="1120.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="34 0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <rect id="path-4" x="0" y="0" width="42" height="42" rx="21"></rect>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-67.000000, -2210.000000)">
+            <g id="1step" transform="translate(-56.000000, 1708.000000)">
+                <g id="illu/1step" transform="translate(121.000000, 0.000000)">
+                    <g id="illu/1step/send" transform="translate(0.000000, 500.820258)">
+                        <g id="Group-7" transform="translate(202.805190, 74.335267) rotate(7.000000) translate(-202.805190, -74.335267) translate(178.805190, 39.835267)" fill="#325699">
+                            <path d="M13.9063049,24.4538392 L36.6045974,27.1958946 C41.3270522,27.7663883 44.6928818,32.0571709 44.1223881,36.7796257 C44.1210338,36.7908366 44.1196574,36.8020449 44.118259,36.8132504 C43.5261933,41.5574767 39.2095191,44.9299244 34.4630007,44.3565237 L11.7647082,41.6144683 C7.04225339,41.0439746 3.67642386,36.753192 4.24691756,32.0307371 C4.24827189,32.0195262 4.24964826,32.008318 4.25104667,31.9971125 C4.84311235,27.2528862 9.15978657,23.8804385 13.9063049,24.4538392 Z" id="Combined-Shape" filter="url(#filter-1)" transform="translate(24.184653, 34.405358) rotate(-7.000000) translate(-24.184653, -34.405358) "></path>
+                            <path d="M11.2251794,2.61782388 L33.9234719,5.35987929 C38.6459267,5.93037299 42.0117562,10.2211556 41.4412625,14.9436104 C41.4399082,14.9548213 41.4385318,14.9660295 41.4371334,14.977235 C40.8450677,19.7214613 36.5283935,23.093909 31.7818752,22.5205083 L9.08358268,19.7784529 C4.36112784,19.2079592 0.995298306,14.9171767 1.56579201,10.1947218 C1.56714633,10.1835109 1.56852271,10.1723027 1.56992112,10.1610972 C2.16198679,5.4168709 6.47866101,2.0444232 11.2251794,2.61782388 Z" id="Combined-Shape" filter="url(#filter-2)" transform="translate(21.503527, 12.569343) rotate(-7.000000) translate(-21.503527, -12.569343) "></path>
+                            <path d="M16.5874305,46.2898546 L39.285723,49.03191 C44.0081778,49.6024037 47.3740073,53.8931862 46.8035136,58.6156411 C46.8021593,58.626852 46.8007829,58.6380602 46.7993845,58.6492657 C46.2073189,63.393492 41.8906446,66.7659397 37.1441263,66.192539 L14.4458338,63.4504836 C9.72337895,62.8799899 6.35754942,58.5892073 6.92804312,53.8667525 C6.92939744,53.8555416 6.93077382,53.8443334 6.93217223,53.8331279 C7.5242379,49.0889016 11.8409121,45.7164539 16.5874305,46.2898546 Z" id="Combined-Shape" filter="url(#filter-3)" transform="translate(26.865778, 56.241373) rotate(-7.000000) translate(-26.865778, -56.241373) "></path>
+                        </g>
+                        <g id="Group-7" transform="translate(122.000000, 64.000000) rotate(7.000000) translate(-122.000000, -64.000000) translate(6.000000, 14.000000)">
+                            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="232" height="100" rx="15"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="1.9792501e-13" y="3.27737837e-13" width="232" height="100" rx="15"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="24" width="118" height="12"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="44" width="88" height="12"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="64" width="98" height="12"></rect>
+                            <g id="Rectangle-Copy-2" transform="translate(25.000000, 29.000000)">
+                                <mask id="mask-5" fill="white">
+                                    <use xlink:href="#path-4"></use>
+                                </mask>
+                                <use id="Mask" fill="#F4F5F8" xlink:href="#path-4"></use>
+                                <rect fill="#FFC248" mask="url(#mask-5)" x="6" y="32" width="30" height="30" rx="15"></rect>
+                            </g>
+                            <rect id="Rectangle" fill="#FFC248" x="38" y="42" width="16" height="16" rx="8"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

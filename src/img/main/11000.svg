@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="56px" viewBox="0 0 59 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>iconmain/11000@1x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-167.000000, -553.000000)">
+            <g id="1-srceen" transform="translate(-9.000000, 0.000000)">
+                <g id="iconmain" transform="translate(176.000000, 553.000000)">
+                    <g id="iconmain/11000" transform="translate(0.000000, 1.000000)">
+                        <path d="M28,6.82 L40,6.82 L56.586,23.406 C57.367,24.187 57.367,25.453 56.586,26.234 L29.414,53.406 C28.633,54.187 27.367,54.187 26.586,53.406 L5.414,32.234 C4.633,31.453 4.633,30.187 5.414,29.406 L28,6.82" id="Fill-223" fill="#FFD152"></path>
+                        <path d="M26,45.82 L9,45.82 M20,20.82 L0,20.82" id="Stroke-224" stroke="#325699" stroke-width="2"></path>
+                        <polyline id="Fill-225" fill="#FFD152" points="28 7.82 34 13.82 40 7.82 28 7.82"></polyline>
+                        <g id="Group-229" transform="translate(4.410000, 0.000000)" stroke="#325699" stroke-width="2">
+                            <path d="M6.59,23.82 L1.004,29.406 C0.223,30.187 0.223,31.453 1.004,32.234 L14.592,45.822 M17.589,48.819 L22.176,53.406 C22.957,54.187 24.223,54.187 25.004,53.406 L52.176,26.234 C52.957,25.453 52.957,24.187 52.176,23.406 L35.59,6.82 L23.59,6.82 L9.59,20.82 M25.59,9.82 L29.59,13.82 L33.59,9.82" id="Stroke-226"></path>
+                            <path d="M23.59,19.82 L34.59,30.82 M20.59,22.82 L31.59,33.82 M17.59,25.82 L25.589,33.82 M7.59,0.82 L27.59,0.82 M39.59,46.82 L51.59,46.82" id="Stroke-228"></path>
+                        </g>
+                        <path d="M18,8.82 L8,8.82 M6,8.82 L4,8.82" id="Stroke-230" stroke="#325699" stroke-width="2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

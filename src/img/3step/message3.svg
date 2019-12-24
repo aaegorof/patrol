@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="325px" height="324px" viewBox="0 0 325 324" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>illu/message3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-12.9%" y="-13.0%" width="125.9%" height="126.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="42" height="42" rx="21"></rect>
+    </defs>
+    <g id="2nd" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="патрулькачества_landing_fin" transform="translate(-157.000000, -3865.000000)">
+            <g id="3step" transform="translate(-322.000000, 3415.000000)">
+                <g transform="translate(0.499949, 0.859320)" id="illu/3step">
+                    <g transform="translate(0.500051, 0.140680)">
+                        <g id="illu/message3" transform="translate(640.703050, 610.859320) rotate(-14.000000) translate(-640.703050, -610.859320) translate(524.703050, 495.859320)">
+                            <rect id="Rectangle" fill="#EDEEF1" filter="url(#filter-1)" x="1.36424205e-11" y="2.0634161e-11" width="232" height="230" rx="15"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" x="1.29656286e-11" y="2.07904804e-11" width="232" height="230" rx="15"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="12.5166681" y="99.6773964" width="83" height="51" rx="15"></rect>
+                            <rect id="Rectangle-Copy-13" fill="#F4F5F8" x="106.260931" y="99.5625347" width="83" height="51" rx="15"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="24" width="118" height="12"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="44" width="88" height="12"></rect>
+                            <rect id="Rectangle" fill="#F4F5F8" x="82" y="64" width="98" height="12"></rect>
+                            <rect id="Rectangle-Copy-14" fill="#F4F5F8" x="18.4214705" y="168.134636" width="182" height="12"></rect>
+                            <rect id="Rectangle-Copy-15" fill="#F4F5F8" x="18.1141768" y="189.482194" width="182" height="12"></rect>
+                            <g id="Rectangle-Copy-2" transform="translate(25.000000, 29.000000)">
+                                <mask id="mask-3" fill="white">
+                                    <use xlink:href="#path-2"></use>
+                                </mask>
+                                <use id="Mask" fill="#F4F5F8" xlink:href="#path-2"></use>
+                                <rect fill="#FFC248" mask="url(#mask-3)" x="6" y="32" width="30" height="30" rx="15"></rect>
+                            </g>
+                            <rect id="Rectangle" fill="#FFC248" x="38" y="42" width="16" height="16" rx="8"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
