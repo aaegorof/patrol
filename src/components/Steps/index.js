@@ -42,8 +42,10 @@ const Steps = () => {
     }
   },[data])
 
-  const cbStepChange = i => () => {
-    changeStep(i);
+  const cbStepChange = i => (inView) => {
+    if (inView) {
+      changeStep(i);
+    }
   };
 
   const toStep0 = () => {
@@ -92,8 +94,7 @@ const Steps = () => {
         }
       </div>
 
-      {stepContent.length > 1 && stepss.map((Component, i) => {
-        return (
+      {stepContent.length > 1 && stepss.map((Component, i) =>
           <InView onChange={cbStepChange(i + 1)} {...stepViewportOpt} key={i}>
             {({ inView, ref }) => (
               <div ref={ref}>
@@ -101,8 +102,7 @@ const Steps = () => {
               </div>
             )}
           </InView>
-        );
-      })}
+        )}
     </>
   );
 };
