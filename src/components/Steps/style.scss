@@ -12,9 +12,11 @@
   pointer-events: none;
 }
 .iphone {
+  $mxHeight: 530px;
+  $pd: 15px;
   z-index: 100;
   display: inline-flex;
-  padding: 15px;
+  padding: $pd;
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.5s ease-in-out;
@@ -23,6 +25,9 @@
   left: 50%;
   align-self: center;
   background-size: 100%;
+  min-height: $mxHeight;
+  height: $mxHeight;
+  max-height: $mxHeight;
   &.i-step-4 {
     left: 250px;
   }
@@ -34,6 +39,8 @@
     z-index: 1;
     position: relative;
     width: 231px;
+    min-height: $mxHeight - $pd * 2;
+    max-height: $mxHeight - $pd * 2;
   }
 }
 .circle-bg {

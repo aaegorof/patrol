@@ -10,6 +10,7 @@
   position: fixed;
   height: $mobile-menu-height;
   width: 100%;
+  top: 0;
   background: #fff;
   box-shadow: 0 14px 14px rgba($text-color,0.05);
 }
@@ -59,6 +60,8 @@
   opacity: 1;
   .step-screen {
     width: 200px;
+    max-height: 432px;
+    min-height: 432px;
   }
   &.i-step-1 {
     left: 30%;
