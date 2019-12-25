@@ -54,7 +54,6 @@
     grid-template-columns: repeat(auto-fit, minmax(200px,21%));
     grid-column-gap: 50px;
     &.single-img {
-      display: block;
       .faq-images {
         text-align: left;
         img {
@@ -86,6 +85,9 @@
     }
     .faq-answer {
       display: grid;
+      &.single-img {
+        display: block;
+      }
     }
     .plus {
       background: rgba($secondary, 0.6);
