@@ -4,85 +4,89 @@ import { gql } from "apollo-boost";
 import "./style.scss";
 
 const FAQ = gql`
-    {
-        page(id: "cGFnZTo4") {
-            faq {
-                vopros {
-                    nazvanie
-                    gallery {
-                        altText
-                        sourceUrl
-                        excerpt
-                    }
-                    term {
-                        ... on Tag {
-                            name
-                        }
-                    }
-                }
+  {
+    page(id: "cGFnZTo4") {
+      faq {
+        vopros {
+          nazvanie
+          singleImg
+          gallery {
+            altText
+            sourceUrl
+            excerpt
+          }
+          term {
+            ... on Tag {
+              name
             }
+          }
         }
+      }
     }
+  }
 `;
-
 
 const FaqView = ({ faq }) => {
   const [opened, toggleOpened] = useState([]);
 
   const terms = faq.reduce((prev, cur) => {
+    if (!cur.term.length) {
+      return prev;
+    }
     const names = cur.term.map(term => term.name);
-    if(!cur.term.length) {
-      return prev
+    for (let name of names) {
+      if (!prev.includes(name)) {
+        return [...prev, name];
+      }
     }
-    if (!prev.includes(names)) {
-      return names;
-    }
+    return prev;
   }, []);
 
   const onToggle = id => e => {
     opened.includes(id)
-        ? toggleOpened(opened.filter(ids => ids !== id))
-        : toggleOpened([...opened, id]);
+      ? toggleOpened(opened.filter(ids => ids !== id))
+      : toggleOpened([...opened, id]);
   };
 
   return (
-      <div className="faq-wrap container">
-        {terms.map(term => (
-            <div key={term}>
-              <div className="term-name h2">
-                {term}
-              </div>
-              <div className="faq-term-wrap">
-                {faq
-                    .filter(f => f.term.some(el => el.name === term))
-                    .map(i => (
-                        <div key={term + i.nazvanie}>
+    <div className="faq-wrap container">
+      {terms.map(term => (
+        <div key={term}>
+          <div className="term-name h2">{term}</div>
+          <div className="faq-term-wrap">
+            {faq
+              .filter(f => f.term.some(el => el.name === term))
+              .map(i => (
+                <div key={term + i.nazvanie}>
+                  <div
+                    className={`faq-term ${
+                      opened.includes(term + i.nazvanie) ? "opened" : ""
+                    }`}
+                  >
+                    <div className="h4" onClick={onToggle(term + i.nazvanie)}>
+                      <span className="dashed">{i.nazvanie}</span>
+                      <div className="plus"></div>
+                    </div>
+                    <div className={`faq-answer ${i.singleImg ? "single-img" : ""}`}>
+                      {i.gallery.map(img => (
+                        <div className="faq-images">
+                          <img src={img.sourceUrl} alt={img.alt} />
                           <div
-                              className={`faq-term ${
-                                  opened.includes(term + i.nazvanie) ? "opened" : ""
-                              }`}
-                          >
-                            <div className="h4" onClick={onToggle(term + i.nazvanie)}>
-                              <span className="dashed">{i.nazvanie}</span>
-                              <div className="plus"></div>
-                            </div>
-                            <div className="faq-answer">
-                              {i.gallery.map(img => <div className="faq-images">
-                                <img src={img.sourceUrl} alt={img.alt} />
-                                <div className="faq-description" dangerouslySetInnerHTML={{__html:img.excerpt}}/>
-                              </div>)}
-                            </div>
-                          </div>
+                            className="faq-description"
+                            dangerouslySetInnerHTML={{ __html: img.excerpt }}
+                          />
                         </div>
-                    ))}
-              </div>
-            </div>
-        ))}
-      </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
-
-
 
 const Faq = () => {
   const { loading, data } = useQuery(FAQ);
@@ -94,7 +98,7 @@ const Faq = () => {
     }
   }, [data]);
 
-  return (faqData ? <FaqView faq={faqData}/> : <div>None</div>)
+  return faqData ? <FaqView faq={faqData} /> : <div>None</div>;
 };
 
 export default Faq;

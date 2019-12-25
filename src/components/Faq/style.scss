@@ -53,6 +53,17 @@
     padding-bottom: 40px;
     grid-template-columns: repeat(auto-fit, minmax(200px,21%));
     grid-column-gap: 50px;
+    &.single-img {
+      display: block;
+      .faq-images {
+        text-align: left;
+        img {
+          width: auto;
+          height: auto;
+          object-fit: unset;
+        }
+      }
+    }
   }
   .faq-images {
     padding: 0 15px;
