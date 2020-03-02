@@ -81,9 +81,6 @@ function App() {
               <Faq />
             </section>
 
-            <section id={Object.keys(menu)[4]} className="bg-white pd-4-v">
-              <News />
-            </section>
           </Suspense>
           <Footer />
           <Link

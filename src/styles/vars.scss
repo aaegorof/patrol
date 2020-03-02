@@ -52,3 +52,6 @@ $margins: (
 $button-height: 45px;
 $input-height: 40px;
 $mobile-menu-height: 60px;
+
+$sm: nth(nth($breakpoints, 2), 2);
+$md: nth(nth($breakpoints, 3), 2);

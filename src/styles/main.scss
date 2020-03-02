@@ -12,8 +12,6 @@
 @import "layout";
 @import "elements";
 
-$sm: nth(nth($breakpoints, 2), 2);
-$md: nth(nth($breakpoints, 3), 2);
 
 body {
   @media screen and (max-width: $md) {

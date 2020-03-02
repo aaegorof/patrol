@@ -19,11 +19,11 @@ const HOMEPAGE = gql`
 
 
 export const menu = {
-  step1: "Как это работает",
+  step1: "Как работает патруль",
+  problem: "О проблеме",
   map: "Карта обращений",
   statistics: "Статистика",
-  info: "Полезная информация",
-  news: "Новости"
+  info: "Виды нелегальных сигарет"
 };
 
 const Header = () => {

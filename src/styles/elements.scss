@@ -17,4 +17,14 @@
   background: transparent;
   font-weight: 600;
   outline: none;
+  &.primary {
+    background: $secondary;
+    color: $primary;
+    border-color: $secondary;
+  }
+  &.big {
+    height: $input-height + 25px;
+    padding: 1rem 6em;
+    font-size: 14px;
+  }
 }

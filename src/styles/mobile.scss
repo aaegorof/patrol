@@ -13,6 +13,7 @@
 }
 .feature-item {
   width: 100%;
+  flex: auto;
   &:nth-child(2n){
     transform: translateY(0);
   }
@@ -39,6 +40,12 @@
 .dynamic-text {
   z-index: 40;
 }
+.bg-enhance {
+  height: 0;
+  button {
+    transform: translateY(0);
+  }
+}
 .step-1 {
   margin-top: 0;
   .rotating {
@@ -61,10 +68,11 @@
       content: none;
     }
   }
-}
-
-.faq-answer {
-  display: block;
+  &.opened {
+    .faq-answer {
+      display: block;
+    }
+  }
 }
 
 .rating {

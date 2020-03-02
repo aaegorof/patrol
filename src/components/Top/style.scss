@@ -1,12 +1,19 @@
 @import "../../styles/vars";
 
 .top-wrap {
-  height: calc(100vh - #{$mobile-menu-height});
+  height: calc(90vh - #{$mobile-menu-height});
   display: flex;
   background: #fff url(../../img/main/main-mask.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  max-height: 800px;
+}
+.bg-enhance {
+  height: 10vh;
+  background: $bg-color;
+  text-align: center;
+  button {
+    transform: translateY(-100%);
+  }
 }
 .title {
   color: $primary;
@@ -19,7 +26,6 @@
 .site-description {
   font-weight: 300;
   font-size: 18px;
-  color: $grey;
 }
 
 .features-wrap {
@@ -33,14 +39,8 @@
   text-align: center;
   justify-content: center;
   flex-direction: column;
-  width: 20%;
+  flex: 1;
   z-index: 2;
-  &:nth-child(2n) {
-    transform: translateY(50%);
-  }
-  &:nth-child(-1 + 2n) {
-    transform: translateY(-50%);
-  }
 }
 .feature-title {
   font-size: 35px;

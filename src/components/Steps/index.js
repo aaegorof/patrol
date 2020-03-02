@@ -58,9 +58,18 @@ const Steps = () => {
     <>
       <InView onChange={toStep0} rootMargin={`-25% 0px -25% 0px`} threshold={0}>
         {({ inView, ref }) => (
-          <div ref={ref}>
+          <div ref={ref} style={{background: "#fff"}}>
             <Top inViewport={inView} />
+            <div className="bg-enhance">
+              <Link to={`step1`}
+                    smooth={true}
+                    spy={false}
+                    duration={500}
+                    offset={-60}
+                    hashSpy={false}><button className="button primary big">Как подать заявление?</button></Link>
+            </div>
           </div>
+
         )}
       </InView>
       <div className={`iphone-wrap`}>
