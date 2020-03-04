@@ -34,12 +34,12 @@ let initStructure = {
   not_answered_overdue: {
     text: ["ожидают окончательный", "ответ исполнителя", "более 30 дней"],
     value: 0,
-    color: "#75B644"
+    color: "#FF6B6B"
   },
   not_answered_in_time: {
     text: ["ожидают окончательный", "ответ исполнителя", "менее 30 дней"],
     value: 0,
-    color: "#FF6B6B"
+    color: "#75B644"
   }
 };
 
@@ -69,6 +69,7 @@ const PieChart = props => {
       initStructure.not_answered_in_time.value;
     return [yy, groupAnswered, groupNotAnswered];
   };
+
   const [ref, inView] = useInView({threshold: 0.5})
   const [preparedData, groupAnswered, groupNotAnswered] = prepareData();
 

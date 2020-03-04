@@ -75,6 +75,15 @@
   }
 }
 
+.group-num {
+  .solved {
+    transform: translate(-120px, -230px);
+  }
+  .not-solved {
+    transform: translate(40px, -230px);
+  }
+}
+
 .rating {
   $widths: (25%, 20%, 20%, 30%);
   font-size: 14px;

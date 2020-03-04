@@ -36,11 +36,14 @@ const Issues = ({
   }, []);
 
   const coloredClass = num => {
-    if (+num > 50) {
+    if (+num > 30) {
+      return "color-red";
+    }
+    if (+num < 20) {
       return "color-green";
     }
-    if (+num < 25) {
-      return "color-red";
+    else {
+      return "color-secondary"
     }
   };
 
@@ -87,7 +90,7 @@ const Issues = ({
                 onClick={toSort("happy_index")}
                 className={sortClass("happy_index")}
               >
-                Индекс удовлетворенности
+                % просрочки
               </th>
             </tr>
           </thead>
@@ -97,8 +100,8 @@ const Issues = ({
                 <td>{issue.region}</td>
                 <td>{issue.issue_total}</td>
                 <td>{issue.overdue_total}</td>
-                <td className={coloredClass(issue.happy_index)}>
-                  {(+issue.happy_index).toFixed()}%
+                <td className={coloredClass(100 - issue.happy_index)}>
+                  {100 - (+issue.happy_index).toFixed()}%
                 </td>
               </tr>
             ))}

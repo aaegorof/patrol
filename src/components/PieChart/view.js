@@ -162,7 +162,7 @@ useEffect(() => {
         </g>
         <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
           <text
-              className="group-num"
+              className="group-num solved"
               transform={for20()}
               alignmentBaseline="middle"
           >
@@ -179,7 +179,7 @@ useEffect(() => {
           <text
               transform={for80()}
               alignmentBaseline="middle"
-              className="group-num"
+              className="group-num not-solved"
           >
             <tspan x={0}>
               {((props.groupNotAnswered * 100) / props.total).toFixed()}%

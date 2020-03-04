@@ -14,13 +14,12 @@
       cursor: pointer;
       padding: 5px 20px;
       text-align: center;
-      color: $grey;
       font-size: 12px;
       position: relative;
       font-weight: 500;
       &:after {
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
         border: 1px solid;
         border-top-color: transparent;
         border-left-color: transparent;

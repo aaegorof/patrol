@@ -23,10 +23,23 @@ const FAQ = gql`
         }
       }
     }
+      tags {
+          edges {
+              node {
+                  name
+                  id
+                  acfTags {
+                      tagImg {
+                          sourceUrl
+                      }
+                  }
+              }
+          }
+      }
   }
 `;
 
-const FaqView = ({ faq }) => {
+const FaqView = ({ faq, tags }) => {
   const [opened, toggleOpened] = useState([]);
 
   const terms = faq.reduce((prev, cur) => {
@@ -50,40 +63,46 @@ const FaqView = ({ faq }) => {
 
   return (
     <div className="faq-wrap container">
-      {terms.map(term => (
-        <div key={term}>
-          <div className="term-name h2">{term}</div>
-          <div className="faq-term-wrap">
-            {faq
-              .filter(f => f.term.some(el => el.name === term))
-              .map(i => (
-                <div key={term + i.nazvanie}>
-                  <div
-                    className={`faq-term ${
-                      opened.includes(term + i.nazvanie) ? "opened" : ""
-                    }`}
-                  >
-                    <div className="h4" onClick={onToggle(term + i.nazvanie)}>
-                      <span className="dashed">{i.nazvanie}</span>
-                      <div className="plus"></div>
-                    </div>
-                    <div className={`faq-answer ${i.singleImg ? "single-img" : ""}`}>
-                      {i.gallery.map(img => (
-                        <div className="faq-images">
-                          <img src={img.sourceUrl} alt={img.alt} />
+      {tags.map(tag => {
+        const {name, acfTags: {tagImg: tagImg} } = tag.node
+
+        return (
+            <div key={tag}>
+            <div className="term-name h2">{name}</div>
+              {tagImg && <img src={tagImg.sourceUrl}/>}
+
+              <div className="faq-term-wrap">
+                {faq
+                    .filter(f => f.term.some(el => el.name === name))
+                    .map(i => (
+                        <div key={name + i.nazvanie}>
                           <div
-                            className="faq-description"
-                            dangerouslySetInnerHTML={{ __html: img.excerpt }}
-                          />
+                              className={`faq-term ${
+                                  opened.includes(name + i.nazvanie) ? "opened" : ""
+                              }`}
+                          >
+                            <div className="h4" onClick={onToggle(name + i.nazvanie)}>
+                              <span className="dashed">{i.nazvanie}</span>
+                              <div className="plus"></div>
+                            </div>
+                            <div className={`faq-answer ${i.singleImg ? "single-img" : ""}`}>
+                              {i.gallery.map(img => (
+                                  <div className="faq-images">
+                                    <img src={img.sourceUrl} alt={img.alt} />
+                                    <div
+                                        className="faq-description"
+                                        dangerouslySetInnerHTML={{ __html: img.excerpt }}
+                                    />
+                                  </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
-      ))}
+                    ))}
+              </div>
+            </div>
+        )
+      })}
     </div>
   );
 };
@@ -98,7 +117,7 @@ const Faq = () => {
     }
   }, [data]);
 
-  return faqData ? <FaqView faq={faqData} /> : <div>None</div>;
+  return faqData ? <FaqView faq={faqData} tags={data.tags.edges}/> : <div>None</div>;
 };
 
 export default Faq;
