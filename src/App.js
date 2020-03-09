@@ -11,13 +11,13 @@ import ApolloClient from "apollo-boost";
 import Header, { menu } from "./components/Header";
 
 import Faq from "./components/Faq";
-import News from "./components/News";
 
 import Footer from "./components/Footer";
 import "./styles/main.scss";
 import { ApolloProvider } from "@apollo/react-hooks";
 import arrow from "../src/img/icon/arrow.svg";
 import { Link } from "react-scroll";
+import Problem from "./components/Problem";
 
 const Steps = React.lazy(() => import("./components/Steps"));
 const Issues = React.lazy(() => import("./components/Issues"));
@@ -63,21 +63,26 @@ function App() {
               <Steps />
             </section>
 
+            <section id={Object.keys(menu)[1]} className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b">
+              <Problem />
+            </section>
+
+
             <section
-              id={Object.keys(menu)[1]}
+              id={Object.keys(menu)[2]}
               className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b"
             >
               <h2 className="container hide-sm-max">Карта обращений</h2>
               <Map firstTop={6} />
             </section>
 
-            <section id={Object.keys(menu)[2]} className="bg-white pd-4-v">
+            <section id={Object.keys(menu)[3]} className="bg-white pd-4-v">
               <h2 className="container">Статистика</h2>
               <Issues />
               <PieChart />
             </section>
 
-            <section id={Object.keys(menu)[3]} className="pd-4-v">
+            <section id={Object.keys(menu)[4]} className="pd-4-v">
               <Faq />
             </section>
 

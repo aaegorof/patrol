@@ -20,7 +20,7 @@ const HOMEPAGE = gql`
 
 export const menu = {
   step1: "Как работает патруль",
-  problem: "О проблеме",
+  oprobleme: "О проблеме",
   map: "Карта обращений",
   statistics: "Статистика",
   info: "Виды нелегальных сигарет"

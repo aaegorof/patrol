@@ -28,6 +28,7 @@ const FAQ = gql`
               node {
                   name
                   id
+                  slug
                   acfTags {
                       tagImg {
                           sourceUrl
@@ -42,18 +43,18 @@ const FAQ = gql`
 const FaqView = ({ faq, tags }) => {
   const [opened, toggleOpened] = useState([]);
 
-  const terms = faq.reduce((prev, cur) => {
-    if (!cur.term.length) {
-      return prev;
-    }
-    const names = cur.term.map(term => term.name);
-    for (let name of names) {
-      if (!prev.includes(name)) {
-        return [...prev, name];
-      }
-    }
-    return prev;
-  }, []);
+  // const terms = faq.reduce((prev, cur) => {
+  //   if (!cur.term.length) {
+  //     return prev;
+  //   }
+  //   const names = cur.term.map(term => term.name);
+  //   for (let name of names) {
+  //     if (!prev.includes(name)) {
+  //       return [...prev, name];
+  //     }
+  //   }
+  //   return prev;
+  // }, []);
 
   const onToggle = id => e => {
     opened.includes(id)
@@ -64,12 +65,12 @@ const FaqView = ({ faq, tags }) => {
   return (
     <div className="faq-wrap container">
       {tags.map(tag => {
-        const {name, acfTags: {tagImg: tagImg} } = tag.node
+        const {name,slug, acfTags: {tagImg: tagImg} } = tag.node
 
         return (
-            <div key={tag}>
+            <div key={tag} name={slug.replace('-', '')}>
             <div className="term-name h2">{name}</div>
-              {tagImg && <img src={tagImg.sourceUrl}/>}
+              {tagImg && <img className="tag-img" src={tagImg.sourceUrl}/>}
 
               <div className="faq-term-wrap">
                 {faq

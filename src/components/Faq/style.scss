@@ -39,6 +39,7 @@
   box-shadow: 0 5px 15px rgba(#325699, 0.08);
   border-radius: 15px;
   padding: 0 40px;
+  width: 100%;
   .h4 {
     color: $primary;
     height: 76px;
@@ -46,6 +47,9 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+  }
+  .faq-answer-opened {
+    display: none;
   }
   .faq-answer {
     display: none;
@@ -77,11 +81,27 @@
   .faq-description {
     margin-top: 20px;
   }
+  .description {
+    ol, ul {
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      li {
+        margin-bottom: 0.4rem;
+      }
+    }
+    hr {
+      border: none;
+      border-bottom: 1px solid $grey-border;
+    }
+  }
   &.opened {
     .dashed {
       &:after {
         display: none;
       }
+    }
+    .faq-answer-opened {
+      display: block;
     }
     .faq-answer {
       display: grid;
@@ -99,6 +119,9 @@
       }
     }
   }
+}
+.tag-img {
+  margin-bottom: 2rem;
 }
 
 .dashed {
