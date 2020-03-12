@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { fetchApi } from "../../api";
+import { ReactComponent as West } from "./west.svg";
+import { ReactComponent as East } from "./east.svg";
 
 import "./style.scss";
 import molniya from "../../img/icon/smallmolniya.svg";
@@ -66,7 +68,7 @@ const Countries = props => {
   return (
     <g>
       {props.children.map(child => (
-        <CountryPath key={child.props.id} country={child} {...props}/>
+        <CountryPath key={child.props.id} country={child} {...props} />
       ))}
     </g>
   );
@@ -75,6 +77,7 @@ const Countries = props => {
 const Map = ({ map, fetchApi, firstTop }) => {
   const [activeId, changeActive] = useState(null);
   const [countryPos, changeTooltipPos] = useState(null);
+  const [activeMap, setActiveMap] = useState(null)
   const mapPosition = useRef(null);
 
   useEffect(() => {
@@ -106,6 +109,17 @@ const Map = ({ map, fetchApi, firstTop }) => {
     <div className="map-wrap container">
       <div className="row">
         <div className="col-lg-9 relative">
+          {activeMap && <div className="color-primary" onClick={() => setActiveMap(null)}>Назад к общей карте</div> }
+          <svg
+            className="split-map"
+            width="1045"
+            height="587"
+            viewBox="0 0 1045 587"
+            ref={mapPosition}
+          >
+            {activeMap !== "east" && <West onClick={() => setActiveMap("west")}/>}
+            {activeMap !== "west" && <East onClick={() =>{setActiveMap("east")} }/>}
+          </svg>
           <svg
             className="svg-map"
             width="1045"

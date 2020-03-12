@@ -4,11 +4,16 @@
   margin-top: 60px;
   margin-bottom: 60px;
 }
-.svg-map {
+.svg-map, .split-map {
   width: 100%;
+  fill: $map-grey;
   height: auto;
-  path {
-    fill: $map-grey;
+  #west, #east {
+    &:hover {
+      fill: $primary;
+    }
+  }
+  path, polygon {
     stroke: #fff;
     cursor: pointer;
     stroke-dasharray: 1500;
@@ -58,6 +63,8 @@
   border-radius: 15px;
   transform: translateY(-65px);
 }
+
+
 
 @keyframes dashline {
   from {
