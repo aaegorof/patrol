@@ -7,8 +7,11 @@
 }
 .rating {
   $widths: (46%, 18%, 18%, 18%);
-  width: 100%;
-  counter-reset: list;
+  table {
+    width: 100%;
+    counter-reset: list;
+  }
+
   thead {
     th {
       cursor: pointer;
@@ -17,6 +20,9 @@
       font-size: 12px;
       position: relative;
       font-weight: 500;
+      div {
+        display: inline-block;
+      }
       &:after {
         width: 6px;
         height: 6px;
@@ -49,7 +55,7 @@
     }
     @include widths($widths);
   }
-  .issue-row {
+  tbody tr {
     $height: 90px;
     height: $height;
     border-bottom: 1px solid $grey-border;
