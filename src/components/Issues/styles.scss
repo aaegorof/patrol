@@ -77,12 +77,6 @@
     &:last-of-type {
       border-bottom: none;
     }
-    &:nth-child(5) {
-      border-bottom: none;
-    }
-    &:nth-child(1n + 6) {
-      display: none;
-    }
   }
   &.full {
     .issue-row {

@@ -1,0 +1,51 @@
+.collapser {
+  background: #fff;
+  border: 2px solid #f4f5f8;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(#325699, 0.08);
+  border-radius: 15px;
+  padding: 0 22px;
+  width: 100%;
+  .collapser-header {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    min-height: $input-height;
+    margin-top: 0;
+    font-size: 12px;
+    color: $primary;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-position: under;
+    line-height: 1.6;
+    cursor: pointer;
+    padding: 19px 0;
+    & > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .collapser-body {
+    max-height: 100vh;
+    transition: max-height 0.1s ease;
+  }
+  .icon {
+    margin-left: auto;
+    width: $input-height;
+    height: $input-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fa-chevron-down {
+    transition: transform 0.1s ease;
+    color: $grey-border;
+    font-size: 10px;
+  }
+  &.collapsed {
+    .collapser-body {
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+}
