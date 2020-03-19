@@ -44,6 +44,10 @@
 }
 .back-to-map {
   cursor: pointer;
+  opacity: 1;
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 .no-list {
@@ -90,6 +94,41 @@
   padding: 15px;
   border-radius: 15px;
   transform: translateY(-65px);
+}
+
+.search-wrap {
+  margin-right: $min-margin;
+  .clear {
+    height: $input-height;
+    background: none;
+    border: none;
+    color: $primary;
+    width: $input-height;
+    line-height: 1;
+  }
+}
+
+.search-list-wrap {
+  $height: 200px;
+  $pd: 1rem;
+  position: absolute;
+  max-height: $height;
+  overflow: hidden;
+  display: none;
+  background: #fff;
+  width: 100%;
+  padding: $pd;
+  .search-list {
+    max-height: calc( #{$height} - #{$pd * 2});
+    overflow: scroll;
+    & > div {
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+  }
+  &.opened {
+    display: block;
+  }
 }
 
 

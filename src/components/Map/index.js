@@ -116,53 +116,59 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
     setActiveMap(mapSide);
   };
   const countrySideClick = id => {
-    const el = document.getElementById(id);
-    setActiveMap(null);
     cleanActiveCountries();
-    el.classList = "active";
+    setActiveMap(null);
     changeActive(id);
-    changeTooltipPos(el.getBoundingClientRect());
+    if (id !== null) {
+      const el = document.getElementById(id);
+      el.classList = "active";
+      changeTooltipPos(el.getBoundingClientRect());
+    }
   };
 
   return (
     <div className="map-wrap container">
       <div className="row">
         <div className="col-lg-9 relative">
+          <Search
+            issues={issues}
+            activeId={activeId}
+            activeMap={activeMap}
+            onSearch={id => countrySideClick(id)}
+          />
 
-          <Search issues={issues} activeId={activeId} activeMap={activeMap} onSearch={id => countrySideClick(id)}/>
-
-          {activeMap && (
-            <div
-              className="color-primary back-to-map"
-              onClick={() => {
-                cleanActiveCountries();
-                changeActive(null);
-                setActiveMap(null);
-              }}
+              <div
+                  className={`color-primary back-to-map ${activeMap ? "" : "hidden"}`}
+                  style={{marginTop: 20}}
+                  onClick={() => {
+                    cleanActiveCountries();
+                    changeActive(null);
+                    setActiveMap(null);
+                  }}
+              >
+                {`< Назад к общей карте`}
+              </div>
+          <div>
+            <svg
+              className={`split-map ${!activeMap && "general"}`}
+              width="1045"
+              height="587"
+              viewBox="0 0 1045 587"
+              ref={mapPosition}
             >
-              {`< Назад к общей карте`}
-            </div>
-          )}
-          <svg
-            className={`split-map ${!activeMap && "general"}`}
-            width="1045"
-            height="587"
-            viewBox="0 0 1045 587"
-            ref={mapPosition}
-          >
-            {activeMap !== "east" && <West onClick={countryClick("west")} />}
-            {activeMap !== "west" && <East onClick={countryClick("east")} />}
-          </svg>
-
-          {countryPos && active && (
-            <div
-              className="map-tooltip text-center"
-              style={{ top: tooltipTop(), left: tooltipLeft() }}
-            >
-              <div>{active.region}</div>
-              <div>Обращений: {active.issue_total}</div>
-            </div>
-          )}
+              {activeMap !== "east" && <West onClick={countryClick("west")} />}
+              {activeMap !== "west" && <East onClick={countryClick("east")} />}
+            </svg>
+            {countryPos && active && (
+              <div
+                className="map-tooltip text-center"
+                style={{ top: tooltipTop(), left: tooltipLeft() }}
+              >
+                <div>{active.region}</div>
+                <div>Обращений: {active.issue_total}</div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="col-lg-3">
