@@ -16,11 +16,9 @@ const d2p = dispatch =>
   );
 
 const Issues = ({ pending, issues, fetchApi, errors }) => {
-
   useEffect(() => {
     fetchApi("rating");
   }, []);
-
   const coloredClass = num => {
     if (+num > 30) {
       return "color-red";
@@ -32,10 +30,10 @@ const Issues = ({ pending, issues, fetchApi, errors }) => {
     }
   };
   const issuesMaped = issues.map(iss => {
-    const removedColumn = {...iss}
-    delete removedColumn.region_num
-    return removedColumn
-  })
+    const removedColumn = { ...iss };
+    delete removedColumn.region_num;
+    return removedColumn;
+  });
 
   const columnsHtml = {
     happy_index: {
@@ -44,6 +42,19 @@ const Issues = ({ pending, issues, fetchApi, errors }) => {
       },
       className: val => coloredClass(100 - val)
     }
+  };
+
+  const TotalEl = ({ title, tooltip }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div>
+        {title}
+        <span onClick={() => setIsOpen(!isOpen)} className={"i-tooltip"}>
+          i
+          <span className={`tooltip ${isOpen ? "opened" : ""}`}>{tooltip}</span>
+        </span>
+      </div>
+    );
   };
 
   return (
@@ -65,9 +76,9 @@ const Issues = ({ pending, issues, fetchApi, errors }) => {
           sortBy={"issue_total"}
           labels={{
             region: "Исполнитель",
-            issue_total: "Всего сообщений",
-            overdue_total: "Просроченные",
-            happy_index: "% просрочки"
+            issue_total: <TotalEl title={"Всего сообщений"} tooltip={"обращения, которые прошли модерацию и направлены в органы власти"} />,
+            overdue_total: <TotalEl title={"Просроченные"} tooltip={"обращения, на которые не был получен ответ в течение 30 дней"} />,
+            happy_index: <TotalEl title={"% просрочки"} tooltip={"просроченных обращений от общего количества, направленных в орган власти обращений"} />
           }}
         />
       )}

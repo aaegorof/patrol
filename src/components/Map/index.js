@@ -114,7 +114,8 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
     changeActive(+e.target.id);
     changeTooltipPos(e.target.getBoundingClientRect());
     setActiveMap(mapSide);
-  };
+  }
+
   const countrySideClick = id => {
     cleanActiveCountries();
     setActiveMap(null);
@@ -137,17 +138,17 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
             onSearch={id => countrySideClick(id)}
           />
 
-              <div
-                  className={`color-primary back-to-map ${activeMap ? "" : "hidden"}`}
-                  style={{marginTop: 20}}
-                  onClick={() => {
-                    cleanActiveCountries();
-                    changeActive(null);
-                    setActiveMap(null);
-                  }}
-              >
-                {`< Назад к общей карте`}
-              </div>
+          <div
+            className={`color-primary back-to-map ${activeMap ? "" : "hidden"}`}
+            style={{ marginTop: 20 }}
+            onClick={() => {
+              cleanActiveCountries();
+              changeActive(null);
+              setActiveMap(null);
+            }}
+          >
+            {`< Назад к общей карте`}
+          </div>
           <div>
             <svg
               className={`split-map ${!activeMap && "general"}`}
@@ -192,7 +193,7 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
             <ul className={"no-list"}>
               {mostIllegal.map(issue => (
                 <li
-                  //onClick={() => countrySideClick(region_num)}
+                  onClick={() => countrySideClick(issue.region_num)}
                   className={issue.region_num === activeId ? "active" : ""}
                   key={issue.region_num}
                 >

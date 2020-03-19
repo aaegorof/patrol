@@ -170,10 +170,7 @@ useEffect(() => {
               {((props.groupAnswered * 100) / props.total).toFixed()}%
             </tspan>
             <tspan x={0} dy={26}>
-              проблем
-            </tspan>
-            <tspan x={0} dy={18}>
-              были решены
+              проблем закрыто
             </tspan>
           </text>
           <text
@@ -185,10 +182,10 @@ useEffect(() => {
               {((props.groupNotAnswered * 100) / props.total).toFixed()}%
             </tspan>
             <tspan x={0} dy={26}>
-              проблем пока
+              проблем
             </tspan>
             <tspan x={0} dy={18}>
-              не решены
+              ожидают решения
             </tspan>
           </text>
         </g>

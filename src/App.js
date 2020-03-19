@@ -63,26 +63,26 @@ function App() {
               <Steps />
             </section>
 
-            <section id={Object.keys(menu)[1]} className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b">
+            <section id={Object.keys(menu)[1]} className="bg-white pd-2-t pd-xs-1-b pd-sm-2-b">
               <Problem />
             </section>
 
 
             <section
               id={Object.keys(menu)[2]}
-              className="bg-white pd-4-t pd-xs-1-b pd-sm-4-b"
+              className="bg-white pd-2-t pd-xs-1-b pd-sm-2-b"
             >
               <h2 className="container hide-sm-max">Карта обращений</h2>
               <Map firstTop={6} />
             </section>
 
-            <section id={Object.keys(menu)[3]} className="bg-white pd-4-v">
+            <section id={Object.keys(menu)[3]} className="bg-white pd-2-v">
               <h2 className="container">Статистика</h2>
               <Issues />
               <PieChart />
             </section>
 
-            <section id={Object.keys(menu)[4]} className="pd-4-v">
+            <section id={Object.keys(menu)[4]} className="pd-2-v">
               <Faq />
             </section>
 

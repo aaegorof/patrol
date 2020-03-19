@@ -2,7 +2,6 @@
 
 .map-wrap {
   margin-top: 60px;
-  margin-bottom: 60px;
 }
 .svg-map, .split-map {
   width: 100%;
@@ -118,6 +117,7 @@
   background: #fff;
   width: 100%;
   padding: $pd;
+  z-index: 2;
   .search-list {
     max-height: calc( #{$height} - #{$pd * 2});
     overflow: scroll;
