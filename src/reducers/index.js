@@ -5,6 +5,7 @@ import {
   getIssuesSuccess,
   getCounterSuccess,
   getMapSuccess,
+  getGeneralsSuccess,
   getError,
   updateSortBy,
   sortTable,
@@ -72,6 +73,10 @@ const reducer = createReducer(
     [getMapSuccess]: (state, payload) => ({
       ...state,
       map: payload
+    }),
+    [getGeneralsSuccess]: (state,payload) => ({
+      ...state,
+      general: payload
     }),
     [changeCurrentStep]: (state, payload) => ({
       ...state,

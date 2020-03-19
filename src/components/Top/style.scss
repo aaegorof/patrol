@@ -14,6 +14,11 @@
   button {
     transform: translateY(-100%);
   }
+  @media screen and (max-height: 800px) {
+    button {
+      transform: translateY(0%);
+    }
+  }
 }
 .title {
   color: $primary;

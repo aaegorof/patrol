@@ -16,7 +16,6 @@ const d2p = dispatch =>
   );
 
 const Issues = ({ pending, issues, fetchApi, errors }) => {
-  const [isFull, showFull] = useState(false);
 
   useEffect(() => {
     fetchApi("rating");
@@ -32,6 +31,11 @@ const Issues = ({ pending, issues, fetchApi, errors }) => {
       return "color-secondary";
     }
   };
+  const issuesMaped = issues.map(iss => {
+    const removedColumn = {...iss}
+    delete removedColumn.region_num
+    return removedColumn
+  })
 
   const columnsHtml = {
     happy_index: {
@@ -51,7 +55,7 @@ const Issues = ({ pending, issues, fetchApi, errors }) => {
 
       {!errors.rating && !pending && (
         <Table
-          listArray={issues}
+          listArray={issuesMaped}
           className={"rating"}
           id={"region"}
           count={false}

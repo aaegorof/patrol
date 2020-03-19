@@ -17,36 +17,51 @@
       cursor: pointer;
       padding: 5px 20px;
       text-align: center;
-      font-size: 12px;
       position: relative;
       font-weight: 500;
       div {
         display: inline-block;
       }
-      &:after {
+      .sort {
         width: 6px;
         height: 6px;
-        border: 1px solid;
-        border-top-color: transparent;
-        border-left-color: transparent;
-        transform: rotate(45deg) translate(-50%, -50%);
         display: inline-block;
         margin-left: 12px;
         position: absolute;
         top: 50%;
-        transition: all 0.1s ease;
-        transform-origin: top left;
+        &:before, &:after {
+          content: "";
+          border: 1px solid;
+          border-top-color: transparent;
+          border-left-color: transparent;
+          transform-origin: top left;
+          transition: all 0.1s ease;
+          position: absolute;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          transform: rotate(45deg) translate(-50%, -50%);
+          bottom: -110%;
+        }
+        &:after{
+          content: "";
+          transform: rotate(-135deg) translate(-50%, -50%);
+          top: -1px;
+        }
       }
+
       &.desc {
-        &:after {
+        .sort:after {
           content: "";
           transform: rotate(45deg) translate(-50%, -50%);
+          top: 5px;
         }
       }
       &.asc {
-        &:after {
+        .sort:before {
           content: "";
           transform: rotate(-135deg) translate(-50%, -50%);
+          top: -1px;
         }
       }
       &:first-of-type {

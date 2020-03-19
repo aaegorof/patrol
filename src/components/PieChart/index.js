@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import AnimatedPie from "./view";
-import { fetchApi } from "../../api";
 
 import "./styles.scss";
 import { useSpring, animated } from "react-spring";
@@ -14,11 +13,6 @@ import iconMail from "../../img/icon/mail.svg";
 import { useInView } from "react-intersection-observer";
 
 const s2p = ({counter,errors}) => ({counter, errors});
-const d2p = dispatch => ({
-  fetchApi: val => {
-    dispatch(fetchApi(val));
-  }
-});
 
 let initStructure = {
   answered_in_time: {
@@ -72,10 +66,6 @@ const PieChart = props => {
 
   const [ref, inView] = useInView({threshold: 0.5})
   const [preparedData, groupAnswered, groupNotAnswered] = prepareData();
-
-  useEffect(() => {
-    props.fetchApi("counter");
-  }, []);
 
   const colors = prepareData().map(i => i.color);
 
@@ -147,6 +137,5 @@ const PieChart = props => {
 };
 
 export default connect(
-  s2p,
-  d2p
+  s2p
 )(PieChart);

@@ -5,13 +5,21 @@ import {
   filter as Rfilter,
   prop,
   sort,
-  fromPairs,
+  fromPairs
 } from "ramda";
 import Input from "./Input";
 
 function sortedTableReducer(oldState, newState) {
   // Implements the logic of sorting and filtering the table or list data
-  const { listArray, sortBy, isDesc, filter, filteredKey, perView, defaultPerView } = {
+  const {
+    listArray,
+    sortBy,
+    isDesc,
+    filter,
+    filteredKey,
+    perView,
+    defaultPerView
+  } = {
     ...oldState,
     ...newState
   };
@@ -24,7 +32,10 @@ function sortedTableReducer(oldState, newState) {
       : item;
   };
 
-  const sortedAndFilteredTable = Rfilter(filterFunc, sortFunc(listArray)).slice(0, perView);
+  const sortedAndFilteredTable = Rfilter(filterFunc, sortFunc(listArray)).slice(
+    0,
+    perView
+  );
 
   return {
     listArray: sortedAndFilteredTable,
@@ -142,13 +153,14 @@ const Table = ({
             <tr>
               {Object.entries(mixLabels).map(([columnKey, columnLabel]) => (
                 <th
+                  onClick={doSort(columnKey)}
                   key={columnKey}
                   className={
                     columnKey === sortedListArray.sortBy &&
                     (sortedListArray.isDesc ? "desc" : "asc")
                   }
                 >
-                  <div onClick={doSort(columnKey)}>{columnLabel}</div>
+                  {columnLabel}<span className={"sort"}></span>
                 </th>
               ))}
             </tr>
@@ -176,20 +188,20 @@ const Table = ({
         </table>
       )}
       <div className="text-center mg-2-t">
-      {!!perView && sortedListArray.listArray.length < listArray.length && (
-        <button
-          className={"button"}
-          onClick={setPerView}
-        >{`Загрузить еще ${perView} (${sortedListArray.listArray.length}/${listArray.length})`}</button>
-      )}
-      {!!perView && sortedListArray.listArray.length >= listArray.length && (
-        <>
-          <div>{`Показано все (${listArray.length})`}</div>
-          <button className={"button"} onClick={setPerView}>
-            Скрыть
-          </button>
-        </>
-      )}
+        {!!perView && sortedListArray.listArray.length < listArray.length && (
+          <button
+            className={"button"}
+            onClick={setPerView}
+          >{`Загрузить еще ${perView} (${sortedListArray.listArray.length}/${listArray.length})`}</button>
+        )}
+        {!!perView && sortedListArray.listArray.length >= listArray.length && (
+          <>
+            <div>{`Показано все (${listArray.length})`}</div>
+            <button className={"button"} onClick={setPerView}>
+              Скрыть
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
