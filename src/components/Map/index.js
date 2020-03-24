@@ -71,6 +71,7 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
   const [activeId, changeActive] = useState(null);
   const [countryPos, changeTooltipPos] = useState(null);
   const [activeMap, setActiveMap] = useState(null);
+
   const mapPosition = useRef(null);
 
   useEffect(() => {
@@ -90,6 +91,12 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
 
   const mostIssuesIds = mostIssues.map(iss => iss.region_num);
 
+  setTimeout(() => {
+    mostIssuesIds.forEach(id=>{
+      document.getElementById(id).classList.add("popular")
+    })
+  },0)
+
   const active = map.filter(ctry => ctry.region_num === activeId)[0];
 
   const tooltipTop = () => {
@@ -98,10 +105,11 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
       : null;
   };
 
-  const tooltipLeft = () =>
-    countryPos !== null
-      ? countryPos.left - mapPosition.current.getBoundingClientRect().left
-      : null;
+  const tooltipLeft = () => {
+    return countryPos !== null
+        ? countryPos.left - mapPosition.current.getBoundingClientRect().left
+        : null;
+  }
 
   const cleanActiveCountries = () =>
     document
@@ -109,10 +117,12 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
       .forEach(path => (path.classList = []));
 
   const countryClick = mapSide => e => {
+    const path = e.target
     cleanActiveCountries();
-    e.target.classList = "active";
+    path.classList = "active";
+    changeTooltipPos(null)
     changeActive(+e.target.id);
-    changeTooltipPos(e.target.getBoundingClientRect());
+    setTimeout(() => changeTooltipPos(path.getBoundingClientRect()), 400)
     setActiveMap(mapSide);
   }
 
@@ -151,16 +161,16 @@ const Map = ({ map, fetchApi, firstTop, issues }) => {
           </div>
           <div>
             <svg
-              className={`split-map ${!activeMap && "general"}`}
+              className={`split-map ${activeMap || "general"}`}
               width="1045"
               height="587"
               viewBox="0 0 1045 587"
               ref={mapPosition}
             >
-              {activeMap !== "east" && <West onClick={countryClick("west")} />}
-              {activeMap !== "west" && <East onClick={countryClick("east")} />}
+              {<West onClick={countryClick("west")} className={activeMap !== "east" ? "" :"hidden"}/>}
+              {<East onClick={countryClick("east")} className={activeMap !== "west" ? "" :"hidden"}/>}
             </svg>
-            {countryPos && active && (
+            {countryPos !== null && active && (
               <div
                 className="map-tooltip text-center"
                 style={{ top: tooltipTop(), left: tooltipLeft() }}
