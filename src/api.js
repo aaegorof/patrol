@@ -6,8 +6,8 @@ import {
   getGeneralsSuccess
 } from "./actions";
 
-const url = "http://84.201.181.175/api/";
-export const graphQlclient = "http://84.201.181.175/graphql";
+const url = "/api/";
+export const graphQlclient = "/graphql";
 
 const typeActions = {
   general: res => getGeneralsSuccess(res),
