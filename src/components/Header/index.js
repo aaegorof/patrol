@@ -44,7 +44,7 @@ const Header = () => {
           className="main-menu"
           style={{
             transform:
-              !isToggledMenu && window.innerWidth < 812
+              !isToggledMenu && window.innerWidth < 900
                 ? "translateX(-120%)"
                 : "translateX(0)"
           }}
